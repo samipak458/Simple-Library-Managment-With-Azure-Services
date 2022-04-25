@@ -2,7 +2,7 @@
 
 A simple library management project that is easy to use and helps the learner to understand the basic concept of JS.
 
-Visit Website: [Online Library](https://OnlineLibrary.samimunir2002.repl.co)
+Visit Website: [Online Library](https://delightful-coast-00b51a700.1.azurestaticapps.net/)
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/52650290/165066763-ad033daf-8220-4299-a1ac-c418fb5664b6.png">
