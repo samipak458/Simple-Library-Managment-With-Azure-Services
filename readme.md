@@ -45,7 +45,7 @@ Input book name, author and book type to add the book. If book name is missing i
 
 # Feedback✌🏼
 
-If you have any feedback or suggestions please reach out to Project - Collaborators.  
+If you have any feedback or suggestions please reach out to me.  
 
 Or you can create a  <a href="https://github.com/samipak458/Simple-Library-Managment/issues">issue</a> and mention there , which new features or extension can make this Project more good.
 
