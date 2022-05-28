@@ -42,3 +42,26 @@ Input book name, author and book type to add the book. If book name is missing i
 - Run index.html file
 - Enter book name, author and type of book 
 - Press add book
+
+# Feedback✌🏼
+
+If you have any feedback or suggestions please reach out to Project - Collaborators.  
+
+Or you can create a  <a href="https://github.com/samipak458/Simple-Library-Managment/issues">issue</a> and mention there , which new features or extension can make this Project more good.
+
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
+
+<br>
+  
+<br>
+
+<p align="right"><a href="#top"><img src="https://img.shields.io/badge/-Back%20to%20Top-red?style=for-the-badge" /></a></p>
+
+<div align="center">
+
+### Show some ❤️ by starring⭐ this awesome Repository!
+
+</div>
+  
+  
+<div id="Bottom"></div>
