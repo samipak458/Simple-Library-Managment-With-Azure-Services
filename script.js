@@ -9,15 +9,14 @@ libraryForm.addEventListener('submit', (e) => {
 
     let name = document.getElementById("bookName").value;
     let author = document.getElementById("author").value;
+    let type;
 
     let fiction = document.getElementById('fiction');
     let programming = document.getElementById('programming');
     let science = document.getElementById('science');
     let others = document.getElementById('other');
 
-    let type;
-
-
+    // Checking different types of books
     if (fiction.checked) {
         type = fiction.value;
         programming.unchecked;
@@ -39,11 +38,15 @@ libraryForm.addEventListener('submit', (e) => {
         programming.unchecked;
         science.unchecked;
     }
+    else {
+        type = "Other";
+    }
 
 
     let shelf = localStorage.getItem('shelfOfBooks');
     let objOfBook; //object which stores books
 
+    // Check if the book is already in the library
     if (shelf == null) {
         objOfBook = [];
     }
@@ -51,27 +54,39 @@ libraryForm.addEventListener('submit', (e) => {
         objOfBook = JSON.parse(shelf);   //By using JSON we convert it into Object
     }
 
+    // Book Name is mandatory field
     if (name == "") {
         errorMessage();
     }
     else {
-        let myObj = {
-            book: name,
-            bookauthor: author,
-            bookType: type
+        let myObj;
+        if (author != "") {
+            myObj = {
+                book: name,
+                bookauthor: author,
+                bookType: type
+            }
+        }
+        else{ // Book Author not entered then set it to Unknown
+            myObj = {
+                book: name,
+                bookauthor: "Unknown",
+                bookType: type
+            }
         }
         objOfBook.push(myObj);
         addMessage();
+
+        localStorage.setItem('shelfOfBooks', JSON.stringify(objOfBook));
+
+        name = "";
+        author = "";
+        type = "";
+
+        UpdateBook();
+        displayBooks();
     }
 
-    localStorage.setItem('shelfOfBooks', JSON.stringify(objOfBook));
-
-    name = "";
-    author = "";
-    type.value = "";
-
-    UpdateBook();
-    displayBooks();
 })
 
 
@@ -87,26 +102,44 @@ function displayBooks() {
     else {
         objOfBook = JSON.parse(books);
     }
-    let html="";
-    let index = 1;
+    let html = "";
+    let index = 0;
 
-    objOfBook.forEach( (books)=> {  //index is the length of the array
+    objOfBook.forEach((books) => {  //index is the length of the array
 
-        html += `
-    <tr class="rows">
-    <th scope="row">${index++}</th>
-    <td class="name">${books.book}</td>
-    <td class="author">${books.bookauthor}</td>
-    <td class="type">${books.bookType}</td>
-    </tr>
+        if (index == 0) {
+            html += `
+           <tr class="rows">
+           <th scope="row">1</th>
+           <td class="name">${books.book}</td>
+           <td class="author">${books.bookauthor}</td>
+           <td class="type">${books.bookType}</td>
+           <td class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
+           </tr>
         `;
+        }
+        else {
+        html += `
+           <tr class="rows">
+           <th scope="row">${index + 1}</th>
+           <td class="name">${books.book}</td>
+           <td class="author">${books.bookauthor}</td>
+           <td class="type">${books.bookType}</td>
+           <td class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
+           </tr>
+        `;
+         }
+
+        index++;
+
+        console.log("count " + index);
     });
 
     let table = document.getElementById('tableBody');
     let noDisplayMsg = document.getElementById('emptyMsg');
 
     if (objOfBook.length != 0) {
-         table.innerHTML = html;
+        table.innerHTML = html;
         clearBtn.style.display = "block";
         noDisplayMsg.innerHTML = "";
     }
@@ -179,10 +212,15 @@ function clearMessage() {
 }
 
 
-// Clearning shelf (Deleting all books)
-let clearBtn = document.getElementById("clear");
+// Refresh the page
+function refreshPage() {
+    setTimeout(() => {
+        window.location.reload()
+    }, 2050);
+}
 
-clearBtn.addEventListener('click', ()=> {
+// Update the display of books on deletion
+function updateDisplayAfterDelete() {
     localStorage.removeItem("shelfOfBooks");
     localStorage.removeItem("getBookNumber");
 
@@ -194,15 +232,63 @@ clearBtn.addEventListener('click', ()=> {
     let noDisplayMsg = document.getElementById('emptyMsg');
     noDisplayMsg.innerHTML = `Nothing to display! Use "Add book" above to add books`;
 
-    clearMessage();  
-})
+    clearMessage();
+    refreshPage();
+}
+
+// Clearning shelf (Deleting all books)
+let clearBtn = document.getElementById("clear");
+
+clearBtn.addEventListener('click', () => {
+    updateDisplayAfterDelete();
+});
+
+// Remove specific book from shelf
+function removeBook(index) {
+    console.log("Delete book " + index);
+
+    // Decrementing in total number of books
+    let getBookNumber = localStorage.getItem("getBookNumber");
+    getBookNumber = parseInt(getBookNumber);
+
+    if (getBookNumber) {
+        localStorage.setItem("getBookNumber", getBookNumber - 1);
+        document.getElementById("books").innerHTML = "No. of Books: " + (getBookNumber - 1);
+    }
+    else {
+        localStorage.setItem("getBookNumber", 0);
+        document.getElementById("books").innerHTML = "No. of Books: 0" + 0;
+    }
+
+    // Removing book from shelf
+    let notes = localStorage.getItem('shelfOfBooks');
+    let objOfBook = [];
+
+    if (notes == null) {
+        objOfBook = [];
+    }
+    else {
+        objOfBook = JSON.parse(notes);
+    }
+
+    if (getBookNumber == 1) {
+        updateDisplayAfterDelete();
+    }
+    else {
+        objOfBook.splice(index, 1);
+        localStorage.setItem('shelfOfBooks', JSON.stringify(objOfBook));
+        displayBooks();
+    }
+}
+
+
 
 //Searching book by bookname, author and type
 let searchNote = document.getElementById('searchText');
 searchNote.addEventListener('input', function () {
 
     let search = searchNote.value.toLowerCase();
-      
+
     let tableRows = document.getElementsByClassName('rows');
 
     Array.from(tableRows).forEach(function (element) {
@@ -214,10 +300,10 @@ searchNote.addEventListener('input', function () {
         if (bookName.includes(search)) {
             element.style.display = "table-row";
         }
-        else if(authorName.includes(search)){
+        else if (authorName.includes(search)) {
             element.style.display = "table-row";
         }
-        else if(type.includes(search)){
+        else if (type.includes(search)) {
             element.style.display = "table-row";
         }
         else {
@@ -234,14 +320,14 @@ function UpdateBook() {
     bookNumber = parseInt(bookNumber);
 
     if (bookNumber) {
-        localStorage.setItem("getBookNumber",  bookNumber + 1);
+        localStorage.setItem("getBookNumber", bookNumber + 1);
         document.getElementById("books").innerHTML = "No. of Books: " + (bookNumber + 1);
     }
     else {
         localStorage.setItem("getBookNumber", 1);
-        document.getElementById("books").innerHTML ="No. of Books: 0" + 1;
+        document.getElementById("books").innerHTML = "No. of Books: 0" + 1;
     }
-    
+
 }
 
 
