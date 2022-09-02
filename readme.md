@@ -1,12 +1,12 @@
 # Simple Library Management
 
-A simple library management project that is easy to use and helps the learner to understand the basic concept of JS.
+A simple library management project that is easy to use and helps learners understand the basic concept of JS. In this project, you will learn how to implement add, remove/delete, search, and save functionalities.
 
 Visit Website: [Online Library](https://delightful-coast-00b51a700.1.azurestaticapps.net/)
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/52650290/167833386-ec9951a2-fe1f-4c9b-88c9-2b7fe1ef6009.png">
-<img src="https://user-images.githubusercontent.com/52650290/167833479-370a3485-2286-4eed-a7a8-57bb2c5411ed.png">
+<img src="https://user-images.githubusercontent.com/52650290/188079131-55a6a070-506e-4330-8f19-15f36791061c.png">
 </p>  
 
 ## Functionalities :-
@@ -16,9 +16,9 @@ Input book name, author and book type to add the book. If book name is missing i
 
 ### Adding Book in Shelf:
 
+
 <p align="center">
-<img src="https://user-images.githubusercontent.com/52650290/167833690-b5ac19a3-b49b-424a-b258-bae2bcb9dcb9.png">
-<img src="https://user-images.githubusercontent.com/52650290/167833986-826f5ea1-f403-4cc8-9200-2718c15f208f.png">
+<img src="https://user-images.githubusercontent.com/52650290/188079934-cbcfd033-92b5-47f8-981e-901666bff3f1.png">
 </p>
 
 ### Adding Book Without Entering Book Name:
@@ -29,25 +29,24 @@ Input book name, author and book type to add the book. If book name is missing i
 
 ### Clearing Book Shelf:
 
-<p align="center">
-<img src="https://user-images.githubusercontent.com/52650290/167834210-e4dfd335-d2fd-438b-904a-b1e3cb1625a2.png">
+<img src="https://user-images.githubusercontent.com/52650290/188079635-6a75b0bc-d009-4f93-b2a2-9600286135ff.png">
 </p>
 
 ## Searching
 
-### Search Book by type:
+### Search Book By Type:
 <p align="center">
-<img src="https://user-images.githubusercontent.com/52650290/173614799-51fe4d94-53e5-43a1-b6f7-e63298e9e76b.png">
+<img src="https://user-images.githubusercontent.com/52650290/188080738-190d7032-7494-4d38-94aa-f9ab45b091e3.png">
 </p>
 
-### Search Book by author:
+### Search Book By Author: 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/52650290/173615250-765e14dc-9a81-4692-bd3e-c6b842cd6514.png">
+<img src="https://user-images.githubusercontent.com/52650290/188081091-dafe73b6-6166-4ba7-9348-073b00c8b816.png">
 </p>
 
-### Search Book by name:
+### Search Book By Name:
 <p align="center">
-<img src="https://user-images.githubusercontent.com/52650290/173616186-f208a089-c13a-4ec1-b234-4a59e6ff7d75.png">
+<img src="https://user-images.githubusercontent.com/52650290/188081402-3973c542-cfac-496e-89a9-690cdb90f779.png">
 </p>
 
 
