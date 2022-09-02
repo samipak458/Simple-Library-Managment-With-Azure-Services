@@ -8,13 +8,10 @@ Large amounts of data can be stored locally without affecting website performanc
 
 There are two types of web storage which are as follow:
 
-- window.localStorage
-- window.sessionStorage
+- **window.localStorage** - stores data with no expiration date.
+- **window.sessionStorage** - stores data for one session (data is lost when the browser tab is closed).
 
-**window.localStorage** - stores data with no expiration date.
-
-**window.sessionStorage** - stores data for one session (data is lost when the browser tab is closed).
-
+<br>
 Before using web storage, check browser support for localStorage and sessionStorage:
 
 ```
