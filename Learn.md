@@ -7,3 +7,7 @@ Website: [Online Library](https://delightful-coast-00b51a700.1.azurestaticapps.n
 ## Learning Outcomes
 
 In this project, you will learn how to implement add, remove/delete, search, and save functionalities.
+
+## Topics You Will Learn
+- Web Storage (LocalStorage and SessionStorage)
+- Azure Static Web App Service
