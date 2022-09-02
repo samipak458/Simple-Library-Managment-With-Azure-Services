@@ -5,7 +5,7 @@ A simple library management project that is easy to use and to understand. I cre
 Website: [Online Library](https://delightful-coast-00b51a700.1.azurestaticapps.net/)
 
 ## Topics You Will Learn
-- Web Storage (LocalStorage and SessionStorage)
+- [Web Storage](https://github.com/samipak458/Simple-Library-Managment/blob/main/Web%20Storage.md) (Local and Session Storage)
 - Azure Static Web App Service
 
 ## Learning Outcomes
