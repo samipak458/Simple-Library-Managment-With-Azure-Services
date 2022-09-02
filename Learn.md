@@ -4,10 +4,10 @@ A simple library management project that is easy to use and to understand. I cre
 
 Website: [Online Library](https://delightful-coast-00b51a700.1.azurestaticapps.net/)
 
-## Learning Outcomes
-
-In this project, you will learn how to implement add, remove/delete, search, and save functionalities.
-
 ## Topics You Will Learn
 - Web Storage (LocalStorage and SessionStorage)
 - Azure Static Web App Service
+
+## Learning Outcomes
+
+In this project, you will learn how to implement add, remove/delete, search, and save functionalities.
