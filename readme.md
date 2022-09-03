@@ -51,6 +51,10 @@ Input book name, author and book type to add the book. If book name is missing i
 <img src="https://user-images.githubusercontent.com/52650290/188081402-3973c542-cfac-496e-89a9-690cdb90f779.png">
 </p>
 
+## Deleting
+
+https://user-images.githubusercontent.com/52650290/188274029-84911cfa-6490-4a7e-937c-816709782122.mp4
+
 
 ## Built with :-
 - HTML
