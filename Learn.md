@@ -10,4 +10,4 @@ Website: [Online Library](https://delightful-coast-00b51a700.1.azurestaticapps.n
 
 ## Learning Outcomes
 
-In this project, you will learn how to implement add, remove/delete, search, and save functionalities.
+In this project, you will learn how to implement add, remove/delete, search, and save functionalities. You will also learn how to deploy, or publish, your web site to Azure so that you can show it off to your friends.
