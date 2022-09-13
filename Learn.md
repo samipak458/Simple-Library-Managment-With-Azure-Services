@@ -6,7 +6,7 @@ Website: [Online Library](https://delightful-coast-00b51a700.1.azurestaticapps.n
 
 ## Topics You Will Learn
 - [Web Storage](https://github.com/samipak458/Simple-Library-Managment/blob/main/Web%20Storage.md) (Local and Session Storage)
-- Azure Static Web App Service
+- [Azure Static Web App Service](https://github.com/samipak458/Simple-Library-Managment/blob/main/Azure%20Static%20Web%20Apps.md)
 
 ## Learning Outcomes
 
