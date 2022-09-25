@@ -22,8 +22,6 @@ All types of contributions are encouraged and valued. See the [Table of Contents
   - [Improving The Documentation](#improving-the-documentation)
 - [Styleguides](#styleguides)
   - [Commit Messages](#commit-messages)
-- [Join The Project Team](#join-the-project-team)
-
 
 
 ## I Have a Question
@@ -126,26 +124,15 @@ Enhancement suggestions are tracked as [GitHub issues](https://github.com/samipa
 <!-- You might want to create an issue template for enhancement suggestions that can be used as a guide and that defines the structure of the information to be included. If you do so, reference it here in the description. -->
 
 ### Your First Code Contribution
-<!-- TODO
-include Setup of env, IDE and typical getting started instructions?
+Contributing to open source for the first time can be scary and a little overwhelming. Perhaps you’re a Code Newbie or maybe you’ve been coding for a while but haven’t found a project you felt comfortable contributing to. 
 
--->
+If you have never contributed to an open source project before and you’re just getting started, consider exploring these resources.
+
+[First contributions](https://github.com/firstcontributions/first-contributions) is a hands-on tutorial that walks you through contributions workflow on GitHub. When you complete the tutorial, you have made a contribution to the same project.
 
 ### Improving The Documentation
-<!-- TODO
-Updating, improving and correcting the documentation
-
--->
+If you want to improve the documentation then first go through [Creating Documentation](https://octoverse.github.com/creating-documentation/) website.
 
 ## Styleguides
 ### Commit Messages
-<!-- TODO
-
--->
-
-## Join The Project Team
-<!-- TODO -->
-
-<!-- omit in toc -->
-## Attribution
-This guide is based on the **contributing-gen**. [Make your own](https://github.com/bttger/contributing-gen)!
+Commit Message should reflect the work you have done (resolve bug or add feature).
