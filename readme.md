@@ -1,4 +1,8 @@
-# Simple Library Management
+<div align="center">
+<h1> Simple Library Management </h1>
+</div>
+
+## Simple Library Management is an Open Source Website built using HTML, CSS, JavaScript and Bootstrap.
 
 A simple library management project that is easy to use and helps learners understand the basic concept of JS. In this project, the user has a provision to add book details like book name, author name, and type through the web page. In addition to this, the user has a provision to search for the available books in the library by the book name or author name, or type. If book details are present in the LocalStorage, the search details are displayed on the web page. User has also a provision to delete a specific book or delete all books. 
 
@@ -68,11 +72,14 @@ https://user-images.githubusercontent.com/52650290/188274029-84911cfa-6490-4a7e-
 - Enter book name, author and type of book 
 - Press add book
 
-# Feedback✌🏼
+# Contribution is fun! ✌🏼
 
 If you have any feedback or suggestions please reach out to me.  
 
-Or you can create a  <a href="https://github.com/samipak458/Simple-Library-Managment/issues">issue</a> and mention there , which new features or extension can make this Project more good.
+In order to make a hassle-free environment, I implore you all (while contributing) to follow the instructions [Contributing Guidelines](https://github.com/samipak458/Simple-Library-Managment/blob/main/CONTRIBUTING.md)!
+
+You can create a <a href="https://github.com/samipak458/Simple-Library-Managment/issues">issue</a> and mention there , which new features or extension can make this Project more good.
+
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
 
