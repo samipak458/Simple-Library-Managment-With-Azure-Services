@@ -72,6 +72,10 @@ https://user-images.githubusercontent.com/52650290/188274029-84911cfa-6490-4a7e-
 - Enter book name, author and type of book 
 - Press add book
 
+# Code Of Conduct 📜
+
+To maintain a safe and inclusive space for everyone to learn and grow, contributors are advised to follow the [Code of Conduct](https://github.com/samipak458/Simple-Library-Managment/blob/main/CODE_OF_CONDUCT.md).
+
 # Contribution is fun! ✌🏼
 
 If you have any feedback or suggestions please reach out to me.  
