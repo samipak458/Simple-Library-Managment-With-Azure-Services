@@ -19,14 +19,16 @@
         #clear {
             display: none;
         }
-
+/*Changed #libraryForm and table(just personal opinion)*/
         #libraryForm {
-            border: .5px dashed black;
+            border: 2px solid black;
+            border-radius: 15px;
             padding: 20px;
         }
 
         #table {
-            border: .5px dashed black;
+            border: 2px solid black;
+            border-radius: 15px;
             padding: 10px;
         }
 
@@ -68,7 +70,8 @@
 
     <!--Section of Adding books-->
     <div class="container pt-4 mt-5 my-3">
-        <h1 class="text-center display-4 font-weight-bold">Welcome To Online Library</h1>
+        <!--How about change this into Header to make it more semantic layout? From header > h1 > h2-->
+    <header class="text-center display-4 font-weight-bold">Welcome To Online Library</header>
         <hr>
         <form id="libraryForm">
             <div class="form-group row">
@@ -77,6 +80,10 @@
                     <input type="text" class="form-control" id="bookName" placeholder="Book Name">
                 </div>
             </div>
+            <!--This is for heading-->
+            <hr>
+                <h1>Add a Book</h1>
+            <hr>
             <div class="form-group row">
                 <label for="Author" class="col-sm-2 col-form-label">Author :</label>
                 <div class="col-sm-10">
@@ -86,34 +93,36 @@
             <fieldset class="form-group">
                 <div class="row">
                     <legend class="col-form-label col-sm-2 pt-0">Type :</legend>
-                    <div class="col-sm-10">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="type" id="fiction" value="fiction">
-                            <label class="form-check-label" for="fiction">
-                                Fiction
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="type" id="programming"
-                                value="programming">
-                            <label class="form-check-label" for="programming">
-                                Computer Programming
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="type" id="science" value="science">
-                            <label class="form-check-label" for="science">
-                                Science
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="type" id="other" value="other">
-                            <label class="form-check-label" for="other">
-                                Other
-                            </label>
-                        </div>
-                    </div>
-                </div>
+                    <!--This is for Type radio button-->
+<!--I think it is much nicer to have alphabetically ordered-->
+
+        <div class="col-sm-10">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="type" id="programming" value="programming">
+                <label class="form-check-label" for="programming">
+                 Computer Programming
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="type" id="fiction" value="fiction">
+                <label class="form-check-label" for="fiction">
+                    Fiction
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="type" id="science" value="science">
+                <label class="form-check-label" for="science">
+                    Science
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="type" id="other" value="other">
+                <label class="form-check-label" for="other">
+                    Other
+                </label>
+            </div>
+        </div>
+            </div>
             </fieldset>
             <div class="form-group row">
                 <div class="col-lg-12 col-sm-10">
@@ -127,8 +136,9 @@
         <!-- Section Display of books-->
         <div id="table mt-0">
 
-            <h1>Your Book Shelf</h1>
-            <hr>
+            <!--This is the second section-->
+            <!--I just change it to h2 from h1-->
+            <h2>Your Book Shelf</h2>
 
             <div id="table" class="mb-5">
                 <h5 class="float-right" id="books"></h5>
@@ -170,3 +180,9 @@
 </body>
 
 </html>
+
+<!--You can use the whole width of the page instead of making it in certain size-->
+
+<!--I can not find a way to give insight on the Upper case letter on second section, which I believe it is done in JavaScript.-->
+
+<!--Additional of Footer looks great too, with related information you can put-->
