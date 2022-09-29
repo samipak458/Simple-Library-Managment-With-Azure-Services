@@ -11,7 +11,8 @@ In this project, you will learn how to implement add, remove/delete, search, and
 Visit Website: [Online Library](https://delightful-coast-00b51a700.1.azurestaticapps.net/)
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/52650290/167833386-ec9951a2-fe1f-4c9b-88c9-2b7fe1ef6009.png">
+<img src="https://user-images.githubusercontent.com/72745563/193036100-f8307ac3-0400-455e-85a6-40e410687084.png">
+
 <img src="https://user-images.githubusercontent.com/52650290/188079131-55a6a070-506e-4330-8f19-15f36791061c.png">
 </p>  
 
@@ -24,18 +25,19 @@ Input book name, author and book type to add the book. If book name is missing i
 
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/52650290/188079934-cbcfd033-92b5-47f8-981e-901666bff3f1.png">
+  
+<img src="https://user-images.githubusercontent.com/72745563/193039205-7b7e0041-8a34-4081-8a9b-1f5fb7515d21.png">
 </p>
 
 ### Adding Book Without Entering Book Name:
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/52650290/167834120-d1dae43f-ab4c-46da-9f8f-fb688eed67b2.png">
+<img src="https://user-images.githubusercontent.com/72745563/193039984-809746be-d24b-48b9-84b1-ae140127bab5.png">
 </p>
 
 ### Clearing Book Shelf:
 
-<img src="https://user-images.githubusercontent.com/52650290/188079635-6a75b0bc-d009-4f93-b2a2-9600286135ff.png">
+<img src="https://user-images.githubusercontent.com/72745563/193040540-02d1efb7-aece-420f-bfb2-9a4a6c58bf8d.png">
 </p>
 
 ## Searching
