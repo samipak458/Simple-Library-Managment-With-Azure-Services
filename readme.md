@@ -59,7 +59,11 @@ Input book name, author and book type to add the book. If book name is missing i
 
 ## Deleting
 
-https://user-images.githubusercontent.com/52650290/188274029-84911cfa-6490-4a7e-937c-816709782122.mp4
+
+
+
+https://user-images.githubusercontent.com/72745563/193090891-36a22351-a304-4b88-8e33-e746bad37bf3.mp4
+
 
 
 ## Built with :-
