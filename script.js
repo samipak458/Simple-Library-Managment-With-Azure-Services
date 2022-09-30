@@ -106,7 +106,6 @@ function displayBooks() {
     let index = 0;
 
     objOfBook.forEach((books) => {  //index is the length of the array
-
         if (index == 0) {
             html += `
            <tr class="rows">
@@ -344,5 +343,83 @@ function showNumberOfBooks() {
         document.getElementById("books").innerHTML = "No. of Books: " + 0;
     }
 }
+
+// Filter books based on selected attributes from dropdown
+let filterDropdown = document.getElementById("filter-books");
+function filterBooks() {
+    let books = JSON.parse(localStorage.getItem("shelfOfBooks"));
+    // let numOfBooks = document.getElementById("books");
+    let emptyMsg = document.getElementById("emptyMsg");
+    let filterBy = filterDropdown.value;
+    let html = "";
+    let index = 0;
+    let filteredBooks;
+    if (filterBy === "all") {
+        filteredBooks = books.filter((book) => {
+            return (
+                book.book
+                    .toLowerCase()
+                    .includes(searchNote.value.toLowerCase()) ||
+                book.bookauthor
+                    .toLowerCase()
+                    .includes(searchNote.value.toLowerCase()) ||
+                book.bookType
+                    .toLowerCase()
+                    .includes(searchNote.value.toLowerCase())
+            );
+        });
+    } else {
+        filteredBooks = books.filter((book) => {
+            return book[filterBy]
+                .toLowerCase()
+                .includes(searchNote.value.toLowerCase());
+        });
+    }
+
+    if (filteredBooks.length > 0) {
+        filteredBooks.forEach((filteredBook) => {
+            html += `
+            <tr class="rows">
+            <th scope="row">${index + 1}</th>
+            <td class="name">${filteredBook.book}</td>
+            <td class="author">${filteredBook.bookauthor}</td>
+            <td class="type">${filteredBook.bookType}</td>
+            <td class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
+            </tr>
+        `;
+            index++;
+        });
+        emptyMsg.innerHTML = "";
+    } else {
+        let bookAttr;
+        switch (filterBy) {
+            case "all":
+                bookAttr = "";
+                break;
+            case "book":
+                bookAttr = "name";
+                break;
+            case "bookauthor":
+                bookAttr = "author";
+                break;
+            case "bookType":
+                bookAttr = "type";
+                break;
+        }
+
+        emptyMsg.innerHTML = `No book ${
+            bookAttr !== "" ? "with" : ""
+        } ${bookAttr} "${searchNote.value}" found`;
+    }
+
+    // ? Does the number of books depends on the search results?
+    // numOfBooks.innerHTML = "No. of Books: " + filteredBooks.length;
+
+    let table = document.getElementById("tableBody");
+    table.innerHTML = html;
+}
+filterDropdown.addEventListener( "change", filterBooks);
+searchNote.addEventListener("input", filterBooks);
+
 
 showNumberOfBooks();
