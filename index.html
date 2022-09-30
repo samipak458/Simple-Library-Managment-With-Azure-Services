@@ -19,18 +19,38 @@
         #clear {
             display: none;
         }
+	
+	a:hover{
+	    text-shadow:5px 5px 5px black;
+	    border:1px outset white;
+	}
+
+	h1{
+	    font-family:aerial;
+            color:#bd8cbf;
+            text-shadow:5px 5px 5px rgba(135,206,250,0.4);
+	}
 
         #libraryForm {
-            border: .5px dashed black;
+            border:3px solid white; 
+	    box-shadow:0px 3px 20px grey,1px 0px 3px #bd8cbf;
             padding: 20px;
+	    border-radius:20px;
         }
 
-        #table {
-            border: .5px dashed black;
+    .form-check1:hover,.form-check2:hover,.form-check3:hover,.form-check4:hover{	    color:green;
+	    text-style:outset;
+	    font-weight:bold;
+	}
+
+        #table{
+            border:3px solid white;
+            box-shadow:0px 3px 20px grey,1px 0px 3px #bd8cbf;
             padding: 10px;
-        }
+	    border-radius:20px;
+        }   
 
-        .icon {
+       .icon {
             color: red;
             font-size: 18px;
         }
@@ -87,26 +107,27 @@
                 <div class="row">
                     <legend class="col-form-label col-sm-2 pt-0">Type :</legend>
                     <div class="col-sm-10">
-                        <div class="form-check">
+             <!--changes made class=form-check1,form-check2,form-check3,form-check4-->
+			    <div class="form-check1">
                             <input class="form-check-input" type="radio" name="type" id="fiction" value="fiction">
                             <label class="form-check-label" for="fiction">
                                 Fiction
                             </label>
                         </div>
-                        <div class="form-check">
+                        <div class="form-check2">
                             <input class="form-check-input" type="radio" name="type" id="programming"
                                 value="programming">
                             <label class="form-check-label" for="programming">
                                 Computer Programming
                             </label>
                         </div>
-                        <div class="form-check">
+                        <div class="form-check3">
                             <input class="form-check-input" type="radio" name="type" id="science" value="science">
                             <label class="form-check-label" for="science">
                                 Science
                             </label>
                         </div>
-                        <div class="form-check">
+                        <div class="form-check4">
                             <input class="form-check-input" type="radio" name="type" id="other" value="other">
                             <label class="form-check-label" for="other">
                                 Other
