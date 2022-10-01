@@ -20,38 +20,14 @@
       display: none;
     }
 
-    a:hover {
-      text-shadow: 5px 5px 5px black;
-      border: 1px outset white;
-    }
-
-    h1 {
-      font-family: aerial;
-      color: #bd8cbf;
-      text-shadow: 5px 5px 5px rgba(135, 206, 250, 0.4);
-    }
-
     #libraryForm {
-      border: 3px solid white;
-      box-shadow: 0px 3px 20px grey, 1px 0px 3px #bd8cbf;
+      border: .5px dashed black;
       padding: 20px;
-      border-radius: 20px;
-    }
-
-    .form-check1:hover,
-    .form-check2:hover,
-    .form-check3:hover,
-    .form-check4:hover {
-      color: green;
-      text-style: outset;
-      font-weight: bold;
     }
 
     #table {
-      border: 3px solid white;
-      box-shadow: 0px 3px 20px grey, 1px 0px 3px #bd8cbf;
+      border: .5px dashed black;
       padding: 10px;
-      border-radius: 20px;
     }
 
     .icon {
@@ -68,17 +44,14 @@
 
 <body>
 
-  <!--NavBar-->
-  <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top"
-    style="background-color: #7952b3; opacity: .8;">
-    <a class="navbar-brand mb-1" href="#" style="font-size: 24px;">
-      <marquee direction="right" scrollamount="5" onmouseover="this.stop();" onmouseout="this.start();">Online Library
-      </marquee>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
-      aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <!--NavBar-->
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top"
+        style="background-color: #7952b3; opacity: .8;">
+	    <a class="navbar-brand mb-1" href="#" style="font-size: 24px;"><marquee direction="right" scrollamount="5" onmouseover="this.stop();" onmouseout="this.start();">Online Library</marquee></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -92,184 +65,99 @@
     </div>
   </nav>
 
-  <!--Message shown on successful adding of book-->
-  <div class="fixed-top" id="message"></div>
+
+    <!--Message shown on successful adding of book-->
+    <div class="fixed-top" id="message"></div>
 
 
-  <!--Section of Adding books-->
-  <div class="container pt-4 mt-5 my-3">
-    <h1 class="text-center display-4 font-weight-bold">Welcome To Online Library</h1>
-    <hr>
-    <form id="libraryForm">
-      <div class="form-group row">
-        <label for="bookName" class="col-sm-2 col-form-label">Name :</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="bookName" placeholder="Book Name">
-        </div>
-        </nav>
-
-        <!--Message shown on successful adding of book-->
-        <div class="fixed-top" id="message"></div>
-
-
-        <!--Section of Adding books-->
-        <div class="container pt-4 mt-5 my-3">
-          <h1 class="text-center display-4 font-weight-bold">Welcome To Online Library</h1>
-          <hr>
-          <form id="libraryForm">
+    <!--Section of Adding books-->
+    <div class="container pt-4 mt-5 my-3">
+        <h1 class="text-center display-4 font-weight-bold">Welcome To Online Library</h1>
+        <hr>
+        <form id="libraryForm">
             <div class="form-group row">
-              <label for="bookName" class="col-sm-2 col-form-label">Name :</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="bookName" placeholder="Book Name">
-              </div>
+                <label for="bookName" class="col-sm-2 col-form-label">Name :</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="bookName" placeholder="Book Name">
+                </div>
             </div>
             <div class="form-group row">
-              <label for="Author" class="col-sm-2 col-form-label">Author :</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="author" placeholder="Author Name">
-              </div>
+                <label for="Author" class="col-sm-2 col-form-label">Author :</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="author" placeholder="Author Name">
+                </div>
             </div>
             <fieldset class="form-group">
-              <div class="row">
-                <legend class="col-form-label col-sm-2 pt-0">Type :</legend>
-                <div class="col-sm-10">
-                  <div class="form-check1">
-                    <input class="form-check-input" type="radio" name="type" id="fiction" value="fiction">
-                    <label class="form-check-label" for="fiction">
-                      Fiction
-                    </label>
-                  </div>
-                  <div class="form-check2">
-                    <input class="form-check-input" type="radio" name="type" id="programming" value="programming">
-                    <label class="form-check-label" for="programming">
-                      Computer Programming
-                    </label>
-                  </div>
-                  <div class="form-check3">
-                    <input class="form-check-input" type="radio" name="type" id="science" value="science">
-                    <label class="form-check-label" for="science">
-                      Science
-                    </label>
-                  </div>
-                  <div class="form-check4">
-                    <input class="form-check-input" type="radio" name="type" id="other" value="other">
-                    <label class="form-check-label" for="other">
-                      Other
-                    </label>
-                  </div>
+                <div class="row">
+                    <legend class="col-form-label col-sm-2 pt-0">Type :</legend>
+                    <div class="col-sm-10">
+			    <div class="form-check1">
+                            <input class="form-check-input" type="radio" name="type" id="fiction" value="fiction">
+                            <label class="form-check-label" for="fiction">
+                                Fiction
+                            </label>
+                        </div>
+                        <div class="form-check2">
+                            <input class="form-check-input" type="radio" name="type" id="programming"
+                                value="programming">
+                            <label class="form-check-label" for="programming">
+                                Computer Programming
+                            </label>
+                        </div>
+                        <div class="form-check3">
+                            <input class="form-check-input" type="radio" name="type" id="science" value="science">
+                            <label class="form-check-label" for="science">
+                                Science
+                            </label>
+                        </div>
+                        <div class="form-check4">
+                            <input class="form-check-input" type="radio" name="type" id="other" value="other">
+                            <label class="form-check-label" for="other">
+                                Other
+                            </label>
+                            <input class="input-right" placeholder="Create new type" hidden id="newType" name="type" value="">
+                        </div>
+                    </div>
                 </div>
-              </div>
             </fieldset>
             <div class="form-group row">
-              <div class="col-lg-12 col-sm-10">
-                <button type="submit" class="btn text-light btn-large btn-block"
-                  style="background-color: #7f5bb4f3;">Add Book</button>
-              </div>
+                <div class="col-lg-12 col-sm-10">
+                    <button type="submit" class="btn text-light btn-large btn-block"
+                        style="background-color: #7f5bb4f3;">Add Book</button>
+                </div>
             </div>
-          </form>
-          <br>
+        </form>
+        <br>
 
-          <!-- Section Display of books-->
-          <div id="table mt-0">
-            <h1>
-              <font size="8px"><b>Your Book Shelf</b></font>
-            </h1>
+        <!-- Section Display of books-->
+        <div id="table mt-0">
+            <h1><font size="8px"><b>Your Book Shelf</b></font></h1>
             <hr>
 
             <div id="table" class="mb-5">
-              <h5 class="float-right" id="books"></h5>
+                <h5 class="float-right" id="books"></h5>
 
-              <table class="table table-striped table-bordered">
-                <thead class="text-center text-light" style="background-color: #7952b3;">
-                  <tr>
-                    <th scope="col">No.</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Author</th>
-                    <th scope="col">Type</th>
-                    <th scope="col"></th>
-                  </tr>
-                </thead>
-                <tbody class="text-center" id="tableBody"> </tbody>
-              </table>
+                <table class="table table-striped table-bordered">
+                    <thead class="text-center text-light" style="background-color: #7952b3;">
+                        <tr>
+                            <th scope="col">No.</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Author</th>
+                            <th scope="col">Type</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center" id="tableBody"> </tbody>
+                </table>
 
 
-              <!--Display Msg when table is empty-->
-              <h5 id="emptyMsg" class="mb-5"></h5>
+                <!--Display Msg when table is empty-->
+                <h5 id="emptyMsg" class="mb-5"></h5>
             </div>
 
             <button type="button" id="clear" class="btn px-3 mb-2 btn-danger float-right">Clear Shelf</button>
-          </div>
-        </div>
-        <fieldset class="form-group">
-          <div class="row">
-            <legend class="col-form-label col-sm-2 pt-0">Type :</legend>
-            <div class="col-sm-10">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="type" id="fiction" value="fiction">
-                <label class="form-check-label" for="fiction">
-                  Fiction
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="type" id="programming" value="programming">
-                <label class="form-check-label" for="programming">
-                  Computer Programming
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="type" id="science" value="science">
-                <label class="form-check-label" for="science">
-                  Science
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="type" id="other" value="other">
-                <label class="form-check-label" for="other">
-                  Other
-                </label>
-                <input class="input-right" placeholder="Create new type" hidden id="newType" name="type" value="">
-              </div>
-            </div>
-          </div>
-        </fieldset>
-        <div class="form-group row">
-          <div class="col-lg-12 col-sm-10">
-            <button type="submit" class="btn text-light btn-large btn-block" style="background-color: #7f5bb4f3;">Add
-              Book</button>
-          </div>
-        </div>
-    </form>
-    <br>
-
-    <!-- Section Display of books-->
-    <div id="table mt-0">
-
-      <h1>Your Book Shelf</h1>
-      <hr>
-
-      <div id="table" class="mb-5">
-        <h5 class="float-right" id="books"></h5>
-
-        <table class="table table-striped table-bordered">
-          <thead class="text-center text-light" style="background-color: #7952b3;">
-            <tr>
-              <th scope="col">No.</th>
-              <th scope="col">Name</th>
-              <th scope="col">Author</th>
-              <th scope="col">Type</th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody class="text-center" id="tableBody"> </tbody>
-        </table>
-
-
-        <!--Display Msg when table is empty-->
-        <h5 id="emptyMsg" class="mb-5"></h5>
       </div>
-
-      <button type="button" id="clear" class="btn px-3 mb-2 btn-danger float-right">Clear Shelf</button>
-    </div>
+      </div>
 
     <!--JS file-->
     <script src="script.js"></script>
