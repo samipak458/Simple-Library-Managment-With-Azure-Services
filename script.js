@@ -14,6 +14,7 @@ libraryForm.addEventListener('submit', (e) => {
     let fiction = document.getElementById('fiction');
     let programming = document.getElementById('programming');
     let science = document.getElementById('science');
+    let anime = document.getElementById('anime');
     let others = document.getElementById('other');
 
     // Checking different types of books
@@ -25,18 +26,28 @@ libraryForm.addEventListener('submit', (e) => {
     else if (programming.checked) {
         type = programming.value;
         science.unchecked;
+        anime.unchecked;
         fiction.unchecked;
     }
     else if (science.checked) {
         type = science.value;
         fiction.unchecked;
         programming.unchecked;
+        anime.unchecked;
     }
+    else if (anime.checked) {
+        type = anime.value;
+        fiction.unchecked;
+        programming.checked;
+        science.unchecked;
+    }
+
     else if (others.checked) {
         type = others.value;
         fiction.unchecked;
         programming.unchecked;
         science.unchecked;
+        anime.unchecked;
     }
     else {
         type = "Other";
