@@ -62,8 +62,9 @@ https://user-images.githubusercontent.com/52650290/188274029-84911cfa-6490-4a7e-
 
 ## Built with :-
 - HTML
-- Bootstrap 
+- CSS
 - JavaScript
+- Bootstrap 
 
 ## How to use :-
 - Clone the repository
