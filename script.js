@@ -394,34 +394,20 @@ searchNote.addEventListener('input', function () {
 
 // Update Number of books in Shelf section
 function UpdateBook() {
-    let bookNumber = localStorage.getItem("getBookNumber");
-    bookNumber = parseInt(bookNumber);
+  const bookNumber = parseInt(localStorage.getItem("getBookNumber"));
+  const booksCount = bookNumber ? bookNumber + 1 : 1;
+  const updateBooksCountSentence = `No. of books: ${booksCount ?? 1}`;
 
-    if (bookNumber) {
-        localStorage.setItem("getBookNumber", bookNumber + 1);
-        document.getElementById("books").innerHTML = "No. of Books: " + (bookNumber + 1);
-    }
-    else {
-        localStorage.setItem("getBookNumber", 1);
-        document.getElementById("books").innerHTML = "No. of Books: 0" + 1;
-    }
-
+  localStorage.setItem("getBookNumber", booksCount);
+  document.getElementById("books").innerHTML = updateBooksCountSentence;
 }
 
 
 //Show Number of books in Shelf section
-function showNumberOfBooks() {
-    let getBookNumber = localStorage.getItem("getBookNumber");
-    getBookNumber = parseInt(getBookNumber);
-
-
-    if (getBookNumber) {
-        document.getElementById("books").innerHTML = "No. of Books: " + getBookNumber;
-    }
-    else {
-        document.getElementById("books").innerHTML = "No. of Books: " + 0;
-    }
-}
+const showNumberOfBooks = () => {
+    const getBookNumber = parseInt(localStorage.getItem("getBookNumber"));
+    document.getElementById("books").innerHTML = `No. of books: ${getBookNumber ?? 0}`;
+};
 
 // Filter books based on selected attributes from dropdown
 let filterDropdown = document.getElementById("filter-books");

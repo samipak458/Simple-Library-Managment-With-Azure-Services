@@ -17,31 +17,28 @@
     <!-- Custom CSS -->
     <style>
        
-       #clear {
-            display:none;
-            text-transform: uppercase;
-            font-size: small;
-            margin-bottom: 10px;
-            
-        
-        }
-     #clear:hover{
-       background-color: purple;
-       font-size: larger;
-       transition: 0.8s;
-      border:red;
-
+    #clear {
+        display:none;
+        text-transform: uppercase;
+        font-size: small;
+        margin-bottom: 10px;
     }
-        #btn33{
-            font-size: large;
-            background-color: purple;
-            color: black;
-        }
-        #btn33:hover{
-            background-color: red;
-            transition: 1s;
-            font-size: small;
-        }
+    #clear:hover{
+        background-color: purple;
+        font-size: larger;
+        transition: 0.8s;
+        border:red;
+    }
+    #btn33{
+        font-size: large;
+        background-color: purple;
+        color: black;
+    }
+    #btn33:hover{
+        background-color: red;
+        transition: 1s;
+        font-size: small;
+    }
         
 	
 	a:hover{
@@ -68,22 +65,26 @@
     }
 
         #libraryForm {
-            border: .5px dashed black;
+            border:3px solid white; 
+	    box-shadow:0px 3px 20px grey,1px 0px 3px #bd8cbf;
             padding: 20px;
+	    border-radius:20px;
         }
 
-    .form-check1:hover,.form-check2:hover,.form-check3:hover,.form-check4:hover, .form-check5:hover{	    
+
+    .form-check1:hover,.form-check2:hover,.form-check3:hover,.form-check4:hover, .form-check5:hover, .form-check6:hover{	    
         color:green;
 
 	    text-style:outset;
-	    font-weight:bold;
+	        font-weight:bold;
         }
 
         #table{
             border:3px solid white;
             box-shadow:0px 3px 20px grey,1px 0px 3px #bd8cbf;
             padding: 10px;
-        }
+	        border-radius:20px;
+        }   
 
         #read {
             height: 1.4em;
@@ -115,8 +116,8 @@
 
     <!--NavBar-->
     <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top"
-        style="background-color: #7952b3; opacity: 1;">
-        <a class="navbar-brand mb-1" href="#" style="font-size: 24px;">Online Library</a>
+        style="background-color: #7952b3; opacity: .8;">
+	    <a class="navbar-brand mb-1" href="#" style="font-size: 24px;"><marquee direction="right" scrollamount="5" onmouseover="this.stop();" onmouseout="this.start();">Online Library</marquee></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
             aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -149,6 +150,7 @@
     <div class="container pt-4 mt-5 my-3">
         <h1 class="text-center display-4 font-weight-bold">Welcome To Online Library</h1>
         <hr>
+       <h1><font size="8px"><b>Add Your Book</b></font></h1>
         <form id="libraryForm">
             <div class="form-group row">
                 <label for="bookName" class="col-sm-2 col-form-label">Name :</label>
