@@ -127,7 +127,7 @@ function displayBooks() {
            <td class="name">${books.book}</td>
            <td class="author">${books.bookauthor}</td>
            <td class="type">${books.bookType}</td>
-           <td class="type">${books.readStatus ? "Yes" : "No"}</td>
+           <td class="type">${books.readStatus ? "<input type='checkbox' checked/> " : "<input type='checkbox' />"}</td>
            <td class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
            </tr>
         `;
@@ -139,7 +139,7 @@ function displayBooks() {
            <td class="name">${books.book}</td>
            <td class="author">${books.bookauthor}</td>
            <td class="type">${books.bookType}</td>
-           <td class="type">${books.readStatus ? "Yes" : "No"}</td>
+           <td class="type">${books.readStatus ? "<input type='checkbox' checked/> " : "<input type='checkbox' />"}</td>
            <td class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
            </tr>
         `;
