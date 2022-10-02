@@ -57,8 +57,8 @@ libraryForm.addEventListener('submit', (e) => {
         type = "Other";
     }
 
-
     let shelf = localStorage.getItem('shelfOfBooks');
+    // console.log(shelf);
     let objOfBook; //object which stores books
 
     // Check if the book is already in the library
@@ -67,6 +67,25 @@ libraryForm.addEventListener('submit', (e) => {
     }
     else {                                //We might have multiple books 
         objOfBook = JSON.parse(shelf);   //By using JSON we convert it into Object
+    }
+
+    let alreadyAdded = false;
+    objOfBook.every(bookObj => {
+        if (author === "") author = "Unknown";
+        let curBook = (name === bookObj.book);
+        let curAuthor = (author === bookObj.bookauthor);
+        let curBookType = (type === bookObj.bookType);
+
+        if (curBook && curAuthor && curBookType) {
+            console.log("already added!");
+            alreadyAdded = true;
+            return false;
+        }
+        return true;
+    });
+    if (alreadyAdded === true) {
+        alreadyAddedMessage();
+        return;
     }
 
     // Book Name is mandatory field
@@ -86,7 +105,7 @@ libraryForm.addEventListener('submit', (e) => {
                 readStatus: read
             }
         }
-        else{ // Book Author not entered then set it to Unknown
+        else { // Book Author not entered then set it to Unknown
             myObj = {
                 book: name,
                 bookauthor: "Unknown",
@@ -102,15 +121,14 @@ libraryForm.addEventListener('submit', (e) => {
 
         localStorage.setItem('shelfOfBooks', JSON.stringify(objOfBook));
 
+        UpdateBook();
+        displayBooks();
         name = "";
         author = "";
         type = "";
         isbn= "";
 
-        UpdateBook();
-        displayBooks();
     }
-
 })
 
 
@@ -148,7 +166,7 @@ function displayBooks() {
         `;
         }
         else {
-        html += `
+            html += `
            <tr class="rows">
            <th scope="row">${index + 1}</th>
            <td class="name">${books.book}</td>
@@ -162,7 +180,7 @@ function displayBooks() {
            
            </tr>
         `;
-         }
+        }
 
         index++;
 
@@ -218,6 +236,29 @@ function errorMessage() {
       <span aria-hidden="true">&times;</span>
     </button>
   </div>`
+
+    setTimeout(() => {
+        navbar.style.display = "flex";
+        message.innerHTML = ``;
+    }, 2000);
+}
+
+//Show alreadyAdded message
+function alreadyAddedMessage() {
+    let message = document.getElementById('message');
+    let navbar = document.getElementById('navbar');
+
+    navbar.style.display = "none";
+    message.innerHTML = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>Error:</strong> Book already present!
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+    </div>`
+
+    // clear the library form
+    let libraryForm = document.getElementById('libraryForm');
+    libraryForm.reset();
 
     setTimeout(() => {
         navbar.style.display = "flex";
