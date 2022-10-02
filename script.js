@@ -332,17 +332,9 @@ function UpdateBook() {
 
 
 //Show Number of books in Shelf section
-function showNumberOfBooks() {
-    let getBookNumber = localStorage.getItem("getBookNumber");
-    getBookNumber = parseInt(getBookNumber);
-
-
-    if (getBookNumber) {
-        document.getElementById("books").innerHTML = "No. of Books: " + getBookNumber;
-    }
-    else {
-        document.getElementById("books").innerHTML = "No. of Books: " + 0;
-    }
-}
+const showNumberOfBooks = () => {
+    const getBookNumber = parseInt(localStorage.getItem("getBookNumber"));
+    document.getElementById("books").innerHTML = `No. of books: ${getBookNumber ?? 0}`;
+};
 
 showNumberOfBooks();
