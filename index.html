@@ -16,20 +16,56 @@
 
     <!-- Custom CSS -->
     <style>
-        #clear {
-            display: none;
+       
+       #clear {
+            display:none;
+            text-transform: uppercase;
+            font-size: small;
+            margin-bottom: 10px;
+            
+        
         }
+     #clear:hover{
+       background-color: purple;
+       font-size: larger;
+       transition: 0.8s;
+      border:red;
+
+}
+#btn33{
+            font-size: large;
+            background-color: purple;
+            color: black;
+        }
+        #btn33:hover{
+            background-color: red;
+            transition: 1s;
+            font-size: small;
+        }
+        
 	
 	a:hover{
 	    text-shadow:5px 5px 5px black;
 	    border:1px outset white;
 	}
+    #searchText{
+            background-color: black;
+        }
+        #searchText:hover{
+            background-color:white;
+            
+            transition: 1s;
+        }
 
 	h1{
 	    font-family:aerial;
             color:#bd8cbf;
             text-shadow:5px 5px 5px rgba(135,206,250,0.4);
 	}
+
+    #delicon:hover {
+        cursor: pointer;
+    }
 
         #libraryForm {
             border:3px solid white; 
@@ -38,8 +74,10 @@
 	    border-radius:20px;
         }
 
-        .form-check1:hover,.form-check2:hover,.form-check3:hover,.form-check4:hover,.form-check5:hover{	    
-             color:green;
+
+    .form-check1:hover,.form-check2:hover,.form-check3:hover,.form-check4:hover, .form-check5:hover{	    
+        color:green;
+
 	    text-style:outset;
 	    font-weight:bold;
         }
@@ -55,6 +93,19 @@
             color: red;
             font-size: 18px;
         }
+
+        #filter-books {
+            border-radius : 45px;
+            border : none;
+            outline : none;
+            height : 38px;
+            padding : 0 5px;
+        }
+
+        #filter-books:focus{
+            outline : 3px solid rgb(46, 123, 255);
+        }
+
     </style>
 
 </head>
@@ -75,9 +126,15 @@
 
             </ul>
             <form class="form-inline my-2 my-lg-0">
+                <select name="filter" id="filter-books" class="form-select mr-sm-2">
+                    <option value="all" selected >All</option>
+                    <option value="book">Name</option>
+                    <option value="bookauthor">Author</option>
+                    <option value="bookType">Type</option>
+                </select>
                 <input class="form-control mr-sm-2" id="searchText" type="search" style="border-radius: 45px;"
                     placeholder="Search">
-                <button class="btn btn-dark my-2 my-sm-0 px-3" type="submit"
+                <button class="btn btn-dark my-2 my-sm-0 px-3" id="btn33" type="submit"
                     style="border-radius: 45px;">Search</button>
             </form>
         </div>
@@ -146,6 +203,12 @@
                             </label>
                         </div>
                         <div class="form-check4">
+                            <input class="form-check-input" type="radio" name="type" id="anime" value="anime">
+                            <label class="form-check-label" for="anime">
+                                Anime
+                            </label>
+                        </div>
+                        <div class="form-check5">
                             <input class="form-check-input" type="radio" name="type" id="other" value="other">
                             <label class="form-check-label" for="other">
                                 Other

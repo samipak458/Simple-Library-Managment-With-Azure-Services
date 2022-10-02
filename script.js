@@ -17,6 +17,7 @@ libraryForm.addEventListener('submit', (e) => {
     let fiction = document.getElementById('fiction');
     let programming = document.getElementById('programming');
     let science = document.getElementById('science');
+    let anime = document.getElementById('anime');
     let others = document.getElementById('other');
 
     // Checking different types of books
@@ -28,18 +29,28 @@ libraryForm.addEventListener('submit', (e) => {
     else if (programming.checked) {
         type = programming.value;
         science.unchecked;
+        anime.unchecked;
         fiction.unchecked;
     }
     else if (science.checked) {
         type = science.value;
         fiction.unchecked;
         programming.unchecked;
+        anime.unchecked;
     }
+    else if (anime.checked) {
+        type = anime.value;
+        fiction.unchecked;
+        programming.checked;
+        science.unchecked;
+    }
+
     else if (others.checked) {
         type = others.value;
         fiction.unchecked;
         programming.unchecked;
         science.unchecked;
+        anime.unchecked;
     }
     else {
         type = "Other";
@@ -116,7 +127,6 @@ function displayBooks() {
     let index = 0;
 
     objOfBook.forEach((books) => {  //index is the length of the array
-
         if (index == 0) {
             html += `
            <tr class="rows">
@@ -124,10 +134,14 @@ function displayBooks() {
            <td class="name">${books.book}</td>
            <td class="author">${books.bookauthor}</td>
            <td class="type">${books.bookType}</td>
+
            <td class="isbn">${books.bookisbn}</td>
            <td class="edition">${books.bookedition}</td>
            <td class="publicationdate">${books.bookpublication}</td>
-           <td class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
+           
+
+           <td id="delicon" class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
+
            </tr>
         `;
         }
@@ -138,10 +152,10 @@ function displayBooks() {
            <td class="name">${books.book}</td>
            <td class="author">${books.bookauthor}</td>
            <td class="type">${books.bookType}</td>
-           <td class="type">${books.bookisbn}</td>
-           <td class="type">${books.bookedition}</td>
-           <td class="type">${books.bookpublication}</td>
-           <td class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
+           <td class="isbn">${books.bookisbn}</td>
+           <td class="edition">${books.bookedition}</td>
+           <td class="publicationdate">${books.bookpublication}</td>
+           <td id="delicon" class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
            </tr>
         `;
          }
@@ -363,5 +377,83 @@ function showNumberOfBooks() {
         document.getElementById("books").innerHTML = "No. of Books: " + 0;
     }
 }
+
+// Filter books based on selected attributes from dropdown
+let filterDropdown = document.getElementById("filter-books");
+function filterBooks() {
+    let books = JSON.parse(localStorage.getItem("shelfOfBooks"));
+    // let numOfBooks = document.getElementById("books");
+    let emptyMsg = document.getElementById("emptyMsg");
+    let filterBy = filterDropdown.value;
+    let html = "";
+    let index = 0;
+    let filteredBooks;
+    if (filterBy === "all") {
+        filteredBooks = books.filter((book) => {
+            return (
+                book.book
+                    .toLowerCase()
+                    .includes(searchNote.value.toLowerCase()) ||
+                book.bookauthor
+                    .toLowerCase()
+                    .includes(searchNote.value.toLowerCase()) ||
+                book.bookType
+                    .toLowerCase()
+                    .includes(searchNote.value.toLowerCase())
+            );
+        });
+    } else {
+        filteredBooks = books.filter((book) => {
+            return book[filterBy]
+                .toLowerCase()
+                .includes(searchNote.value.toLowerCase());
+        });
+    }
+
+    if (filteredBooks.length > 0) {
+        filteredBooks.forEach((filteredBook) => {
+            html += `
+            <tr class="rows">
+            <th scope="row">${index + 1}</th>
+            <td class="name">${filteredBook.book}</td>
+            <td class="author">${filteredBook.bookauthor}</td>
+            <td class="type">${filteredBook.bookType}</td>
+            <td class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
+            </tr>
+        `;
+            index++;
+        });
+        emptyMsg.innerHTML = "";
+    } else {
+        let bookAttr;
+        switch (filterBy) {
+            case "all":
+                bookAttr = "";
+                break;
+            case "book":
+                bookAttr = "name";
+                break;
+            case "bookauthor":
+                bookAttr = "author";
+                break;
+            case "bookType":
+                bookAttr = "type";
+                break;
+        }
+
+        emptyMsg.innerHTML = `No book ${
+            bookAttr !== "" ? "with" : ""
+        } ${bookAttr} "${searchNote.value}" found`;
+    }
+
+    // ? Does the number of books depends on the search results?
+    // numOfBooks.innerHTML = "No. of Books: " + filteredBooks.length;
+
+    let table = document.getElementById("tableBody");
+    table.innerHTML = html;
+}
+filterDropdown.addEventListener( "change", filterBooks);
+searchNote.addEventListener("input", filterBooks);
+
 
 showNumberOfBooks();
