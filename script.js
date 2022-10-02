@@ -124,7 +124,7 @@ function displayBooks() {
            <td class="name">${books.book}</td>
            <td class="author">${books.bookauthor}</td>
            <td class="type">${books.bookType}</td>
-           <td class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
+           <td id="delicon" class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
            </tr>
         `;
         }
@@ -135,7 +135,7 @@ function displayBooks() {
            <td class="name">${books.book}</td>
            <td class="author">${books.bookauthor}</td>
            <td class="type">${books.bookType}</td>
-           <td class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
+           <td id="delicon" class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
            </tr>
         `;
          }
