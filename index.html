@@ -1,115 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Library</title>
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <!-- Custom CSS -->
-    <style>
-       
-    #clear {
-        display:none;
-        text-transform: uppercase;
-        font-size: small;
-        margin-bottom: 10px;
-    }
-    #clear:hover{
-        background-color: purple;
-        font-size: larger;
-        transition: 0.8s;
-        border:red;
-    }
-    #btn33{
-        font-size: large;
-        background-color: purple;
-        color: black;
-    }
-    #btn33:hover{
-        background-color: red;
-        transition: 1s;
-        font-size: small;
-    }
-        
-	
-	a:hover{
-	    text-shadow:5px 5px 5px black;
-	    border:1px outset white;
-	}
-    #searchText{
-            background-color: black;
-        }
-        #searchText:hover{
-            background-color:white;
-            
-            transition: 1s;
-        }
-
-	h1{
-	    font-family:aerial;
-            color:#bd8cbf;
-            text-shadow:5px 5px 5px rgba(135,206,250,0.4);
-	}
-
-    #delicon:hover {
-        cursor: pointer;
-    }
-
-        #libraryForm {
-            border:3px solid white; 
-	    box-shadow:0px 3px 20px grey,1px 0px 3px #bd8cbf;
-            padding: 20px;
-	    border-radius:20px;
-        }
-
-
-    .form-check1:hover,.form-check2:hover,.form-check3:hover,.form-check4:hover, .form-check5:hover, .form-check6:hover{	    
-        color:green;
-
-	    text-style:outset;
-	        font-weight:bold;
-        }
-
-        #table{
-            border:3px solid white;
-            box-shadow:0px 3px 20px grey,1px 0px 3px #bd8cbf;
-            padding: 10px;
-	        border-radius:20px;
-        }   
-
-        #read {
-            height: 1.4em;
-            width: 1.4em;
-        }
-
-        .icon {
-            color: red;
-            font-size: 18px;
-        }
-
-        #filter-books {
-            border-radius : 45px;
-            border : none;
-            outline : none;
-            height : 38px;
-            padding : 0 5px;
-        }
-
-        #filter-books:focus{
-            outline : 3px solid rgb(46, 123, 255);
-        }
-
-    </style>
-
+    <style rel="stylesheet" href="src/css/style.css"></style>
 </head>
 
 <body>
@@ -273,8 +175,7 @@
         </div>
 
         <!--JS file-->
-        <script src="script.js"></script>
-
+        <script src="src/js/script.js"></script>
         <!--Required Bootrap Jquery first,Popper JS , Bootstrap JS-->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
