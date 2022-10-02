@@ -82,7 +82,7 @@ libraryForm.addEventListener('submit', (e) => {
                 bookType: type,
                 bookisbn: isbn,
                 bookedition: edition,
-                bookpublication : publicationD
+                bookpublication : publicationD,
                 readStatus: read
             }
         }
@@ -93,7 +93,7 @@ libraryForm.addEventListener('submit', (e) => {
                 bookType: type,
                 bookisbn: isbn,
                 bookedition: edition,
-                bookpublication : publicationD
+                bookpublication : publicationD,
                 readStatus: read
             }
         }
@@ -137,7 +137,6 @@ function displayBooks() {
            <td class="name">${books.book}</td>
            <td class="author">${books.bookauthor}</td>
            <td class="type">${books.bookType}</td>
-
            <td class="isbn">${books.bookisbn}</td>
            <td class="edition">${books.bookedition}</td>
            <td class="publicationdate">${books.bookpublication}</td>
