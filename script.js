@@ -9,6 +9,7 @@ libraryForm.addEventListener('submit', (e) => {
 
     let name = document.getElementById("bookName").value;
     let author = document.getElementById("author").value;
+    let read = document.getElementById("read").checked;
     let type;
 
     let fiction = document.getElementById('fiction');
@@ -75,14 +76,16 @@ libraryForm.addEventListener('submit', (e) => {
             myObj = {
                 book: name,
                 bookauthor: author,
-                bookType: type
+                bookType: type,
+                readStatus: read
             }
         }
         else{ // Book Author not entered then set it to Unknown
             myObj = {
                 book: name,
                 bookauthor: "Unknown",
-                bookType: type
+                bookType: type,
+                readStatus: read
             }
         }
         objOfBook.push(myObj);
@@ -124,6 +127,7 @@ function displayBooks() {
            <td class="name">${books.book}</td>
            <td class="author">${books.bookauthor}</td>
            <td class="type">${books.bookType}</td>
+           <td class="type">${books.readStatus ? "Yes" : "No"}</td>
            <td class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
            </tr>
         `;
@@ -135,6 +139,7 @@ function displayBooks() {
            <td class="name">${books.book}</td>
            <td class="author">${books.bookauthor}</td>
            <td class="type">${books.bookType}</td>
+           <td class="type">${books.readStatus ? "Yes" : "No"}</td>
            <td class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
            </tr>
         `;

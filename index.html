@@ -51,7 +51,12 @@
 	    border-radius:20px;
         }   
 
-       .icon {
+        #read {
+            height: 1.4em;
+            width: 1.4em;
+        }
+
+        .icon {
             color: red;
             font-size: 18px;
         }
@@ -123,6 +128,12 @@
                     <input type="text" class="form-control" id="author" placeholder="Author Name">
                 </div>
             </div>
+            <div class="form-group row">
+                <label for="Author" class="col-sm-2">Read :</label>
+                <div class="col-sm-1">
+                    <input type="checkbox" id="read">
+                </div>
+            </div>
             <fieldset class="form-group">
                 <div class="row">
                     <legend class="col-form-label col-sm-2 pt-0">Type :</legend>
@@ -185,6 +196,7 @@
                             <th scope="col">Name</th>
                             <th scope="col">Author</th>
                             <th scope="col">Type</th>
+                            <th scope="col">Read</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
