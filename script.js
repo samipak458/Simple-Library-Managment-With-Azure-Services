@@ -9,6 +9,9 @@ libraryForm.addEventListener('submit', (e) => {
 
     let name = document.getElementById("bookName").value;
     let author = document.getElementById("author").value;
+    let isbn = document.getElementById("isbnno").value;
+    let edition = document.getElementById("edition").value;
+    let publicationD = document.getElementById("publicationdate").value;
     let read = document.getElementById("read").checked;
     let type;
 
@@ -77,6 +80,9 @@ libraryForm.addEventListener('submit', (e) => {
                 book: name,
                 bookauthor: author,
                 bookType: type,
+                bookisbn: isbn,
+                bookedition: edition,
+                bookpublication : publicationD
                 readStatus: read
             }
         }
@@ -85,6 +91,9 @@ libraryForm.addEventListener('submit', (e) => {
                 book: name,
                 bookauthor: "Unknown",
                 bookType: type,
+                bookisbn: isbn,
+                bookedition: edition,
+                bookpublication : publicationD
                 readStatus: read
             }
         }
@@ -96,6 +105,7 @@ libraryForm.addEventListener('submit', (e) => {
         name = "";
         author = "";
         type = "";
+        isbn= "";
 
         UpdateBook();
         displayBooks();
@@ -127,8 +137,14 @@ function displayBooks() {
            <td class="name">${books.book}</td>
            <td class="author">${books.bookauthor}</td>
            <td class="type">${books.bookType}</td>
+
+           <td class="isbn">${books.bookisbn}</td>
+           <td class="edition">${books.bookedition}</td>
+           <td class="publicationdate">${books.bookpublication}</td>
            <td class="type">${books.readStatus ? "<input type='checkbox' checked/> " : "<input type='checkbox' />"}</td>
-           <td class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
+           <td id="delicon" class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
+
+           
            </tr>
         `;
         }
@@ -139,8 +155,12 @@ function displayBooks() {
            <td class="name">${books.book}</td>
            <td class="author">${books.bookauthor}</td>
            <td class="type">${books.bookType}</td>
+           <td class="isbn">${books.bookisbn}</td>
+           <td class="edition">${books.bookedition}</td>
+           <td class="publicationdate">${books.bookpublication}</td>
            <td class="type">${books.readStatus ? "<input type='checkbox' checked/> " : "<input type='checkbox' />"}</td>
-           <td class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
+           <td id="delicon" class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
+           
            </tr>
         `;
          }
@@ -311,7 +331,7 @@ searchNote.addEventListener('input', function () {
         let bookName = element.getElementsByClassName("name")[0].innerText.toLowerCase();
         let authorName = element.getElementsByClassName("author")[0].innerText.toLowerCase();
         let type = element.getElementsByClassName("type")[0].innerText.toLowerCase();
-
+        let isbnNo = element.getElementsByClassName("isbn")[0].innerText   
         if (bookName.includes(search)) {
             element.style.display = "table-row";
         }
@@ -319,6 +339,9 @@ searchNote.addEventListener('input', function () {
             element.style.display = "table-row";
         }
         else if (type.includes(search)) {
+            element.style.display = "table-row";
+        }
+        else if (isbnNo.includes(search)){
             element.style.display = "table-row";
         }
         else {

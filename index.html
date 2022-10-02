@@ -16,20 +16,56 @@
 
     <!-- Custom CSS -->
     <style>
-        #clear {
-            display: none;
+       
+       #clear {
+            display:none;
+            text-transform: uppercase;
+            font-size: small;
+            margin-bottom: 10px;
+            
+        
         }
+     #clear:hover{
+       background-color: purple;
+       font-size: larger;
+       transition: 0.8s;
+      border:red;
+
+}
+#btn33{
+            font-size: large;
+            background-color: purple;
+            color: black;
+        }
+        #btn33:hover{
+            background-color: red;
+            transition: 1s;
+            font-size: small;
+        }
+        
 	
 	a:hover{
 	    text-shadow:5px 5px 5px black;
 	    border:1px outset white;
 	}
+    #searchText{
+            background-color: black;
+        }
+        #searchText:hover{
+            background-color:white;
+            
+            transition: 1s;
+        }
 
 	h1{
 	    font-family:aerial;
             color:#bd8cbf;
             text-shadow:5px 5px 5px rgba(135,206,250,0.4);
 	}
+
+    #delicon:hover {
+        cursor: pointer;
+    }
 
         #libraryForm {
             border:3px solid white; 
@@ -38,11 +74,13 @@
 	    border-radius:20px;
         }
 
+
     .form-check1:hover,.form-check2:hover,.form-check3:hover,.form-check4:hover, .form-check5:hover{	    
         color:green;
+
 	    text-style:outset;
 	    font-weight:bold;
-	}
+        }
 
         #table{
             border:3px solid white;
@@ -101,7 +139,7 @@
                 </select>
                 <input class="form-control mr-sm-2" id="searchText" type="search" style="border-radius: 45px;"
                     placeholder="Search">
-                <button class="btn btn-dark my-2 my-sm-0 px-3" type="submit"
+                <button class="btn btn-dark my-2 my-sm-0 px-3" id="btn33" type="submit"
                     style="border-radius: 45px;">Search</button>
             </form>
         </div>
@@ -129,6 +167,21 @@
                 </div>
             </div>
             <div class="form-group row">
+                <label for="IsbnNo" class="col-sm-2 col-form-label">ISBN No:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="isbnno" placeholder="ISBN Number">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="edition" class="col-sm-2 col-form-label">Edition:</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="edition" placeholder="Edition of Book">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="dateofpublication" class="col-sm-2 col-form-label">Publiction Date:</label>
+                <div class="col-sm-10">
+                    <input type="date" class="form-control" id="publicationdate" placeholder="Date of Publication">
                 <label for="Author" class="col-sm-2">Read :</label>
                 <div class="col-sm-1">
                     <input type="checkbox" id="read">
@@ -196,6 +249,9 @@
                             <th scope="col">Name</th>
                             <th scope="col">Author</th>
                             <th scope="col">Type</th>
+                            <th scope="col">ISBN No</th>
+                            <th scope="col">Edition</th>
+                            <th scope="col">Publication Date</th>
                             <th scope="col">Read</th>
                             <th scope="col"></th>
                         </tr>
