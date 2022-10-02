@@ -38,8 +38,9 @@
 	    border-radius:20px;
         }
 
-    .form-check1:hover,.form-check2:hover,.form-check3:hover,.form-check4:hover{	    color:green;
-	    text-style:outset;
+    .form-check1:hover,.form-check2:hover,.form-check3:hover,.form-check4:hover{	    
+        color:green;
+	    font-style: outset;
 	    font-weight:bold;
 	}
 
@@ -103,6 +104,24 @@
                     <input type="text" class="form-control" id="author" placeholder="Author Name">
                 </div>
             </div>
+            <div class="form-group row">
+                <label for="IsbnNo" class="col-sm-2 col-form-label">ISBN No:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="isbnno" placeholder="ISBN Number">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="edition" class="col-sm-2 col-form-label">Edition:</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="edition" placeholder="Edition of Book">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="dateofpublication" class="col-sm-2 col-form-label">Publiction Date:</label>
+                <div class="col-sm-10">
+                    <input type="date" class="form-control" id="publicationdate" placeholder="Date of Publication">
+                </div>
+            </div>
             <fieldset class="form-group">
                 <div class="row">
                     <legend class="col-form-label col-sm-2 pt-0">Type :</legend>
@@ -159,6 +178,9 @@
                             <th scope="col">Name</th>
                             <th scope="col">Author</th>
                             <th scope="col">Type</th>
+                            <th scope="col">ISBN No</th>
+                            <th scope="col">Edition</th>
+                            <th scope="col">Publication Date</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
