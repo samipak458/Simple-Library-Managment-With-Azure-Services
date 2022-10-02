@@ -86,7 +86,12 @@
 	        border-radius:20px;
         }   
 
-       .icon {
+        #read {
+            height: 1.4em;
+            width: 1.4em;
+        }
+
+        .icon {
             color: red;
             font-size: 18px;
         }
@@ -175,64 +180,68 @@
                 <label for="dateofpublication" class="col-sm-2 col-form-label">Publiction Date:</label>
                 <div class="col-sm-10">
                     <input type="date" class="form-control" id="publicationdate" placeholder="Date of Publication">
+            </div>
+            </div>
+            <div class="form-group row">
+             <label for="Author" class="col-sm-2">Read :</label>
+                <div class="col-sm-1">
+                    <input type="checkbox" id="read">
                 </div>
             </div>
-            <fieldset class="form-group">
-                <div class="row">
+            <div class="row">
                     <legend class="col-form-label col-sm-2 pt-0">Type :</legend>
                     <div class="col-sm-10">
-                      <div class="form-check1">
-                            <input class="form-check-input" type="radio" name="type" id="anime" value="anime">
-                            <label class="form-check-label" for="anime">
-                                Anime
-                            </label>
-                        </div>
-                        <div class="form-check2">
-                            <input class="form-check-input" type="radio" name="type" id="programming"
-                                value="programming">
-                            <label class="form-check-label" for="programming">
-                                Computer Programming
-                            </label>
-                        </div>
-			            <div class="form-check3">
-                            <input class="form-check-input" type="radio" name="type" id="fiction" value="fiction">
-                            <label class="form-check-label" for="fiction">
+                <div class="form-check1">
+                            <input class="form-check-input ml-1" type="radio" name="type" id="fiction" value="fiction">
+                            <label class="form-check-label ml-4" for="fiction">
                                 Fiction
                             </label>
                         </div>
-                        <div class="form-check4">
-                            <input class="form-check-input" type="radio" name="type" id="non-fiction" value="non-fiction">
-                            <label class="form-check-label" for="non-fiction">
-                                Non-Fiction
+                        <div class="form-check2">
+                            <input class="form-check-input ml-1" type="radio" name="type" id="programming"
+                                value="programming">
+                            <label class="form-check-label ml-4" for="programming">
+                                Computer Programming
                             </label>
                         </div>
-                        <div class="form-check5">
-                            <input class="form-check-input" type="radio" name="type" id="science" value="science">
-                            <label class="form-check-label" for="science">
+                        <div class="form-check3">
+                            <input class="form-check-input ml-1" type="radio" name="type" id="science" value="science">
+                            <label class="form-check-label ml-4" for="science">
                                 Science
                             </label>
                         </div>
-                        <div class="form-check6">
-                            <input class="form-check-input" type="radio" name="type" id="other" value="other">
-                            <label class="form-check-label" for="other">
+                        <div class="form-check4">
+                            <input class="form-check-input ml-1" type="radio" name="type" id="anime" value="anime">
+                            <label class="form-check-label ml-4" for="anime">
+                                Anime
+                            </label>
+                        </div>
+                        <div class="form-check5">
+                            <input class="form-check-input ml-1" type="radio" name="type" id="other" value="other">
+                            <label class="form-check-label ml-4" for="other">
                                 Other
                             </label>
                         </div>
                     </div>
                 </div>
-            </fieldset>
-            <div class="form-group row">
-                <div class="col-lg-12 col-sm-10">
+                  <div class="form-group row">
+                <div class="col-lg-12 col-sm-10 mt-3">
                     <button type="submit" class="btn text-light btn-large btn-block"
                         style="background-color: #7f5bb4f3;">Add Book</button>
                 </div>
             </div>
         </form>
+
+            <fieldset class="form-group">
+            </fieldset>
+
+        </form>
         <br>
+
 
         <!-- Section Display of books-->
         <div id="table mt-0">
-            <h1><font size="8px"><b>Your Book Shelf</b></font></h1>
+            <h1 class="text-center"><font size="8px"><b>Your Book Shelf</b></font></h1>
             <hr>
 
             <div id="table" class="mb-5">
@@ -248,6 +257,7 @@
                             <th scope="col">ISBN No</th>
                             <th scope="col">Edition</th>
                             <th scope="col">Publication Date</th>
+                            <th scope="col">Read</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>

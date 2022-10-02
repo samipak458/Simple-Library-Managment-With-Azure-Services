@@ -12,6 +12,7 @@ libraryForm.addEventListener('submit', (e) => {
     let isbn = document.getElementById("isbnno").value;
     let edition = document.getElementById("edition").value;
     let publicationD = document.getElementById("publicationdate").value;
+    let read = document.getElementById("read").checked;
     let type;
 
     let fiction = document.getElementById('fiction');
@@ -100,7 +101,8 @@ libraryForm.addEventListener('submit', (e) => {
                 bookType: type,
                 bookisbn: isbn,
                 bookedition: edition,
-                bookpublication : publicationD
+                bookpublication : publicationD,
+                readStatus: read
             }
         }
         else { // Book Author not entered then set it to Unknown
@@ -110,7 +112,8 @@ libraryForm.addEventListener('submit', (e) => {
                 bookType: type,
                 bookisbn: isbn,
                 bookedition: edition,
-                bookpublication : publicationD
+                bookpublication : publicationD,
+                readStatus: read
             }
         }
         objOfBook.push(myObj);
@@ -152,14 +155,13 @@ function displayBooks() {
            <td class="name">${books.book}</td>
            <td class="author">${books.bookauthor}</td>
            <td class="type">${books.bookType}</td>
-
            <td class="isbn">${books.bookisbn}</td>
            <td class="edition">${books.bookedition}</td>
            <td class="publicationdate">${books.bookpublication}</td>
-           
-
+           <td class="type">${books.readStatus ? "<input type='checkbox' checked/> " : "<input type='checkbox' />"}</td>
            <td id="delicon" class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
 
+           
            </tr>
         `;
         }
@@ -173,7 +175,9 @@ function displayBooks() {
            <td class="isbn">${books.bookisbn}</td>
            <td class="edition">${books.bookedition}</td>
            <td class="publicationdate">${books.bookpublication}</td>
+           <td class="type">${books.readStatus ? "<input type='checkbox' checked/> " : "<input type='checkbox' />"}</td>
            <td id="delicon" class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
+           
            </tr>
         `;
         }
