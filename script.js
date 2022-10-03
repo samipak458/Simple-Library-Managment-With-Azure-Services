@@ -1,27 +1,20 @@
 displayBooks(); //As the browser open it show all the stored books
 
 let libraryForm = document.getElementById('libraryForm');
+let name = document.getElementById("bookName");
+let author = document.getElementById("author");
+let type;
+
+let fiction = document.getElementById('fiction');
+let programming = document.getElementById('programming');
+let science = document.getElementById('science');
+let others = document.getElementById('other');
+
+let editIndex = -1;
 
 // Adding Books
 libraryForm.addEventListener('submit', (e) => {
-
     e.preventDefault();
-
-    let name = document.getElementById("bookName").value;
-    let author = document.getElementById("author").value;
-    let isbn = document.getElementById("isbnno").value;
-    let edition = document.getElementById("edition").value;
-    let publicationD = document.getElementById("publicationdate").value;
-    let read = document.getElementById("read").checked;
-    let type;
-
-    let fiction = document.getElementById('fiction');
-    let programming = document.getElementById('programming');
-    let science = document.getElementById('science');
-    let anime = document.getElementById('anime');
-    let others = document.getElementById('other');
-    let newType = document.getElementById('newType');
-
     // Checking different types of books
     if (fiction.checked) {
         type = fiction.value;
@@ -55,7 +48,7 @@ libraryForm.addEventListener('submit', (e) => {
         anime.unchecked;
     }
     else {
-        type = "Other";
+        type = "other";
     }
     
     let shelf = localStorage.getItem('shelfOfBooks');
@@ -90,15 +83,15 @@ libraryForm.addEventListener('submit', (e) => {
     }
 
     // Book Name is mandatory field
-    if (name == "") {
+    if (name.value == "") {
         errorMessage();
     }
     else {
         let myObj;
-        if (author != "") {
+        if (author.value != "") {
             myObj = {
-                book: name,
-                bookauthor: author,
+                book: name.value,
+                bookauthor: author.value,
                 bookType: type,
                 bookisbn: isbn,
                 bookedition: edition,
@@ -108,7 +101,7 @@ libraryForm.addEventListener('submit', (e) => {
         }
         else { // Book Author not entered then set it to Unknown
             myObj = {
-                book: name,
+                book: name.value,
                 bookauthor: "Unknown",
                 bookType: type,
                 bookisbn: isbn,
@@ -117,20 +110,43 @@ libraryForm.addEventListener('submit', (e) => {
                 readStatus: read
             }
         }
-        objOfBook.push(myObj);
-        addMessage();
-
+        if(editIndex != -1){
+            objOfBook.splice(editIndex, 1, myObj);
+            addMessage(true);
+            editIndex = -1;
+        }
+        else {
+            objOfBook.push(myObj);
+            addMessage();
+            UpdateBook();
+        }
         localStorage.setItem('shelfOfBooks', JSON.stringify(objOfBook));
-
-        UpdateBook();
-        displayBooks();
-        name = "";
-        author = "";
+        name.value = "";
+        author.value = "";
         type = "";
         isbn= "";
 
+        displayBooks();
     }
 })
+
+function editBook(index) {
+    let bookDetails = JSON.parse(localStorage.getItem("shelfOfBooks"))[index];
+    
+    console.log(bookDetails);
+    name.value = bookDetails.book;
+    author.value = bookDetails.bookauthor;
+
+    switch(bookDetails.bookType){
+        case "other" : others.checked = true; break; 
+        case "fiction": fiction.checked = true; break;
+        case "programming" : programming.checked = true; break;
+        case "science": science.checked = true; break;
+    }
+
+    editIndex = index;
+    name.focus();
+}
 
 
 //Function to show elements(books) from LocalStorage
@@ -160,9 +176,8 @@ function displayBooks() {
            <td class="edition">${books.bookedition}</td>
            <td class="publicationdate">${books.bookpublication}</td>
            <td class="type">${books.readStatus ? "<input type='checkbox' checked/> " : "<input type='checkbox' />"}</td>
-           <td id="delicon" class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
-
-           
+           <td class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
+           <td class="icon"><i class="fa fa-edit" aria-hidden="true" onclick="editBook(${index})"></i></td>
            </tr>
         `;
     }
@@ -173,12 +188,14 @@ function displayBooks() {
            <td class="name">${books.book}</td>
            <td class="author">${books.bookauthor}</td>
            <td class="type">${books.bookType}</td>
+           <td class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
+           <td class="icon"><i class="fa fa-edit" aria-hidden="true" onclick="editBook(${index})"></i></td>
            <td class="isbn">${books.bookisbn}</td>
            <td class="edition">${books.bookedition}</td>
            <td class="publicationdate">${books.bookpublication}</td>
            <td class="type">${books.readStatus ? "<input type='checkbox' checked/> " : "<input type='checkbox' />"}</td>
-           <td id="delicon" class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
-           
+            <td class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
+           <td class="icon"><i class="fa fa-edit" aria-hidden="true" onclick="editBook(${index})"></i></td>
            </tr>
         `;
      }
@@ -206,18 +223,26 @@ function displayBooks() {
 
 
 //Show adding message
-function addMessage() {
-  let message = document.getElementById('message');
-  let navbar = document.getElementById('navbar');
 
-  navbar.style.display = "none";
+function addMessage(edited = false) {
+    let message = document.getElementById('message');
+    let navbar = document.getElementById('navbar');
 
-  message.innerHTML = `<div class="alert alert-success alert-dismissible fade show" role="alert">
+    navbar.style.display = "none";
+    
+    message.innerHTML =  !edited ? `<div class="alert alert-success alert-dismissible fade show" role="alert">
     <strong>Message:</strong> Your book has been successfully added.
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
-  </div>`
+  </div>` : 
+  `<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Message:</strong> Your book has been successfully edited.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>` 
+
 
   setTimeout(() => {
     navbar.style.display = "flex";
@@ -356,6 +381,7 @@ function removeBook(index) {
     displayBooks();
   }
 }
+
 
 
 
