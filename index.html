@@ -67,6 +67,10 @@
         #delicon:hover {
             cursor: pointer;
         }
+    .container .welcome-text {
+        padding-top: 10px;
+    }
+
 
         #libraryForm {
             border: 3px solid white;
@@ -95,6 +99,11 @@
             border-radius: 20px;
         }
 
+        #read {
+            height: 1.4em;
+            width: 1.4em;
+        }
+
         .icon {
             color: red;
             font-size: 18px;
@@ -111,6 +120,10 @@
         #filter-books:focus {
             outline: 3px solid rgb(46, 123, 255);
         }
+        .input-right {
+          margin-left: 1em;
+        }
+
     </style>
 
 </head>
@@ -129,10 +142,10 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
-            </ul>
+        </ul>
             <form class="form-inline my-2 my-lg-0">
                 <select name="filter" id="filter-books" class="form-select mr-sm-2">
                     <option value="all" selected>All</option>
@@ -145,7 +158,7 @@
                 <button class="btn btn-dark my-2 my-sm-0 px-3" id="btn33" type="submit"
                     style="border-radius: 45px;">Search</button>
             </form>
-        </div>
+      </div>
     </nav>
 
     <!--Message shown on successful adding of book-->
@@ -154,7 +167,7 @@
 
     <!--Section of Adding books-->
     <div class="container pt-4 mt-5 my-3">
-        <h1 class="text-center display-4 font-weight-bold">Welcome To Online Library</h1>
+        <h1 class="text-center display-4 font-weight-bold welcome-text">Welcome To Online Library</h1>
         <hr>
         <h1>
             <font size="8px"><b>Add Your Book</b></font>
@@ -188,6 +201,12 @@
                 <label for="dateofpublication" class="col-sm-2 col-form-label">Publiction Date:</label>
                 <div class="col-sm-10">
                     <input type="date" class="form-control" id="publicationdate" placeholder="Date of Publication">
+            </div>
+            </div>
+            <div class="form-group row">
+             <label for="Author" class="col-sm-2">Read :</label>
+                <div class="col-sm-1">
+                    <input type="checkbox" id="read">
                 </div>
             </div>
             <fieldset class="form-group">
@@ -204,6 +223,7 @@
                             <input class="form-check-input" type="radio" name="type" id="programming"
                                 value="Programming">
                             <label class="form-check-label" for="programming">
+            
                                 Computer Programming
                             </label>
                         </div>
@@ -231,24 +251,28 @@
                             <label class="form-check-label" for="other">
                                 Other
                             </label>
+                            <input class="input-right" placeholder="Create new type" hidden id="newType" name="type" value="">
                         </div>
                     </div>
                 </div>
-            </fieldset>
-            <div class="form-group row">
-                <div class="col-lg-12 col-sm-10">
+                  <div class="form-group row">
+                <div class="col-lg-12 col-sm-10 mt-3">
                     <button type="submit" class="btn text-light btn-large btn-block"
                         style="background-color: #7f5bb4f3;">Add Book</button>
                 </div>
             </div>
         </form>
+
+            <fieldset class="form-group">
+            </fieldset>
+
+        </form>
         <br>
+
 
         <!-- Section Display of books-->
         <div id="table mt-0">
-            <h1>
-                <font size="8px"><b>Your Book Shelf</b></font>
-            </h1>
+            <h1 class="text-center"><font size="8px"><b>Your Book Shelf</b></font></h1>
             <hr>
 
             <div id="table" class="mb-5">
@@ -264,6 +288,8 @@
                             <th scope="col">ISBN No</th>
                             <th scope="col">Edition</th>
                             <th scope="col">Publication Date</th>
+                            <th scope="col">Read</th>
+                            <th scope="col"></th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
@@ -276,21 +302,22 @@
             </div>
 
             <button type="button" id="clear" class="btn px-3 mb-2 btn-danger float-right">Clear Shelf</button>
-        </div>
+      </div>
+      </div>
 
-        <!--JS file-->
-        <script src="script.js"></script>
+    <!--JS file-->
+    <script src="script.js"></script>
 
-        <!--Required Bootrap Jquery first,Popper JS , Bootstrap JS-->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
+    <!--Required Bootrap Jquery first,Popper JS , Bootstrap JS-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
 </body>
 
 </html>
