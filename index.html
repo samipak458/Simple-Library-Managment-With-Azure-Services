@@ -16,20 +16,60 @@
 
     <!-- Custom CSS -->
     <style>
-        #clear {
-            display: none;
-        }
+       
+    #clear {
+        display:none;
+        text-transform: uppercase;
+        font-size: small;
+        margin-bottom: 10px;
+    }
+    #clear:hover{
+        background-color: purple;
+        font-size: larger;
+        transition: 0.8s;
+        border:red;
+    }
+    #btn33{
+        font-size: large;
+        background-color: purple;
+        color: black;
+    }
+    #btn33:hover{
+        background-color: red;
+        transition: 1s;
+        font-size: small;
+    }
+        
 	
 	a:hover{
 	    text-shadow:5px 5px 5px black;
-	    border:1px outset white;
+        outline: 1px solid white;
+        outline-offset: -1px;
+        padding-left: 1px;
+        padding-right: 1px;
 	}
+    #searchText{
+            background-color: black;
+        }
+        #searchText:hover{
+            background-color:white;
+            
+            transition: 1s;
+        }
 
 	h1{
 	    font-family:aerial;
             color:#bd8cbf;
             text-shadow:5px 5px 5px rgba(135,206,250,0.4);
 	}
+
+    .container .welcome-text {
+        padding-top: 10px;
+    }
+
+    #delicon:hover {
+        cursor: pointer;
+    }
 
         #libraryForm {
             border:3px solid white; 
@@ -38,22 +78,46 @@
 	    border-radius:20px;
         }
 
-    .form-check1:hover,.form-check2:hover,.form-check3:hover,.form-check4:hover{	    color:green;
+
+    .form-check1:hover,.form-check2:hover,.form-check3:hover,.form-check4:hover, .form-check5:hover, .form-check6:hover{	    
+        color:green;
+
 	    text-style:outset;
-	    font-weight:bold;
-	}
+	        font-weight:bold;
+        }
 
         #table{
             border:3px solid white;
             box-shadow:0px 3px 20px grey,1px 0px 3px #bd8cbf;
             padding: 10px;
-	    border-radius:20px;
+	        border-radius:20px;
         }   
 
-       .icon {
+        #read {
+            height: 1.4em;
+            width: 1.4em;
+        }
+
+        .icon {
             color: red;
             font-size: 18px;
         }
+
+        #filter-books {
+            border-radius : 45px;
+            border : none;
+            outline : none;
+            height : 38px;
+            padding : 0 5px;
+        }
+
+        #filter-books:focus{
+            outline : 3px solid rgb(46, 123, 255);
+        }
+        .input-right {
+          margin-left: 1em;
+        }
+
     </style>
 
 </head>
@@ -69,17 +133,23 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
-            </ul>
+        </ul>
             <form class="form-inline my-2 my-lg-0">
+                <select name="filter" id="filter-books" class="form-select mr-sm-2">
+                    <option value="all" selected >All</option>
+                    <option value="book">Name</option>
+                    <option value="bookauthor">Author</option>
+                    <option value="bookType">Type</option>
+                </select>
                 <input class="form-control mr-sm-2" id="searchText" type="search" style="border-radius: 45px;"
                     placeholder="Search">
-                <button class="btn btn-dark my-2 my-sm-0 px-3" type="submit"
+                <button class="btn btn-dark my-2 my-sm-0 px-3" id="btn33" type="submit"
                     style="border-radius: 45px;">Search</button>
             </form>
-        </div>
+      </div>
     </nav>
 
     <!--Message shown on successful adding of book-->
@@ -88,8 +158,9 @@
 
     <!--Section of Adding books-->
     <div class="container pt-4 mt-5 my-3">
-        <h1 class="text-center display-4 font-weight-bold">Welcome To Online Library</h1>
+        <h1 class="text-center display-4 font-weight-bold welcome-text">Welcome To Online Library</h1>
         <hr>
+       <h1><font size="8px"><b>Add Your Book</b></font></h1>
         <form id="libraryForm">
             <div class="form-group row">
                 <label for="bookName" class="col-sm-2 col-form-label">Name :</label>
@@ -103,50 +174,85 @@
                     <input type="text" class="form-control" id="author" placeholder="Author Name">
                 </div>
             </div>
-            <fieldset class="form-group">
-                <div class="row">
+            <div class="form-group row">
+                <label for="IsbnNo" class="col-sm-2 col-form-label">ISBN No:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="isbnno" placeholder="ISBN Number">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="edition" class="col-sm-2 col-form-label">Edition:</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="edition" placeholder="Edition of Book">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="dateofpublication" class="col-sm-2 col-form-label">Publiction Date:</label>
+                <div class="col-sm-10">
+                    <input type="date" class="form-control" id="publicationdate" placeholder="Date of Publication">
+            </div>
+            </div>
+            <div class="form-group row">
+             <label for="Author" class="col-sm-2">Read :</label>
+                <div class="col-sm-1">
+                    <input type="checkbox" id="read">
+                </div>
+            </div>
+            <div class="row">
                     <legend class="col-form-label col-sm-2 pt-0">Type :</legend>
                     <div class="col-sm-10">
-			    <div class="form-check1">
-                            <input class="form-check-input" type="radio" name="type" id="fiction" value="fiction">
-                            <label class="form-check-label" for="fiction">
+                <div class="form-check1">
+                            <input class="form-check-input ml-1" type="radio" name="type" id="fiction" value="fiction">
+                            <label class="form-check-label ml-4" for="fiction">
                                 Fiction
                             </label>
                         </div>
                         <div class="form-check2">
-                            <input class="form-check-input" type="radio" name="type" id="programming"
+                            <input class="form-check-input ml-1" type="radio" name="type" id="programming"
                                 value="programming">
-                            <label class="form-check-label" for="programming">
+                            <label class="form-check-label ml-4" for="programming">
                                 Computer Programming
                             </label>
                         </div>
                         <div class="form-check3">
-                            <input class="form-check-input" type="radio" name="type" id="science" value="science">
-                            <label class="form-check-label" for="science">
+                            <input class="form-check-input ml-1" type="radio" name="type" id="science" value="science">
+                            <label class="form-check-label ml-4" for="science">
                                 Science
                             </label>
                         </div>
                         <div class="form-check4">
-                            <input class="form-check-input" type="radio" name="type" id="other" value="other">
-                            <label class="form-check-label" for="other">
+                            <input class="form-check-input ml-1" type="radio" name="type" id="anime" value="anime">
+                            <label class="form-check-label ml-4" for="anime">
+                                Anime
+                            </label>
+                        </div>
+                        <div class="form-check5">
+                            <input class="form-check-input ml-1" type="radio" name="type" id="other" value="other">
+                            <label class="form-check-label ml-4" for="other">
                                 Other
                             </label>
+                            <input class="input-right" placeholder="Create new type" hidden id="newType" name="type" value="">
                         </div>
                     </div>
                 </div>
-            </fieldset>
-            <div class="form-group row">
-                <div class="col-lg-12 col-sm-10">
+                  <div class="form-group row">
+                <div class="col-lg-12 col-sm-10 mt-3">
                     <button type="submit" class="btn text-light btn-large btn-block"
                         style="background-color: #7f5bb4f3;">Add Book</button>
                 </div>
             </div>
         </form>
+
+            <fieldset class="form-group">
+            </fieldset>
+
+        </form>
         <br>
+
 
         <!-- Section Display of books-->
         <div id="table mt-0">
-            <h1><font size="8px"><b>Your Book Shelf</b></font></h1>
+            <h1 class="text-center"><font size="8px"><b>Your Book Shelf</b></font></h1>
             <hr>
 
             <div id="table" class="mb-5">
@@ -159,6 +265,10 @@
                             <th scope="col">Name</th>
                             <th scope="col">Author</th>
                             <th scope="col">Type</th>
+                            <th scope="col">ISBN No</th>
+                            <th scope="col">Edition</th>
+                            <th scope="col">Publication Date</th>
+                            <th scope="col">Read</th>
                             <th scope="col"></th>
                             <th scope="col"></th>
                         </tr>
@@ -172,21 +282,22 @@
             </div>
 
             <button type="button" id="clear" class="btn px-3 mb-2 btn-danger float-right">Clear Shelf</button>
-        </div>
+      </div>
+      </div>
 
-        <!--JS file-->
-        <script src="script.js"></script>
+    <!--JS file-->
+    <script src="script.js"></script>
 
-        <!--Required Bootrap Jquery first,Popper JS , Bootstrap JS-->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
+    <!--Required Bootrap Jquery first,Popper JS , Bootstrap JS-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
 </body>
 
 </html>
