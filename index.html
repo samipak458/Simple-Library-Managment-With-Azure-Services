@@ -16,82 +16,88 @@
 
     <!-- Custom CSS -->
     <style>
-       
-    #clear {
-        display:none;
-        text-transform: uppercase;
-        font-size: small;
-        margin-bottom: 10px;
-    }
-    #clear:hover{
-        background-color: purple;
-        font-size: larger;
-        transition: 0.8s;
-        border:red;
-    }
-    #btn33{
-        font-size: large;
-        background-color: purple;
-        color: black;
-    }
-    #btn33:hover{
-        background-color: red;
-        transition: 1s;
-        font-size: small;
-    }
-        
-	
-	a:hover{
-	    text-shadow:5px 5px 5px black;
-        outline: 1px solid white;
-        outline-offset: -1px;
-        padding-left: 1px;
-        padding-right: 1px;
-	}
-    #searchText{
+        #clear {
+            display: none;
+            text-transform: uppercase;
+            font-size: small;
+            margin-bottom: 10px;
+        }
+
+        #clear:hover {
+            background-color: purple;
+            font-size: larger;
+            transition: 0.8s;
+            border: red;
+        }
+
+        #btn33 {
+            font-size: large;
+            background-color: purple;
+            color: black;
+        }
+
+        #btn33:hover {
+            background-color: red;
+            transition: 1s;
+            font-size: small;
+        }
+
+
+        a:hover {
+            text-shadow: 5px 5px 5px black;
+            border: 1px outset white;
+        }
+
+        #searchText {
             background-color: black;
         }
-        #searchText:hover{
-            background-color:white;
-            
+
+        #searchText:hover {
+            background-color: white;
+
             transition: 1s;
         }
 
-	h1{
-	    font-family:aerial;
-            color:#bd8cbf;
-            text-shadow:5px 5px 5px rgba(135,206,250,0.4);
-	}
+        h1 {
+            font-family: aerial;
+            color: #bd8cbf;
+            text-shadow: 5px 5px 5px rgba(135, 206, 250, 0.4);
+        }
 
+        #delicon:hover {
+            cursor: pointer;
+        }
     .container .welcome-text {
         padding-top: 10px;
     }
 
-    #delicon:hover {
-        cursor: pointer;
-    }
 
         #libraryForm {
-            border:3px solid white; 
-	    box-shadow:0px 3px 20px grey,1px 0px 3px #bd8cbf;
+            border: 3px solid white;
+            box-shadow: 0px 3px 20px grey, 1px 0px 3px #bd8cbf;
             padding: 20px;
-	    border-radius:20px;
+            border-radius: 20px;
         }
 
 
-    .form-check1:hover,.form-check2:hover,.form-check3:hover,.form-check4:hover, .form-check5:hover, .form-check6:hover{	    
-        color:green;
+        .form-check1:hover,
+        .form-check2:hover,
+        .form-check3:hover,
+        .form-check4:hover,
+        .form-check5:hover,
+        .form-check6:hover {
+            color: green;
 
-	    text-style:outset;
-	        font-weight:bold;
+            text-style: outset;
+            font-weight: bold;
         }
 
-        #table{
-            border:3px solid white;
-            box-shadow:0px 3px 20px grey,1px 0px 3px #bd8cbf;
+        #table {
+            border: 3px solid white;
+            box-shadow: 0px 3px 20px grey, 1px 0px 3px #bd8cbf;
             padding: 10px;
-	        border-radius:20px;
-        }   
+            border-radius: 20px;
+        }
 
         #read {
             height: 1.4em;
@@ -104,15 +110,15 @@
         }
 
         #filter-books {
-            border-radius : 45px;
-            border : none;
-            outline : none;
-            height : 38px;
-            padding : 0 5px;
+            border-radius: 45px;
+            border: none;
+            outline: none;
+            height: 38px;
+            padding: 0 5px;
         }
 
-        #filter-books:focus{
-            outline : 3px solid rgb(46, 123, 255);
+        #filter-books:focus {
+            outline: 3px solid rgb(46, 123, 255);
         }
         .input-right {
           margin-left: 1em;
@@ -127,7 +133,10 @@
     <!--NavBar-->
     <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top"
         style="background-color: #7952b3; opacity: .8;">
-	    <a class="navbar-brand mb-1" href="#" style="font-size: 24px;"><marquee direction="right" scrollamount="5" onmouseover="this.stop();" onmouseout="this.start();">Online Library</marquee></a>
+        <a class="navbar-brand mb-1" href="#" style="font-size: 24px;">
+            <marquee direction="right" scrollamount="5" onmouseover="this.stop();" onmouseout="this.start();">Online
+                Library</marquee>
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
             aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -139,7 +148,7 @@
         </ul>
             <form class="form-inline my-2 my-lg-0">
                 <select name="filter" id="filter-books" class="form-select mr-sm-2">
-                    <option value="all" selected >All</option>
+                    <option value="all" selected>All</option>
                     <option value="book">Name</option>
                     <option value="bookauthor">Author</option>
                     <option value="bookType">Type</option>
@@ -160,16 +169,18 @@
     <div class="container pt-4 mt-5 my-3">
         <h1 class="text-center display-4 font-weight-bold welcome-text">Welcome To Online Library</h1>
         <hr>
-       <h1><font size="8px"><b>Add Your Book</b></font></h1>
+        <h1>
+            <font size="8px"><b>Add Your Book</b></font>
+        </h1>
         <form id="libraryForm">
             <div class="form-group row">
-                <label for="bookName" class="col-sm-2 col-form-label">Name :</label>
+                <label for="bookName" class="col-sm-2 col-form-label">Name:</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="bookName" placeholder="Book Name">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="Author" class="col-sm-2 col-form-label">Author :</label>
+                <label for="Author" class="col-sm-2 col-form-label">Author:</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="author" placeholder="Author Name">
                 </div>
@@ -198,37 +209,46 @@
                     <input type="checkbox" id="read">
                 </div>
             </div>
-            <div class="row">
-                    <legend class="col-form-label col-sm-2 pt-0">Type :</legend>
+            <fieldset class="form-group">
+                <div class="row">
+                    <legend class="col-form-label col-sm-2 pt-0">Book Type:</legend>
                     <div class="col-sm-10">
-                <div class="form-check1">
-                            <input class="form-check-input ml-1" type="radio" name="type" id="fiction" value="fiction">
-                            <label class="form-check-label ml-4" for="fiction">
-                                Fiction
+                        <div class="form-check1">
+                            <input class="form-check-input" type="radio" name="type" id="anime" value="Anime">
+                            <label class="form-check-label" for="anime">
+                                Anime
                             </label>
                         </div>
                         <div class="form-check2">
-                            <input class="form-check-input ml-1" type="radio" name="type" id="programming"
-                                value="programming">
-                            <label class="form-check-label ml-4" for="programming">
+                            <input class="form-check-input" type="radio" name="type" id="programming"
+                                value="Programming">
+                            <label class="form-check-label" for="programming">
+            
                                 Computer Programming
                             </label>
                         </div>
                         <div class="form-check3">
-                            <input class="form-check-input ml-1" type="radio" name="type" id="science" value="science">
-                            <label class="form-check-label ml-4" for="science">
-                                Science
+                            <input class="form-check-input" type="radio" name="type" id="fiction" value="Fiction">
+                            <label class="form-check-label" for="fiction">
+                                Fiction
                             </label>
                         </div>
                         <div class="form-check4">
-                            <input class="form-check-input ml-1" type="radio" name="type" id="anime" value="anime">
-                            <label class="form-check-label ml-4" for="anime">
-                                Anime
+                            <input class="form-check-input" type="radio" name="type" id="non-fiction"
+                                value="Non-Fiction">
+                            <label class="form-check-label" for="non-fiction">
+                                Non-Fiction
                             </label>
                         </div>
                         <div class="form-check5">
-                            <input class="form-check-input ml-1" type="radio" name="type" id="other" value="other">
-                            <label class="form-check-label ml-4" for="other">
+                            <input class="form-check-input" type="radio" name="type" id="science" value="Science">
+                            <label class="form-check-label" for="science">
+                                Science
+                            </label>
+                        </div>
+                        <div class="form-check6">
+                            <input class="form-check-input" type="radio" name="type" id="other" value="Other">
+                            <label class="form-check-label" for="other">
                                 Other
                             </label>
                             <input class="input-right" placeholder="Create new type" hidden id="newType" name="type" value="">
