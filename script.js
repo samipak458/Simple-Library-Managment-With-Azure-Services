@@ -525,3 +525,10 @@ radioButtons.forEach((btn) => {
     }
   })
 })
+
+// dark mode
+var icon = document.getElementById("icon");
+
+icon.onclick=function(){
+  document.body.classList.toggle("dark-theme");
+}
