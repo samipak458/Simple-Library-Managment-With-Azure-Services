@@ -107,6 +107,9 @@
         #filter-books:focus{
             outline : 3px solid rgb(46, 123, 255);
         }
+        .input-right {
+          margin-left: 1em;
+        }
 
     </style>
 
@@ -123,10 +126,10 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
-            </ul>
+        </ul>
             <form class="form-inline my-2 my-lg-0">
                 <select name="filter" id="filter-books" class="form-select mr-sm-2">
                     <option value="all" selected >All</option>
@@ -139,7 +142,7 @@
                 <button class="btn btn-dark my-2 my-sm-0 px-3" id="btn33" type="submit"
                     style="border-radius: 45px;">Search</button>
             </form>
-        </div>
+      </div>
     </nav>
 
     <!--Message shown on successful adding of book-->
@@ -221,6 +224,7 @@
                             <label class="form-check-label ml-4" for="other">
                                 Other
                             </label>
+                            <input class="input-right" placeholder="Create new type" hidden id="newType" name="type" value="">
                         </div>
                     </div>
                 </div>
@@ -270,21 +274,22 @@
             </div>
 
             <button type="button" id="clear" class="btn px-3 mb-2 btn-danger float-right">Clear Shelf</button>
-        </div>
+      </div>
+      </div>
 
-        <!--JS file-->
-        <script src="script.js"></script>
+    <!--JS file-->
+    <script src="script.js"></script>
 
-        <!--Required Bootrap Jquery first,Popper JS , Bootstrap JS-->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
+    <!--Required Bootrap Jquery first,Popper JS , Bootstrap JS-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
 </body>
 
 </html>
