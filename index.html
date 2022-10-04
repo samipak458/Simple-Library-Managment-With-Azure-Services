@@ -12,43 +12,34 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
     <!-- Custom CSS -->
-    <style>
-       
-       #clear {
-            display:none;
-            text-transform: uppercase;
-            font-size: small;
-            margin-bottom: 10px;
-            
-        
-        }
-     #clear:hover{
-       background-color: purple;
-       font-size: larger;
-       transition: 0.8s;
-      border:red;
-
-}
-#btn33{
-            font-size: large;
-            background-color: purple;
-            color: black;
-        }
-        #btn33:hover{
-            background-color: red;
-            transition: 1s;
-            font-size: small;
-        }
-        
-	
-	a:hover{
-	    text-shadow:5px 5px 5px black;
-	    border:1px outset white;
-	}
-    #searchText{
+    <style>]
+      
+    #clear {
+        display:none;
+        text-transform: uppercase;
+        font-size: small;
+        margin-bottom: auto;
+    }
+    #clear:hover {
+        background-color: purple;
+        font-size: larger;
+        transition: 0.5s;
+        border:red;
+    }
+    #btn33 {
+        font-size: large;
+        background-color: purple;
+        color: black;
+    }
+    #btn33:hover {
+        background-color: red;
+        transition: 1s;
+        font-size: small;
+    }
+        #searchText {
             background-color: black;
         }
         #searchText:hover{
@@ -56,40 +47,67 @@
             
             transition: 1s;
         }
-
-	h1{
-	    font-family:aerial;
-            color:#bd8cbf;
-            text-shadow:5px 5px 5px rgba(135,206,250,0.4);
-	}
-
-    #delicon:hover {
+        
+        body {
+    background-image: url("https://images.unsplash.com/photo-1528731708534-816fe59f90cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
+    background-repeat: no-repeat;
+    background-size: cover;
+        }
+      
+	      h1 {
+	       font-family:aerial;
+         color:#bd8cbf;
+         text-shadow:5px 5px 5px rgba(135,206,250,0.4);
+	      }
+      
+      a:link {
+        color: black;
+        font-size: small;
+        background-color: transparent;
+        text-decoration: none;
         cursor: pointer;
-    }
+      }
+
+        .container .welcome-text {
+            padding-top: 10px;
+        }
+
+        #delicon:hover {
+            cursor: pointer;
+        }
 
         #libraryForm {
-            border:3px solid white; 
-	    box-shadow:0px 3px 20px grey,1px 0px 3px #bd8cbf;
-            padding: 20px;
-	    border-radius:20px;
+         border:3px solid white; 
+	       box-shadow:0px 3px 20px grey,1px 0px 3px #bd8cbf;
+         padding: 20px;
+         border-radius:20px;
         }
 
 
-    .form-check1:hover,.form-check2:hover,.form-check3:hover,.form-check4:hover, .form-check5:hover, .form-check6:hover{	    
-        color:green;
-
-	    text-style:outset;
-	    font-weight:bold;
+      .form-check1:hover,
+      .form-check2:hover,
+      .form-check3:hover,
+      .form-check4:hover, 
+      .form-check5:hover, 
+      .form-check6:hover{	    
+        color: blue;
+        text-style:outset;
+        font-weight:bold;
         }
 
-        #table{
+        #table {
             border:3px solid white;
             box-shadow:0px 3px 20px grey,1px 0px 3px #bd8cbf;
             padding: 10px;
-	    border-radius:20px;
+	          border-radius:20px;
         }   
-
-       .icon {
+          
+        #read {
+            height: 1.4em;
+            width: 1.4em;
+        }
+        
+        .icon {
             color: red;
             font-size: 18px;
         }
@@ -105,13 +123,79 @@
         #filter-books:focus{
             outline : 3px solid rgb(46, 123, 255);
         }
+      
+        .input-right {
+          margin-left: 1em;
+        }
+      
+       .visually_hidden {
+          border: 0;
+          clip: rect(0 0 0 0);
+          height: 1px;
+          width: 1px;
+          margin: -1px;
+          padding: 0;
+          overflow: hidden;
+          position: absolute;
+        }
 
+       .no-bullets {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+        }
+
+      .footer {
+         padding: 50px 0;
+         font-family: 'Poppins', sans-serif;
+       }
+
+     .container-a{
+        max-width: 1170px;
+        margin: auto;
+      }
+
+    .row{
+      display: flex;
+      flex wrap: wrap;
+     }
+
+    .footer-col{
+      width: 25%;
+      padding: 0 15px;
+      }
+
+    .footer-col h4{
+      font-size: 35px;
+      color: black;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .footer-col h4::before{
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      background-color: #e91e63;
+      height: 2px;
+      box-sizing: border-box;
+      width: 60px;
+    }
+
+    .footer-col ul li:not(:last-child){
+      margin-bottom: 10px;
+    }
+
+    .footer-col ul li a:hover{
+      padding-left: 8px;
+      transition: all 0.3s ease;
+      color: #0068ff;
+    }
     </style>
-
 </head>
 
 <body>
-
     <!--NavBar-->
     <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top"
         style="background-color: #7952b3; opacity: .8;">
@@ -121,10 +205,10 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
-            </ul>
+        </ul>
             <form class="form-inline my-2 my-lg-0">
                 <select name="filter" id="filter-books" class="form-select mr-sm-2">
                     <option value="all" selected >All</option>
@@ -137,7 +221,7 @@
                 <button class="btn btn-dark my-2 my-sm-0 px-3" id="btn33" type="submit"
                     style="border-radius: 45px;">Search</button>
             </form>
-        </div>
+      </div>
     </nav>
 
     <!--Message shown on successful adding of book-->
@@ -146,9 +230,9 @@
 
     <!--Section of Adding books-->
     <div class="container pt-4 mt-5 my-3">
-        <h1 class="text-center display-4 font-weight-bold">Welcome To Online Library</h1>
+        <h1 class="text-center display-4 font-weight-bold welcome-text">Welcome To Online Library</h1>
         <hr>
-       <h1><font size="8px"><b>Add Your Book</b></font></h1>
+       <h1 class="text-center"><font size="8px"><b>Add Your Book</b></font></h1>
         <form id="libraryForm">
             <div class="form-group row">
                 <label for="bookName" class="col-sm-2 col-form-label">Name :</label>
@@ -178,64 +262,69 @@
                 <label for="dateofpublication" class="col-sm-2 col-form-label">Publiction Date:</label>
                 <div class="col-sm-10">
                     <input type="date" class="form-control" id="publicationdate" placeholder="Date of Publication">
+            </div>
+            </div>
+            <div class="form-group row">
+             <label for="Author" class="col-sm-2">Read :</label>
+                <div class="col-sm-1">
+                    <input type="checkbox" id="read">
                 </div>
             </div>
-            <fieldset class="form-group">
-                <div class="row">
+            <div class="row">
                     <legend class="col-form-label col-sm-2 pt-0">Type :</legend>
                     <div class="col-sm-10">
                       <div class="form-check1">
-                            <input class="form-check-input" type="radio" name="type" id="anime" value="anime">
-                            <label class="form-check-label" for="anime">
+                            <input class="form-check-input ml-1" type="radio" name="type" id="anime" value="anime">
+                            <label class="form-check-label ml-4" for="anime">
                                 Anime
                             </label>
                         </div>
-                       <div class="form-check2">
-                            <input class="form-check-input" type="radio" name="type" id="programming"
-                                value="programming">
-                            <label class="form-check-label" for="programming">
+                <div class="form-check2">
+                            <input class="form-check-input ml-1" type="radio" name="type" id="programming" value="programming">
+                            <label class="form-check-label ml-4" for="programming">
                                 Computer Programming
                             </label>
                         </div>
-			                  <div class="form-check3">
-                            <input class="form-check-input" type="radio" name="type" id="fiction" value="fiction">
-                            <label class="form-check-label" for="fiction">
+                        <div class="form-check3">
+                            <input class="form-check-input ml-1" type="radio" name="type" id="fiction"
+                                value="fiction">
+                            <label class="form-check-label ml-4" for="fiction">
                                 Fiction
                             </label>
                         </div>
                         <div class="form-check4">
-                            <input class="form-check-input" type="radio" name="type" id="non-fiction" value="non-fiction">
-                            <label class="form-check-label" for="non-fiction">
-                                Non-Fiction
-                            </label>
-                        </div>
-                        <div class="form-check5">
-                            <input class="form-check-input" type="radio" name="type" id="science" value="science">
-                            <label class="form-check-label" for="science">
+                            <input class="form-check-input ml-1" type="radio" name="type" id="science" value="science">
+                            <label class="form-check-label ml-4" for="science">
                                 Science
                             </label>
                         </div>
-                        <div class="form-check6">
-                            <input class="form-check-input" type="radio" name="type" id="other" value="other">
-                            <label class="form-check-label" for="other">
+                        <div class="form-check5">
+                            <input class="form-check-input ml-1" type="radio" name="type" id="other" value="other">
+                            <label class="form-check-label ml-4" for="other">
                                 Other
                             </label>
+                            <input class="input-right" placeholder="Create new type" hidden id="newType" name="type" value="">
                         </div>
                     </div>
                 </div>
-            </fieldset>
-            <div class="form-group row">
-                <div class="col-lg-12 col-sm-10">
+                  <div class="form-group row">
+                <div class="col-lg-12 col-sm-10 mt-3">
                     <button type="submit" class="btn text-light btn-large btn-block"
                         style="background-color: #7f5bb4f3;">Add Book</button>
                 </div>
             </div>
         </form>
+
+            <fieldset class="form-group">
+            </fieldset>
+
+        </form>
         <br>
+
 
         <!-- Section Display of books-->
         <div id="table mt-0">
-            <h1><font size="8px"><b>Your Book Shelf</b></font></h1>
+            <h1 class="text-center"><font size="8px"><b>Your Book Shelf</b></font></h1>
             <hr>
 
             <div id="table" class="mb-5">
@@ -251,6 +340,7 @@
                             <th scope="col">ISBN No</th>
                             <th scope="col">Edition</th>
                             <th scope="col">Publication Date</th>
+                            <th scope="col">Read</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
@@ -263,21 +353,64 @@
             </div>
 
             <button type="button" id="clear" class="btn px-3 mb-2 btn-danger float-right">Clear Shelf</button>
-        </div>
+      </div>
+      </div>
 
-        <!--JS file-->
-        <script src="script.js"></script>
+    <!--JS file-->
+    <script src="script.js"></script>
 
-        <!--Required Bootrap Jquery first,Popper JS , Bootstrap JS-->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
+    <!--Required Bootrap Jquery first,Popper JS , Bootstrap JS-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
 </body>
+
+<!--footer section-->
+
+      <hr>
+  <footer class="footer">
+    <div class="container-a">
+      <div class="row">
+        <div class="footer-col">
+          <h4>About</h4>
+          <ul class="no-bullets">
+            <li><a href="#">Online Library</a></li>
+            <li><a href="#">Join Our Team</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Supports</h4>
+          <ul class="no-bullets">
+            <li><a href="#">Help / FAQ</a></li>
+            <li><a href="#">Accessibility</a></li>
+            <li><a href="#">Publisher</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Social Media</h4>
+          <ul class="no-bullets">
+            <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+             <li><a href="#"><i class="fab fa-linkedin-in"></i>LinkedIn</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Download</h4>
+          <ul class="no-bullets">
+            <li><a href="#"><img src="https://www.scribd.com/webpack/assets/images/shared/app_store/app_store_black_en.c01025ef.svg" alt="appstore"></a></li>
+            <li><a href="#"><img src="https://www.scribd.com/webpack/assets/images/shared/app_store/play_store_en.52ebe950.svg" alt="google playstore"></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
 
 </html>
