@@ -12,18 +12,32 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/5587893eae.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
     <!-- Custom CSS -->
     <style>
+        body {
+            background-color: var(--secondary-color);
+            background-color: var(--primary-color);
+        }
         #clear {
             display: none;
             text-transform: uppercase;
             font-size: small;
             margin-bottom: 10px;
         }
-
+        :root {
+            --primary-color:white;
+            --secondary-color:black;    
+            /* --ternary-color:rgb(41, 39, 39); */
+        }
+        .dark-theme{
+            --primary-color:black;
+            --secondary-color:white;    
+            --ternary-color:rgb(41, 39, 39);
+        }
         #clear:hover {
             background-color: purple;
             font-size: larger;
@@ -34,7 +48,7 @@
         #btn33 {
             font-size: large;
             background-color: purple;
-            color: black;
+            color: var(--secondary-color);
         }
 
         #btn33:hover {
@@ -44,17 +58,17 @@
         }
 
 
-        a:hover {
-            text-shadow: 5px 5px 5px black;
-            border: 1px outset white;
-        }
+            a:hover {
+                text-shadow: 5px 5px 5px var(--primary-color);
+                border: 1px outset var(--secondary-color);
+            }
 
         #searchText {
-            background-color: black;
+            background-color: var(--secondary-color);
         }
 
         #searchText:hover {
-            background-color: white;
+            background-color: var(--primary-color);
 
             transition: 1s;
         }
@@ -74,7 +88,7 @@
 
 
         #libraryForm {
-            border: 3px solid white;
+            border: 3px solid var(--primary-color);
             box-shadow: 0px 3px 20px grey, 1px 0px 3px #bd8cbf;
             padding: 20px;
             border-radius: 20px;
@@ -92,9 +106,13 @@
             text-style: outset;
             font-weight: bold;
         }
-
+        .form-control{
+            /* color:white; */
+            /* color:black; */
+            background-color:var(--ternary-color);
+        }
         #table {
-            border: 3px solid white;
+            border: 3px solid var(--primary-color);
             box-shadow: 0px 3px 20px grey, 1px 0px 3px #bd8cbf;
             padding: 10px;
             border-radius: 20px;
@@ -124,7 +142,25 @@
         .input-right {
           margin-left: 1em;
         }
-        .footer{
+
+        label{
+            color:var(--secondary-color);
+        }
+        legend{
+            color:var(--secondary-color);
+        }
+        #books{
+            color:var(--secondary-color);
+        }
+        #emptyMsg{
+            color:var(--secondary-color);
+        }
+        option{
+            background-color:var(--ternary-color);
+            color: var(--secondary-color);
+        }
+
+       .footer{
         padding: 20px 0px;
         background-color: rgb(255, 255, 255)
       }
@@ -168,7 +204,7 @@
 
     <!--NavBar-->
     <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top"
-        style="background-color: #7952b3; opacity: .8;">
+        style="background-color: #7952b3; opacity: 0.9;">
         <a class="navbar-brand mb-1" href="#" style="font-size: 24px;">
             <marquee direction="right" scrollamount="5" onmouseover="this.stop();" onmouseout="this.start();">Online
                 Library</marquee>
@@ -193,7 +229,13 @@
                     placeholder="Search">
                 <button class="btn btn-dark my-2 my-sm-0 px-3" id="btn33" type="submit"
                     style="border-radius: 45px;">Search</button>
+                   
+                <a class="px-3 " style="font-size:20px;cursor: pointer;color: black;text-shadow: none;border: 0cm;">
+                    <i id="icon" class="fa-solid fa-moon"></i>
+                </a>
             </form>
+            
+            
       </div>
     </nav>
 
