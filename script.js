@@ -432,7 +432,7 @@ function UpdateBook() {
 
 const showNumberOfBooks = () => {
     const getBookNumber = parseInt(localStorage.getItem("getBookNumber"));
-    document.getElementById("books").innerHTML = `No. of books: ${getBookNumber ?? 0}`;
+    document.getElementById("books").innerHTML = `No. of books: ${getBookNumber || 0}`;
 };
 
 // Filter books based on selected attributes from dropdown

@@ -62,14 +62,19 @@
                 text-shadow: 5px 5px 5px var(--primary-color);
                 border: 1px outset var(--secondary-color);
             }
-
+            .nav-heading:hover{
+                text-shadow: none;
+                border: none;
+            }
         #searchText {
-            background-color: var(--secondary-color);
+            background-color: rgb(32, 32, 32);
+            color: var(--primary-color);
+            
         }
 
         #searchText:hover {
             background-color: var(--primary-color);
-
+            color:var(--secondary-color);
             transition: 1s;
         }
 
@@ -102,7 +107,6 @@
         .form-check5:hover,
         .form-check6:hover {
             color: green;
-
             text-style: outset;
             font-weight: bold;
         }
@@ -129,16 +133,17 @@
         }
 
         #filter-books {
-            border-radius: 45px;
+            border-radius: 5px;
             border: none;
             outline: none;
             height: 38px;
-            padding: 0 5px;
+            padding: 0 10px;
         }
-
         #filter-books:focus {
-            outline: 3px solid rgb(46, 123, 255);
+            outline: 2px solid #d45248;
+
         }
+        
         .input-right {
           margin-left: 1em;
         }
@@ -159,6 +164,7 @@
             background-color:var(--ternary-color);
             color: var(--secondary-color);
         }
+
 
        .footer{
         padding: 20px 0px;
@@ -196,6 +202,83 @@
         margin: 10px 10px;
         margin-left: 10px;
     }
+
+        .search_box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search_box input{
+            border: none;
+            outline: none;
+            width: 0;
+            padding: 0; 
+            opacity: 0;
+            border-radius: 20px;
+            line-height: 20px;
+            font-size: 16px;
+            transition: all 1s;
+        }
+
+        .search_box input::placeholder {
+            color: #d45248;
+            font-weight: 400;
+        }
+
+        .search_box button {
+            background-color: #d45248;
+            border: none;
+            outline: none;
+            width: 35px;
+            height: 35px;
+            padding: -5px 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all .5s;
+            color: #fff;
+        }
+
+        .search_box:hover input{
+            width: 240px;
+            opacity: 1;
+            padding: 10px 20px;
+        }
+        .toggle-switch {
+            color: var(--secondary-color);
+            width: 70px;
+            height: 30px;
+            background: var(--primary-color);
+            border-radius: 50px;
+            position: relative;
+            margin-left: 10px;
+        }
+        .toggle-switch #icon {
+            background: white;
+            width: 24px;
+            height: 24px;
+            background: #d45248;
+            border-radius: 100%;
+            position: absolute;
+            top: 3px;
+            left: 4px;
+            transition: 0.5s all ease;
+        }
+        .dark-theme .toggle-switch {
+            background: var(--primary-color);
+        }
+        .dark-theme .toggle-switch #icon {
+            transform: translateX(37px);
+        }
+
+ 
+
     </style>
 
 </head>
@@ -204,10 +287,9 @@
 
     <!--NavBar-->
     <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top"
-        style="background-color: #7952b3; opacity: 0.9;">
-        <a class="navbar-brand mb-1" href="#" style="font-size: 24px;">
-            <marquee direction="right" scrollamount="5" onmouseover="this.stop();" onmouseout="this.start();">Online
-                Library</marquee>
+        style="background-color: #452066; opacity: 0.9;">
+        <a class="navbar-brand mb-1 nav-heading" href="#" style="font-size: 28px;">
+            <span style="color:#d45248;font-family:cursive;font-weight: bold;">Online <span style="color:#fff ;">Library</span></span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
             aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -220,24 +302,23 @@
         </ul>
             <form class="form-inline my-2 my-lg-0">
                 <select name="filter" id="filter-books" class="form-select mr-sm-2">
-                    <option value="all" selected>All</option>
+                    <option class="filter_option" value="" selected disabled hidden>Select filter</option>
+                    <option value="all">All</option> 
                     <option value="book">Name</option>
                     <option value="bookauthor">Author</option>
                     <option value="bookType">Type</option>
                 </select>
-                <input class="form-control mr-sm-2" id="searchText" type="search" style="border-radius: 45px;"
-                    placeholder="Search">
-                <button class="btn btn-dark my-2 my-sm-0 px-3" id="btn33" type="submit"
-                    style="border-radius: 45px;">Search</button>
-                   
-                <a class="px-3 " style="font-size:20px;cursor: pointer;color: black;text-shadow: none;border: 0cm;">
-                    <i id="icon" class="fa-solid fa-moon"></i>
-                </a>
+                    <div class="search_box">
+                        <input type="search" id="searchText" placeholder="Search">
+                        <button class="fa fa-search" type="submit"></button>
+                    </div>
+                <div class="toggle-switch">
+                    <a id="icon"></div>
+                  </div>
             </form>
-            
-            
       </div>
     </nav>
+
 
     <!--Message shown on successful adding of book-->
     <div class="fixed-top" id="message"></div>
