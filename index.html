@@ -19,9 +19,18 @@
     <!-- Custom CSS -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Nunito:wght@200&family=Poppins&family=Roboto:wght@300&display=swap');
+        /* variable declaration */
+
+        :root {
+            --primary-color: white;
+            --secondary-color: black;
+            --ternary-color: rgb(41, 39, 39);
+        }
+
 
         body {
             background-color: var(--primary-color);
+            transition: background 0.5s linear;
         }
 
         #clear {
@@ -31,11 +40,6 @@
             margin-bottom: 10px;
         }
 
-        :root {
-            --primary-color: white;
-            --secondary-color: black;
-            --ternary-color: rgb(41, 39, 39);
-        }
 
         #clear:hover {
             background-color: purple;
@@ -405,6 +409,7 @@
             text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.9);
         }
     </style>
+
 </head>
 
 <body>
@@ -442,7 +447,7 @@
                     <input type="search" id="searchText" placeholder="Search">
                     <button class="fa fa-search" type="submit"></button>
                 </div>
-                <div class="toggle-switch">
+                <div class="toggle-switch" id="icon">
                     <a id="icon"></a>
                 </div>
             </form>
