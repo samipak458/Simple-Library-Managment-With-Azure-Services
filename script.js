@@ -7,6 +7,7 @@ let isbn = document.getElementById("isbnno");
 let edition = document.getElementById("edition");
 let publicationD = document.getElementById("publicationdate");
 let read = document.getElementById("read");
+let url = document.getElementById("bookurl");
 let type;
 
 let fiction = document.getElementById('fiction');
@@ -99,6 +100,7 @@ libraryForm.addEventListener('submit', (e) => {
                 book: name.value,
                 bookauthor: author.value,
                 bookType: type,
+                bookurl: url.value=="" ? "/" : url.value,
                 bookisbn: isbn.value,
                 bookedition: edition.value,
                 bookpublication : publicationD.value,
@@ -110,6 +112,7 @@ libraryForm.addEventListener('submit', (e) => {
                 book: name.value,
                 bookauthor: "Unknown",
                 bookType: type,
+                bookurl: url.value=="" ? "/" : url.value,
                 bookisbn: isbn.value,
                 bookedition: edition.value,
                 bookpublication : publicationD.value,
@@ -130,6 +133,7 @@ libraryForm.addEventListener('submit', (e) => {
         name.value = "";
         author.value = "";
         type = "";
+        url.value = "";
         isbn.value = "";
         edition.value = "";
         publicationD.value = "";
@@ -177,7 +181,7 @@ function displayBooks() {
             html += `
            <tr class="rows">
            <th scope="row">1</th>
-           <td class="name">${books.book}</td>
+           <td class="name"><a class="bookurl" href=${books.bookurl}> ${books.book} </a></td>
            <td class="author">${books.bookauthor}</td>
            <td class="type">${books.bookType}</td>
            <td class="isbn">${books.bookisbn}</td>
@@ -193,7 +197,7 @@ function displayBooks() {
       html += `
            <tr class="rows">
            <th scope="row">${index + 1}</th>
-           <td class="name">${books.book}</td>
+           <td class="name"><a class="bookurl" href=${books.bookurl}> ${books.book} </a></td>
            <td class="author">${books.bookauthor}</td>
            <td class="type">${books.bookType}</td>
            <td class="isbn">${books.bookisbn}</td>
