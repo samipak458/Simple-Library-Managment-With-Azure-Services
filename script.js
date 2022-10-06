@@ -3,6 +3,10 @@ displayBooks(); //As the browser open it show all the stored books
 let libraryForm = document.getElementById('libraryForm');
 let name = document.getElementById("bookName");
 let author = document.getElementById("author");
+let isbn = document.getElementById("isbnno");
+let edition = document.getElementById("edition");
+let publicationD = document.getElementById("publicationdate");
+let read = document.getElementById("read");
 let type;
 
 let fiction = document.getElementById('fiction');
@@ -52,8 +56,9 @@ libraryForm.addEventListener('submit', (e) => {
     }
     
     let shelf = localStorage.getItem('shelfOfBooks');
-    // console.log(shelf);
-    let objOfBook; //object which stores books
+
+    let objOfBook;   //object which stores books
+    let alreadyAdded = false; 
 
     // Check if the book is already in the library
     if (shelf == null) {
@@ -61,9 +66,8 @@ libraryForm.addEventListener('submit', (e) => {
     }
     else {                                //We might have multiple books 
         objOfBook = JSON.parse(shelf);   //By using JSON we convert it into Object
-    }
 
-    let alreadyAdded = false;
+    
     objOfBook.every(bookObj => {
         if (author === "") author = "Unknown";
         let curBook = (name === bookObj.book);
@@ -77,11 +81,13 @@ libraryForm.addEventListener('submit', (e) => {
         }
         return true;
     });
+  }
+
     if (alreadyAdded === true) {
         alreadyAddedMessage();
         return;
     }
-
+    else{
     // Book Name is mandatory field
     if (name.value == "") {
         errorMessage();
@@ -93,10 +99,10 @@ libraryForm.addEventListener('submit', (e) => {
                 book: name.value,
                 bookauthor: author.value,
                 bookType: type,
-                bookisbn: isbn,
-                bookedition: edition,
-                bookpublication : publicationD,
-                readStatus: read
+                bookisbn: isbn.value,
+                bookedition: edition.value,
+                bookpublication : publicationD.value,
+                readStatus: read.checked
             }
         }
         else { // Book Author not entered then set it to Unknown
@@ -104,10 +110,10 @@ libraryForm.addEventListener('submit', (e) => {
                 book: name.value,
                 bookauthor: "Unknown",
                 bookType: type,
-                bookisbn: isbn,
-                bookedition: edition,
-                bookpublication : publicationD,
-                readStatus: read
+                bookisbn: isbn.value,
+                bookedition: edition.value,
+                bookpublication : publicationD.value,
+                readStatus: read.checked
             }
         }
         if(editIndex != -1){
@@ -124,8 +130,10 @@ libraryForm.addEventListener('submit', (e) => {
         name.value = "";
         author.value = "";
         type = "";
-        isbn= "";
-
+        isbn.value = "";
+        edition.value = "";
+        publicationD.value = "";
+      }
         displayBooks();
     }
 })
@@ -188,8 +196,6 @@ function displayBooks() {
            <td class="name">${books.book}</td>
            <td class="author">${books.bookauthor}</td>
            <td class="type">${books.bookType}</td>
-           <td class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
-           <td class="icon"><i class="fa fa-edit" aria-hidden="true" onclick="editBook(${index})"></i></td>
            <td class="isbn">${books.bookisbn}</td>
            <td class="edition">${books.bookedition}</td>
            <td class="publicationdate">${books.bookpublication}</td>
@@ -532,3 +538,4 @@ var icon = document.getElementById("icon");
 icon.onclick=function(){
   document.body.classList.toggle("dark-theme");
 }
+

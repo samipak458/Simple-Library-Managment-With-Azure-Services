@@ -322,6 +322,59 @@
       width: 60px;
     }
 
+        .loader_bg{
+            position: fixed;
+            top: 0;
+            left: 0;
+            right:0;
+            bottom: 0;
+            z-index: 999999;
+            background-color: rgb(234, 234, 234);
+            width: 100%;
+            min-height:100% ;
+            /* min-height:100%; */
+            background-position: center;
+            /* background-repeat:repeat-x; */
+            background-size:cover;
+        }
+        .loader{
+            border: 0 solid transparent;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            top:calc(50vh -75px);
+            left:calc(50vw -75px);
+        }
+        .loader:before,.loader:after{
+            content: '';
+            border:1em solid #5a2a84;
+            border-radius: 50%;
+            width: inherit;
+            height: inherit;
+            position:absolute;
+            animation:loader 2s linear infinite;
+            opacity: 0;
+        }
+        .loader:before{
+            animation-delay: .5s;
+        }
+        @keyframes loader {
+            0%{
+                transform:scale(0);
+                opacity: 0;
+            }
+            50%{
+                opacity: 1;
+            }
+            150%{
+                transform: scale(1);
+                opacity: 0;
+            }
+        }  
+
+
+
     .footer-col ul li:not(:last-child){
       margin-bottom: 10px;
     }
@@ -338,6 +391,12 @@
 
 <body>
     <!--NavBar-->
+
+    <div class="loader_bg" style="display:flex; justify-content:center;align-items: center;">
+        <div class="loader"></div>
+    </div>
+    NavBar
+
     <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top"
         style="background-color: #452066; opacity: 0.9;">
         <a class="navbar-brand mb-1 nav-heading" href="#" style="font-size: 28px;">
@@ -516,8 +575,9 @@
 
     <!--JS file-->
     <script src="script.js"></script>
-
-    <!--Required Bootrap Jquery first,Popper JS , Bootstrap JS-->
+      
+      
+    <!-- Required Bootrap Jquery first,Popper JS , Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
       crossorigin="anonymous"></script>
@@ -527,6 +587,22 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"></script>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!--preloader JS -->
+    <script>
+        $(document).ready(function() {
+        //Preloader
+        preloaderFadeOutTime = 3000;
+        function hidePreloader() {
+        var preloader = $('.loader_bg');
+        preloader.fadeOut(preloaderFadeOutTime);
+        }
+        hidePreloader();
+        });
+        </script>
 </body>
 
 
