@@ -7,6 +7,7 @@ let isbn = document.getElementById("isbnno");
 let edition = document.getElementById("edition");
 let publicationD = document.getElementById("publicationdate");
 let read = document.getElementById("read");
+let favorite = document.getElementById("heart");
 let type;
 
 let fiction = document.getElementById('fiction');
@@ -102,7 +103,8 @@ libraryForm.addEventListener('submit', (e) => {
                 bookisbn: isbn.value,
                 bookedition: edition.value,
                 bookpublication : publicationD.value,
-                readStatus: read.checked
+                readStatus: read.checked,
+                favorite: favorite.checked
             }
         }
         else { // Book Author not entered then set it to Unknown
@@ -113,7 +115,8 @@ libraryForm.addEventListener('submit', (e) => {
                 bookisbn: isbn.value,
                 bookedition: edition.value,
                 bookpublication : publicationD.value,
-                readStatus: read.checked
+                readStatus: read.checked,
+                favorite: favorite.checked
             }
         }
         if(editIndex != -1){
@@ -184,6 +187,7 @@ function displayBooks() {
            <td class="edition">${books.bookedition}</td>
            <td class="publicationdate">${books.bookpublication}</td>
            <td class="type">${books.readStatus ? "<input type='checkbox' checked/> " : "<input type='checkbox' />"}</td>
+           <td class="fav">${books.favorite ? "<input type='checkbox' checked/> " : "<input type='checkbox' />"}</td>
            <td class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
            <td class="icon"><i class="fa fa-edit" aria-hidden="true" onclick="editBook(${index})"></i></td>
            </tr>
@@ -200,6 +204,7 @@ function displayBooks() {
            <td class="edition">${books.bookedition}</td>
            <td class="publicationdate">${books.bookpublication}</td>
            <td class="type">${books.readStatus ? "<input type='checkbox' checked/> " : "<input type='checkbox' />"}</td>
+           <td class="fav">${books.favorite ? "<input type='checkbox' checked/> " : "<input type='checkbox' />"}</td>
             <td class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
            <td class="icon"><i class="fa fa-edit" aria-hidden="true" onclick="editBook(${index})"></i></td>
            </tr>
