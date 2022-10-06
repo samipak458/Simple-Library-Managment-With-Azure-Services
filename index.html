@@ -17,7 +17,8 @@
 
     <!-- Custom CSS -->
     <style>
-        body {
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Nunito:wght@200&family=Poppins&family=Roboto:wght@300&display=swap');  
+         body {
             background-color: var(--secondary-color);
             background-color: var(--primary-color);
         }
@@ -77,8 +78,8 @@
             transition: 1s;
         }
 
-        h1 {
-            font-family: aerial;
+        h3 { 
+            font-family: 'Poppins';
             color: #bd8cbf;
             text-shadow: 5px 5px 5px rgba(135, 206, 250, 0.4);
         }
@@ -235,6 +236,9 @@
         .dark-theme .toggle-switch #icon {
             transform: translateX(37px);
         }
+        .dark-theme #table .table{
+            color: white;
+        }
         .loader_bg{
             position: fixed;
             top: 0;
@@ -296,11 +300,11 @@
     <div class="loader_bg" style="display:flex; justify-content:center;align-items: center;">
         <div class="loader"></div>
     </div>
-    NavBar
+    <!-- NavBar -->
     <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top"
         style="background-color: #452066; opacity: 0.9;">
         <a class="navbar-brand mb-1 nav-heading" href="#" style="font-size: 28px;">
-            <span style="color:#d45248;font-family:cursive;font-weight: bold;">Online <span style="color:#fff ;">Library</span></span>
+            <span style="color:#d45248;font-family:Montserrat;font-weight: bold;">Online <span style="color:#fff ;">Library</span></span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
             aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -324,8 +328,8 @@
                         <button class="fa fa-search" type="submit"></button>
                     </div>
                 <div class="toggle-switch">
-                    <a id="icon"></div>
-                  </div>
+                    <a id="icon"></a>
+                </div>
             </form>
       </div>
     </nav>
@@ -337,11 +341,11 @@
 
     <!--Section of Adding books-->
     <div class="container pt-4 mt-5 my-3">
-        <h1 class="text-center display-4 font-weight-bold welcome-text">Welcome To Online Library</h1>
+        <h3 class="text-center display-4 font-weight-bold welcome-text">Welcome To Online Library</h3>
         <hr>
-        <h1>
+        <h3>
             <font size="8px"><b>Add Your Book</b></font>
-        </h1>
+        </h3>
         <form id="libraryForm">
             <div class="form-group row">
                 <label for="bookName" class="col-sm-2 col-form-label">Name:</label>
@@ -442,7 +446,7 @@
 
         <!-- Section Display of books-->
         <div id="table mt-0">
-            <h1 class="text-center"><font size="8px"><b>Your Book Shelf</b></font></h1>
+            <h3 class="text-center"><font size="8px"><b>Your Book Shelf</b></font></h3>
             <hr>
 
             <div id="table" class="mb-5">
