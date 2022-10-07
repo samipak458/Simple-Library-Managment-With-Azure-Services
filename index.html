@@ -3,8 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="Shortcut Icon" type="image/ico" href="favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Online Library</title>
 
     <!-- Bootstrap CSS -->
@@ -67,6 +69,7 @@
 
         #searchText {
             background-color: rgb(32, 32, 32);
+            color: #fff;
         }
 
         #searchText:hover {
@@ -434,6 +437,49 @@
         .dark-theme h3 {
             text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.9);
         }
+        .checkbox {
+            opacity: 0;
+            padding-left: 16px;
+          }
+          
+          .label {
+            width: 50px;
+            height: 26px;
+            background-color:#111;
+            display: flex;
+            border-radius:50px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px;
+            position: relative;
+            transform: scale(1.5);
+          }
+          
+          .ball {
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            border-radius: 50%;
+            transition: transform 0.2s linear;
+          }
+          
+          /*  target the elemenent after the label*/
+          .checkbox:checked + .label .ball{
+            transform: translateX(24px);
+          }
+          
+          .fa-moon {
+            color: rgb(111, 166, 255);
+            padding: 4px;
+          }
+          
+          .fa-sun {
+            color: rgb(255, 255, 130);
+            padding: 4px;
+          }
     </style>
 
 </head>
@@ -473,7 +519,15 @@
                     <input type="search" id="searchText" placeholder="Search">
                     <button class="fa fa-search" type="submit"></button>
                 </div>
-                <div class="toggle-switch" id="icon">
+                <!-- <div class="toggle-switch" id="icon"> -->
+                    
+                        <input type="checkbox" class="checkbox" id="checkbox">
+                      <label for="checkbox" class="label">
+                        <i class="fas fa-moon"></i>
+                        <i class='fas fa-sun'></i>
+                        <div class='ball'>
+                      </label>
+                    
                     <a id="icon"></a>
                 </div>
             </form>
