@@ -18,30 +18,29 @@
 
     <!-- Custom CSS -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Nunito:wght@200&family=Poppins&family=Roboto:wght@300&display=swap');  
-         body {
-            background-color: var(--secondary-color);
-            background-color: var(--primary-color);
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Nunito:wght@200&family=Poppins&family=Roboto:wght@300&display=swap');
+        /* variable declaration */
+
+        :root {
+            --primary-color: white;
+            --secondary-color: black;
+            --ternary-color: rgb(41, 39, 39);
         }
+
+
+        body {
+            background-color: var(--primary-color);
+            transition: background 0.5s linear;
+        }
+
         #clear {
             display: none;
             text-transform: uppercase;
             font-size: small;
             margin-bottom: 10px;
         }
-        
-        :root {
-            --primary-color:white;
-            --secondary-color:black;    
-            /* --ternary-color:rgb(41, 39, 39); */
-        }
-        
-        .dark-theme{
-            --primary-color:black;
-            --secondary-color:white;    
-            --ternary-color:rgb(41, 39, 39);
-        }
-        
+
+
         #clear:hover {
             background-color: purple;
             font-size: larger;
@@ -60,40 +59,28 @@
             font-size: small;
         }
 
-          .nav-heading:hover {
-              text-shadow: none;
-              border: none;
-            }
-            
+        .nav-heading:hover {
+            text-shadow: none;
+            border: none;
+        }
+
         #searchText {
-            background-color: rgb(32, 32, 32);       
+            background-color: rgb(32, 32, 32);
         }
 
         #searchText:hover {
             transition: 1s;
         }
-        
-        body {
-    background-image: url("https://images.unsplash.com/photo-1528731708534-816fe59f90cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
-    background-repeat: no-repeat;
-    background-size: cover;
-        }
-      
-	h1 {
-	 font-family:aerial;
-         color:#bd8cbf;
-         text-shadow:5px 5px 5px rgba(135,206,250,0.4);
-	}
-      
-      a:link {
-        color: black;
-        font-size: small;
-        background-color: transparent;
-        text-decoration: none;
-        cursor: pointer;
-      }
 
-        h3 { 
+        a:link {
+            color: black;
+            font-size: small;
+            background-color: transparent;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        h3 {
             font-family: 'Poppins';
             color: #bd8cbf;
             text-shadow: 5px 5px 5px rgba(135, 206, 250, 0.4);
@@ -103,40 +90,40 @@
             cursor: pointer;
         }
 
-      .container .welcome-text {
-        padding-top: 10px;
-       }
+        .container .welcome-text {
+            padding-top: 10px;
+        }
 
         #libraryForm {
             border: 3px solid;
             box-shadow: 0px 3px 20px grey, 1px 0px 3px #bd8cbf;
             padding: 20px;
             border-radius: 20px;
-          }
-          
-      .form-check1:hover,
-      .form-check2:hover,
-      .form-check3:hover,
-      .form-check4:hover, 
-      .form-check5:hover, 
-      .form-check6:hover {	    
-        color: blue;
-        font-weight:bold;
+        }
+
+        .form-check1:hover,
+        .form-check2:hover,
+        .form-check3:hover,
+        .form-check4:hover,
+        .form-check5:hover,
+        .form-check6:hover {
+            color: blue;
+            font-weight: bold;
         }
 
         #table {
-            border:3px solid white;
-            box-shadow:0px 3px 20px grey,1px 0px 3px #bd8cbf;
+            border: 3px solid white;
+            box-shadow: 0px 3px 20px grey, 1px 0px 3px #bd8cbf;
             padding: 10px;
-	          border-radius:20px;
-        }   
+            border-radius: 20px;
+        }
 
-        .form-control{
+        .form-control {
             /* color:white; */
             /* color:black; */
-            background-color: var(--ternary-color);
+            background-color: var(--primary-color);
         }
-        
+
         #table {
             border: 3px solid;
             box-shadow: 0px 3px 20px grey, 1px 0px 3px #bd8cbf;
@@ -148,7 +135,7 @@
             height: 1.4em;
             width: 1.4em;
         }
-        
+
         .icon {
             color: red;
             font-size: 18px;
@@ -161,25 +148,29 @@
             height: 38px;
             padding: 0 10px;
         }
+
         #filter-books:focus {
             outline: 2px solid #d45248;
 
         }
-        
+
         .input-right {
-          margin-left: 1em;
+            margin-left: 1em;
         }
-	
-        label{
+
+        label {
             color: grey;
         }
-        legend{
+
+        legend {
             color: grey;
         }
-        #books{
+
+        #books {
             color: grey;
         }
-        #emptyMsg{
+
+        #emptyMsg {
             color: grey;
         }
         .favorites {
@@ -199,21 +190,21 @@
             cursor: pointer;
         }
         option {
-            background-color:var(--ternary-color);
-            color:  grey;
+            background-color: var(--ternary-color);
+            color: grey;
         }
-	
+
         .search_box {
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        .search_box input{
+        .search_box input {
             border: none;
             outline: none;
             width: 0;
-            padding: 0; 
+            padding: 0;
             opacity: 0;
             border-radius: 20px;
             line-height: 20px;
@@ -245,20 +236,21 @@
             color: #fff;
         }
 
-        .search_box:hover input{
+        .search_box:hover input {
             width: 240px;
             opacity: 1;
             padding: 10px 20px;
         }
+
         .toggle-switch {
-            color:  grey;
             width: 70px;
             height: 30px;
-            background: grey;
+            background: white;
             border-radius: 50px;
             position: relative;
             margin-left: 10px;
         }
+
         .toggle-switch #icon {
             background: white;
             width: 24px;
@@ -270,147 +262,169 @@
             left: 4px;
             transition: 0.5s all ease;
         }
-        .dark-theme .toggle-switch {
-            background: grey;
-        }
-        .dark-theme .toggle-switch #icon {
-            transform: translateX(37px);
-        }
-        .dark-theme #table .table{
-            color: white;
-        }
 
-      
         .input-right {
-          margin-left: 1em;
-        }
-      
-       .visually_hidden {
-          border: 0;
-          clip: rect(0 0 0 0);
-          height: 1px;
-          width: 1px;
-          margin: -1px;
-          padding: 0;
-          overflow: hidden;
-          position: absolute;
+            margin-left: 1em;
         }
 
-       .no-bullets {
-          list-style-type: none;
-          margin: 0;
-          padding: 0;
+        .visually_hidden {
+            border: 0;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            width: 1px;
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            position: absolute;
         }
 
-      .footer {
-         
-         padding: 30px 0;
-         font-family: 'Poppins', sans-serif;
-       }
+        .no-bullets {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
 
-     .container-a{
-       width: min(1000px, calc(70% + 100px));
-       margin: auto;
-      }
+        .footer {
+            padding: 30px 0;
+            font-family: 'Poppins', sans-serif;
+        }
 
-    .row{
-      display: flex;
-      flex-wrap: wrap;
-     }
+        .container-a {
+            width: min(1000px, calc(70% + 100px));
+            margin: auto;
+        }
 
-    .footer-col{
-      width: 25%;
-      padding: 0 20px;
-      }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
 
-    .footer-col h4{
-      font-size: 35px;
-      color: black;
-      margin-bottom: 20px;
-      position: relative;
-      font-size: clamp(1.2rem, 2.5vw, 1.5rem);
-    }
-    
-      .footer-col ul li a{
-        font-size: max(.8rem, .8vw);
-      }
-      
-    .footer-col h4::before{
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -5px;
-      background-color: #e91e63;
-      height: 2px;
-      box-sizing: border-box;
-      width: 60px;
-    }
+        .footer-col {
+            width: 25%;
+            padding: 0 20px;
+        }
 
-        .loader_bg{
+        .footer-col h4 {
+            font-size: 35px;
+            margin-bottom: 20px;
+            position: relative;
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+        }
+
+        .footer-col ul li a {
+            font-size: max(.8rem, .8vw);
+        }
+
+        .footer-col h4::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            background-color: #e91e63;
+            height: 2px;
+            box-sizing: border-box;
+            width: 60px;
+        }
+
+        .loader_bg {
             position: fixed;
             top: 0;
             left: 0;
-            right:0;
+            right: 0;
             bottom: 0;
             z-index: 999999;
             background-color: rgb(234, 234, 234);
             width: 100%;
-            min-height:100% ;
+            min-height: 100%;
             /* min-height:100%; */
             background-position: center;
             /* background-repeat:repeat-x; */
-            background-size:cover;
+            background-size: cover;
         }
-        .loader{
+
+        .loader {
             border: 0 solid transparent;
             border-radius: 50%;
             width: 150px;
             height: 150px;
             position: absolute;
-            top:calc(50vh -75px);
-            left:calc(50vw -75px);
+            top: calc(50vh -75px);
+            left: calc(50vw -75px);
         }
-        .loader:before,.loader:after{
+
+        .loader:before,
+        .loader:after {
             content: '';
-            border:1em solid #5a2a84;
+            border: 1em solid #5a2a84;
             border-radius: 50%;
             width: inherit;
             height: inherit;
-            position:absolute;
-            animation:loader 2s linear infinite;
+            position: absolute;
+            animation: loader 2s linear infinite;
             opacity: 0;
         }
-        .loader:before{
+
+        .loader:before {
             animation-delay: .5s;
         }
+
         @keyframes loader {
-            0%{
-                transform:scale(0);
+            0% {
+                transform: scale(0);
                 opacity: 0;
             }
-            50%{
+
+            50% {
                 opacity: 1;
             }
-            150%{
+
+            150% {
                 transform: scale(1);
                 opacity: 0;
             }
-        }  
+        }
 
 
 
-    .footer-col ul li:not(:last-child){
-      margin-bottom: 10px;
-    }
+        .footer-col ul li:not(:last-child) {
+            margin-bottom: 10px;
+        }
 
-    .footer-col ul li a:hover{
-      padding-left: 8px;
-      transition: all 0.3s ease;
-      color: #0068ff;
-    }
-      
-      
+        .footer-col ul li a:hover {
+            padding-left: 8px;
+            transition: all 0.3s ease;
+            color: #0068ff;
+        }
+
+        /* dark theme css */
+
+        .dark-theme {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .dark-theme .toggle-switch {
+            background: grey;
+        }
+
+        .dark-theme .toggle-switch #icon {
+            transform: translateX(37px);
+        }
+
+        .dark-theme #table .table,
+        .dark-theme #libraryForm label,
+        .dark-theme #libraryForm legend,
+        .dark-theme footer .footer-col .no-bullets li a:link,
+        .dark-theme #books,
+        .dark-theme #emptyMsg {
+            color: white;
+        }
+
+        .dark-theme h3 {
+            text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.9);
+        }
     </style>
+
 </head>
 
 <body>
@@ -424,34 +438,35 @@
     <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top"
         style="background-color: #452066; opacity: 0.9;">
         <a class="navbar-brand mb-1 nav-heading" href="#" style="font-size: 28px;">
-            <span style="color:#d45248;font-family:Montserrat;font-weight: bold;">Online <span style="color:#fff ;">Library</span></span>
+            <span style="color:#d45248;font-family:Montserrat;font-weight: bold;">Online <span
+                    style="color:#fff ;">Library</span></span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
             aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
-        </ul>
+            </ul>
             <form class="form-inline my-2 my-lg-0">
                 <select name="filter" id="filter-books" class="form-select mr-sm-2">
                     <option class="filter_option" value="" selected disabled hidden>Select filter</option>
-                    <option value="all">All</option> 
+                    <option value="all">All</option>
                     <option value="book">Name</option>
                     <option value="bookauthor">Author</option>
                     <option value="bookType">Type</option>
                 </select>
-                    <div class="search_box">
-                        <input type="search" id="searchText" placeholder="Search">
-                        <button class="fa fa-search" type="submit"></button>
-                    </div>
-                <div class="toggle-switch">
+                <div class="search_box">
+                    <input type="search" id="searchText" placeholder="Search">
+                    <button class="fa fa-search" type="submit"></button>
+                </div>
+                <div class="toggle-switch" id="icon">
                     <a id="icon"></a>
                 </div>
             </form>
-      </div>
+        </div>
     </nav>
 
 
@@ -501,10 +516,10 @@
                 <label for="dateofpublication" class="col-sm-2 col-form-label">Publiction Date:</label>
                 <div class="col-sm-10">
                     <input type="date" class="form-control" id="publicationdate" placeholder="Date of Publication">
-            </div>
+                </div>
             </div>
             <div class="form-group row">
-             <label for="Author" class="col-sm-2">Read :</label>
+                <label for="Author" class="col-sm-2">Read :</label>
                 <div class="col-sm-1">
                     <input type="checkbox" id="read">
                 </div>
@@ -523,7 +538,7 @@
                             <input class="form-check-input" type="radio" name="type" id="programming"
                                 value="Programming">
                             <label class="form-check-label" for="programming">
-            
+
                                 Computer Programming
                             </label>
                         </div>
@@ -551,20 +566,21 @@
                             <label class="form-check-label" for="other">
                                 Other
                             </label>
-                            <input class="input-right" placeholder="Create new type" hidden id="newType" name="type" value="">
+                            <input class="input-right" placeholder="Create new type" hidden id="newType" name="type"
+                                value="">
                         </div>
                     </div>
                 </div>
-                  <div class="form-group row">
-                <div class="col-lg-12 col-sm-10 mt-3">
-                    <button type="submit" class="btn text-light btn-large btn-block"
-                        style="background-color: #7f5bb4f3;">Add Book</button>
+                <div class="form-group row">
+                    <div class="col-lg-12 col-sm-10 mt-3">
+                        <button type="submit" class="btn text-light btn-large btn-block"
+                            style="background-color: #7f5bb4f3;">Add Book</button>
+                    </div>
                 </div>
-            </div>
         </form>
 
-            <fieldset class="form-group">
-            </fieldset>
+        <fieldset class="form-group">
+        </fieldset>
 
         </form>
         <br>
@@ -572,7 +588,9 @@
 
         <!-- Section Display of books-->
         <div id="table mt-0">
-            <h3 class="text-center"><font size="8px"><b>Your Book Shelf</b></font></h3>
+            <h3 class="text-center">
+                <font size="8px"><b>Your Book Shelf</b></font>
+            </h3>
             <hr>
 
             <div id="table" class="mb-5">
@@ -580,7 +598,7 @@
 
                 <table class="table table-striped table-bordered">
                     <thead class="text-center text-light" style="background-color: #7952b3;">
-                      <tr>
+                        <tr>
                             <th scope="col">No.</th>
                             <th scope="col">Name</th>
                             <th scope="col">Author</th>
@@ -603,80 +621,84 @@
             </div>
 
             <button type="button" id="clear" class="btn px-3 mb-2 btn-danger float-right">Clear Shelf</button>
-      </div>
-      </div>
+        </div>
+    </div>
+
+    <!--footer section-->
+    <hr>
+    <footer class="footer">
+        <div class="container-a">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>About</h4>
+                    <ul class="no-bullets">
+                        <li><a href="#">Online Library</a></li>
+                        <li><a href="#">Join Our Team</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Supports</h4>
+                    <ul class="no-bullets">
+                        <li><a href="#">Help / FAQ</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                        <li><a href="#">Publisher</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Social Media</h4>
+                    <ul class="no-bullets">
+                        <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-linkedin-in"></i>LinkedIn</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Download</h4>
+                    <ul class="no-bullets">
+                        <li><a href="#"><img
+                                    src="https://www.scribd.com/webpack/assets/images/shared/app_store/app_store_black_en.c01025ef.svg"
+                                    alt="appstore"></a></li>
+                        <li><a href="#"><img
+                                    src="https://www.scribd.com/webpack/assets/images/shared/app_store/play_store_en.52ebe950.svg"
+                                    alt="google playstore"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!--JS file-->
     <script src="script.js"></script>
-      
-      
+
+
     <!-- Required Bootrap Jquery first,Popper JS , Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"></script>
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"></script>
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"></script>
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <!--preloader JS -->
     <script>
-        $(document).ready(function() {
-        //Preloader
-        preloaderFadeOutTime = 3000;
-        function hidePreloader() {
-        var preloader = $('.loader_bg');
-        preloader.fadeOut(preloaderFadeOutTime);
-        }
-        hidePreloader();
+        $(document).ready(function () {
+            //Preloader
+            preloaderFadeOutTime = 3000;
+            function hidePreloader() {
+                var preloader = $('.loader_bg');
+                preloader.fadeOut(preloaderFadeOutTime);
+            }
+            hidePreloader();
         });
-        </script>
+    </script>
 </body>
 
-
-<!--footer section-->
-      <hr>
-  <footer class="footer">
-    <div class="container-a">
-      <div class="row">
-        <div class="footer-col">
-          <h4>About</h4>
-          <ul class="no-bullets">
-            <li><a href="#">Online Library</a></li>
-            <li><a href="#">Join Our Team</a></li>
-            <li><a href="#">Contact Us</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Supports</h4>
-          <ul class="no-bullets">
-            <li><a href="#">Help / FAQ</a></li>
-            <li><a href="#">Accessibility</a></li>
-            <li><a href="#">Publisher</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Social Media</h4>
-          <ul class="no-bullets">
-            <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
-            <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
-            <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
-             <li><a href="#"><i class="fab fa-linkedin-in"></i>LinkedIn</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Download</h4>
-          <ul class="no-bullets">
-            <li><a href="#"><img src="https://www.scribd.com/webpack/assets/images/shared/app_store/app_store_black_en.c01025ef.svg" alt="appstore"></a></li>
-            <li><a href="#"><img src="https://www.scribd.com/webpack/assets/images/shared/app_store/play_store_en.52ebe950.svg" alt="google playstore"></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
 </html>
