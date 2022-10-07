@@ -7,7 +7,9 @@ let isbn = document.getElementById("isbnno");
 let edition = document.getElementById("edition");
 let publicationD = document.getElementById("publicationdate");
 let read = document.getElementById("read");
+
 let url = document.getElementById("bookurl");
+let favorite = document.getElementById("heart");
 let type;
 
 let fiction = document.getElementById('fiction');
@@ -19,79 +21,79 @@ let editIndex = -1;
 
 // Adding Books
 libraryForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    // Checking different types of books
-    if (fiction.checked) {
-        type = fiction.value;
-        programming.unchecked;
-        science.unchecked;
-    }
-    else if (programming.checked) {
-        type = programming.value;
-        science.unchecked;
-        anime.unchecked;
-        fiction.unchecked;
-    }
-    else if (science.checked) {
-        type = science.value;
-        fiction.unchecked;
-        programming.unchecked;
-        anime.unchecked;
-    }
-    else if (anime.checked) {
-        type = anime.value;
-        fiction.unchecked;
-        programming.checked;
-        science.unchecked;
-    }
+  e.preventDefault();
+  // Checking different types of books
+  if (fiction.checked) {
+    type = fiction.value;
+    programming.unchecked;
+    science.unchecked;
+  }
+  else if (programming.checked) {
+    type = programming.value;
+    science.unchecked;
+    anime.unchecked;
+    fiction.unchecked;
+  }
+  else if (science.checked) {
+    type = science.value;
+    fiction.unchecked;
+    programming.unchecked;
+    anime.unchecked;
+  }
+  else if (anime.checked) {
+    type = anime.value;
+    fiction.unchecked;
+    programming.checked;
+    science.unchecked;
+  }
 
-    else if (others.checked) {
-        type = newType.value ? newType.value : others.value;
-        fiction.unchecked;
-        programming.unchecked;
-        science.unchecked;
-        anime.unchecked;
-    }
-    else {
-        type = "other";
-    }
-    
-    let shelf = localStorage.getItem('shelfOfBooks');
+  else if (others.checked) {
+    type = newType.value ? newType.value : others.value;
+    fiction.unchecked;
+    programming.unchecked;
+    science.unchecked;
+    anime.unchecked;
+  }
+  else {
+    type = "other";
+  }
 
-    let objOfBook;   //object which stores books
-    let alreadyAdded = false; 
+  let shelf = localStorage.getItem('shelfOfBooks');
 
-    // Check if the book is already in the library
-    if (shelf == null) {
-        objOfBook = [];
-    }
-    else {                                //We might have multiple books 
-        objOfBook = JSON.parse(shelf);   //By using JSON we convert it into Object
+  let objOfBook;   //object which stores books
+  let alreadyAdded = false;
 
-    
+  // Check if the book is already in the library
+  if (shelf == null) {
+    objOfBook = [];
+  }
+  else {                                //We might have multiple books 
+    objOfBook = JSON.parse(shelf);   //By using JSON we convert it into Object
+
+
     objOfBook.every(bookObj => {
-        if (author === "") author = "Unknown";
-        let curBook = (name === bookObj.book);
-        let curAuthor = (author === bookObj.bookauthor);
-        let curBookType = (type === bookObj.bookType);
+      if (author === "") author = "Unknown";
+      let curBook = (name === bookObj.book);
+      let curAuthor = (author === bookObj.bookauthor);
+      let curBookType = (type === bookObj.bookType);
 
-        if (curBook && curAuthor && curBookType) {
-            console.log("already added!");
-            alreadyAdded = true;
-            return false;
-        }
-        return true;
+      if (curBook && curAuthor && curBookType) {
+        console.log("already added!");
+        alreadyAdded = true;
+        return false;
+      }
+      return true;
     });
   }
 
-    if (alreadyAdded === true) {
-        alreadyAddedMessage();
-        return;
-    }
-    else{
+  if (alreadyAdded === true) {
+    alreadyAddedMessage();
+    return;
+  }
+  else {
     // Book Name is mandatory field
     if (name.value == "") {
-        errorMessage();
+      errorMessage();
     }
     else {
         let myObj;
@@ -104,7 +106,8 @@ libraryForm.addEventListener('submit', (e) => {
                 bookisbn: isbn.value,
                 bookedition: edition.value,
                 bookpublication : publicationD.value,
-                readStatus: read.checked
+                readStatus: read.checked,
+                favorite: favorite.checked
             }
         }
         else { // Book Author not entered then set it to Unknown
@@ -116,69 +119,70 @@ libraryForm.addEventListener('submit', (e) => {
                 bookisbn: isbn.value,
                 bookedition: edition.value,
                 bookpublication : publicationD.value,
-                readStatus: read.checked
+                readStatus: read.checked,
+                favorite: favorite.checked
             }
         }
-        if(editIndex != -1){
-            objOfBook.splice(editIndex, 1, myObj);
-            addMessage(true);
-            editIndex = -1;
-        }
-        else {
-            objOfBook.push(myObj);
-            addMessage();
-            UpdateBook();
-        }
-        localStorage.setItem('shelfOfBooks', JSON.stringify(objOfBook));
-        name.value = "";
-        author.value = "";
-        type = "";
-        url.value = "";
-        isbn.value = "";
-        edition.value = "";
-        publicationD.value = "";
+
+      if (editIndex != -1) {
+        objOfBook.splice(editIndex, 1, myObj);
+        addMessage(true);
+        editIndex = -1;
       }
-        displayBooks();
+      else {
+        objOfBook.push(myObj);
+        addMessage();
+        UpdateBook();
+      }
+      localStorage.setItem('shelfOfBooks', JSON.stringify(objOfBook));
+      name.value = "";
+      author.value = "";
+      type = "";
+      isbn.value = "";
+      edition.value = "";
+      publicationD.value = "";
     }
+    displayBooks();
+  }
 })
 
 function editBook(index) {
-    let bookDetails = JSON.parse(localStorage.getItem("shelfOfBooks"))[index];
-    
-    console.log(bookDetails);
-    name.value = bookDetails.book;
-    author.value = bookDetails.bookauthor;
+  let bookDetails = JSON.parse(localStorage.getItem("shelfOfBooks"))[index];
 
-    switch(bookDetails.bookType){
-        case "other" : others.checked = true; break; 
-        case "fiction": fiction.checked = true; break;
-        case "programming" : programming.checked = true; break;
-        case "science": science.checked = true; break;
-    }
+  console.log(bookDetails);
+  name.value = bookDetails.book;
+  author.value = bookDetails.bookauthor;
 
-    editIndex = index;
-    name.focus();
+  switch (bookDetails.bookType) {
+    case "other": others.checked = true; break;
+    case "fiction": fiction.checked = true; break;
+    case "programming": programming.checked = true; break;
+    case "science": science.checked = true; break;
+  }
+
+  editIndex = index;
+  name.focus();
 }
 
 
 //Function to show elements(books) from LocalStorage
 function displayBooks() {
-    let books = localStorage.getItem('shelfOfBooks');
-    let clearBtn = document.getElementById("clear");
-    let objOfBook;
+  let books = localStorage.getItem('shelfOfBooks');
+  let clearBtn = document.getElementById("clear");
+  let objOfBook;
 
-    if (books == null) {
-        objOfBook = [];
-    }
-    else {
-        objOfBook = JSON.parse(books);
-    }
-    let html = "";
-    let index = 0;
+  if (books == null) {
+    objOfBook = [];
+  }
+  else {
+    objOfBook = JSON.parse(books);
+  }
+  let html = "";
+  let index = 0;
 
-    objOfBook.forEach((books) => {  //index is the length of the array
-        if (index == 0) {
-            html += `
+  objOfBook.forEach((books) => {  //index is the length of the array
+    if (index == 0) {
+      html += `
            <tr class="rows">
            <th scope="row">1</th>
            <td class="name"><a class="bookurl" href=${books.bookurl}> ${books.book} </a></td>
@@ -188,6 +192,7 @@ function displayBooks() {
            <td class="edition">${books.bookedition}</td>
            <td class="publicationdate">${books.bookpublication}</td>
            <td class="type">${books.readStatus ? "<input type='checkbox' checked/> " : "<input type='checkbox' />"}</td>
+           <td class="fav">${books.favorite ? "<input type='checkbox' checked/> " : "<input type='checkbox' />"}</td>
            <td class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
            <td class="icon"><i class="fa fa-edit" aria-hidden="true" onclick="editBook(${index})"></i></td>
            </tr>
@@ -204,11 +209,12 @@ function displayBooks() {
            <td class="edition">${books.bookedition}</td>
            <td class="publicationdate">${books.bookpublication}</td>
            <td class="type">${books.readStatus ? "<input type='checkbox' checked/> " : "<input type='checkbox' />"}</td>
+           <td class="fav">${books.favorite ? "<input type='checkbox' checked/> " : "<input type='checkbox' />"}</td>
             <td class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
            <td class="icon"><i class="fa fa-edit" aria-hidden="true" onclick="editBook(${index})"></i></td>
            </tr>
         `;
-     }
+    }
 
     index++;
 
@@ -235,23 +241,23 @@ function displayBooks() {
 //Show adding message
 
 function addMessage(edited = false) {
-    let message = document.getElementById('message');
-    let navbar = document.getElementById('navbar');
+  let message = document.getElementById('message');
+  let navbar = document.getElementById('navbar');
 
-    navbar.style.display = "none";
-    
-    message.innerHTML =  !edited ? `<div class="alert alert-success alert-dismissible fade show" role="alert">
+  navbar.style.display = "none";
+
+  message.innerHTML = !edited ? `<div class="alert alert-success alert-dismissible fade show" role="alert">
     <strong>Message:</strong> Your book has been successfully added.
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
-  </div>` : 
-  `<div class="alert alert-success alert-dismissible fade show" role="alert">
+  </div>` :
+    `<div class="alert alert-success alert-dismissible fade show" role="alert">
     <strong>Message:</strong> Your book has been successfully edited.
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
-  </div>` 
+  </div>`
 
 
   setTimeout(() => {
@@ -281,25 +287,25 @@ function errorMessage() {
 
 //Show alreadyAdded message
 function alreadyAddedMessage() {
-    let message = document.getElementById('message');
-    let navbar = document.getElementById('navbar');
+  let message = document.getElementById('message');
+  let navbar = document.getElementById('navbar');
 
-    navbar.style.display = "none";
-    message.innerHTML = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  navbar.style.display = "none";
+  message.innerHTML = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
     <strong>Error:</strong> Book already present!
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
     </button>
     </div>`
 
-    // clear the library form
-    let libraryForm = document.getElementById('libraryForm');
-    libraryForm.reset();
+  // clear the library form
+  let libraryForm = document.getElementById('libraryForm');
+  libraryForm.reset();
 
-    setTimeout(() => {
-        navbar.style.display = "flex";
-        message.innerHTML = ``;
-    }, 2000);
+  setTimeout(() => {
+    navbar.style.display = "flex";
+    message.innerHTML = ``;
+  }, 2000);
 }
 
 //Show clear message
@@ -397,33 +403,33 @@ function removeBook(index) {
 
 //Searching book by bookname, author and type
 let searchNote = document.getElementById('searchText');
-searchNote.addEventListener('input', function() {
+searchNote.addEventListener('input', function () {
 
   let search = searchNote.value.toLowerCase();
 
   let tableRows = document.getElementsByClassName('rows');
 
-  Array.from(tableRows).forEach(function(element) {
-        let bookName = element.getElementsByClassName("name")[0].innerText.toLowerCase();
-        let authorName = element.getElementsByClassName("author")[0].innerText.toLowerCase();
-        let type = element.getElementsByClassName("type")[0].innerText.toLowerCase();
-        let isbnNo = element.getElementsByClassName("isbn")[0].innerText   
-        if (bookName.includes(search)) {
-            element.style.display = "table-row";
-        }
-        else if (authorName.includes(search)) {
-            element.style.display = "table-row";
-        }
-        else if (type.includes(search)) {
-            element.style.display = "table-row";
-        }
-        else if (isbnNo.includes(search)){
-            element.style.display = "table-row";
-        }
-        else {
-            element.style.display = "none";
-        }
-    })
+  Array.from(tableRows).forEach(function (element) {
+    let bookName = element.getElementsByClassName("name")[0].innerText.toLowerCase();
+    let authorName = element.getElementsByClassName("author")[0].innerText.toLowerCase();
+    let type = element.getElementsByClassName("type")[0].innerText.toLowerCase();
+    let isbnNo = element.getElementsByClassName("isbn")[0].innerText
+    if (bookName.includes(search)) {
+      element.style.display = "table-row";
+    }
+    else if (authorName.includes(search)) {
+      element.style.display = "table-row";
+    }
+    else if (type.includes(search)) {
+      element.style.display = "table-row";
+    }
+    else if (isbnNo.includes(search)) {
+      element.style.display = "table-row";
+    }
+    else {
+      element.style.display = "none";
+    }
+  })
 });
 
 
@@ -441,45 +447,45 @@ function UpdateBook() {
 //Show Number of books in Shelf section
 
 const showNumberOfBooks = () => {
-    const getBookNumber = parseInt(localStorage.getItem("getBookNumber"));
-    document.getElementById("books").innerHTML = `No. of books: ${getBookNumber || 0}`;
+  const getBookNumber = parseInt(localStorage.getItem("getBookNumber"));
+  document.getElementById("books").innerHTML = `No. of books: ${getBookNumber || 0}`;
 };
 
 // Filter books based on selected attributes from dropdown
 let filterDropdown = document.getElementById("filter-books");
 function filterBooks() {
-    let books = JSON.parse(localStorage.getItem("shelfOfBooks"));
-    // let numOfBooks = document.getElementById("books");
-    let emptyMsg = document.getElementById("emptyMsg");
-    let filterBy = filterDropdown.value;
-    let html = "";
-    let index = 0;
-    let filteredBooks;
-    if (filterBy === "all") {
-        filteredBooks = books.filter((book) => {
-            return (
-                book.book
-                    .toLowerCase()
-                    .includes(searchNote.value.toLowerCase()) ||
-                book.bookauthor
-                    .toLowerCase()
-                    .includes(searchNote.value.toLowerCase()) ||
-                book.bookType
-                    .toLowerCase()
-                    .includes(searchNote.value.toLowerCase())
-            );
-        });
-    } else {
-        filteredBooks = books.filter((book) => {
-            return book[filterBy]
-                .toLowerCase()
-                .includes(searchNote.value.toLowerCase());
-        });
-    }
+  let books = JSON.parse(localStorage.getItem("shelfOfBooks"));
+  // let numOfBooks = document.getElementById("books");
+  let emptyMsg = document.getElementById("emptyMsg");
+  let filterBy = filterDropdown.value;
+  let html = "";
+  let index = 0;
+  let filteredBooks;
+  if (filterBy === "all") {
+    filteredBooks = books.filter((book) => {
+      return (
+        book.book
+          .toLowerCase()
+          .includes(searchNote.value.toLowerCase()) ||
+        book.bookauthor
+          .toLowerCase()
+          .includes(searchNote.value.toLowerCase()) ||
+        book.bookType
+          .toLowerCase()
+          .includes(searchNote.value.toLowerCase())
+      );
+    });
+  } else {
+    filteredBooks = books.filter((book) => {
+      return book[filterBy]
+        .toLowerCase()
+        .includes(searchNote.value.toLowerCase());
+    });
+  }
 
-    if (filteredBooks.length > 0) {
-        filteredBooks.forEach((filteredBook) => {
-            html += `
+  if (filteredBooks.length > 0) {
+    filteredBooks.forEach((filteredBook) => {
+      html += `
             <tr class="rows">
             <th scope="row">${index + 1}</th>
             <td class="name">${filteredBook.book}</td>
@@ -488,37 +494,36 @@ function filterBooks() {
             <td class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
             </tr>
         `;
-            index++;
-        });
-        emptyMsg.innerHTML = "";
-    } else {
-        let bookAttr;
-        switch (filterBy) {
-            case "all":
-                bookAttr = "";
-                break;
-            case "book":
-                bookAttr = "name";
-                break;
-            case "bookauthor":
-                bookAttr = "author";
-                break;
-            case "bookType":
-                bookAttr = "type";
-                break;
-        }
-        emptyMsg.innerHTML = `No book ${
-            bookAttr !== "" ? "with" : ""
-        } ${bookAttr} "${searchNote.value}" found`;
+      index++;
+    });
+    emptyMsg.innerHTML = "";
+  } else {
+    let bookAttr;
+    switch (filterBy) {
+      case "all":
+        bookAttr = "";
+        break;
+      case "book":
+        bookAttr = "name";
+        break;
+      case "bookauthor":
+        bookAttr = "author";
+        break;
+      case "bookType":
+        bookAttr = "type";
+        break;
     }
+    emptyMsg.innerHTML = `No book ${bookAttr !== "" ? "with" : ""
+      } ${bookAttr} "${searchNote.value}" found`;
+  }
 
-    // ? Does the number of books depends on the search results?
-    // numOfBooks.innerHTML = "No. of Books: " + filteredBooks.length;
+  // ? Does the number of books depends on the search results?
+  // numOfBooks.innerHTML = "No. of Books: " + filteredBooks.length;
 
-    let table = document.getElementById("tableBody");
-    table.innerHTML = html;
+  let table = document.getElementById("tableBody");
+  table.innerHTML = html;
 }
-filterDropdown.addEventListener( "change", filterBooks);
+filterDropdown.addEventListener("change", filterBooks);
 searchNote.addEventListener("input", filterBooks);
 
 
@@ -539,7 +544,7 @@ radioButtons.forEach((btn) => {
 // dark mode
 var icon = document.getElementById("icon");
 
-icon.onclick=function(){
+icon.onclick = function () {
   document.body.classList.toggle("dark-theme");
 }
 
