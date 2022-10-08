@@ -7,6 +7,8 @@ let isbn = document.getElementById("isbnno");
 let edition = document.getElementById("edition");
 let publicationD = document.getElementById("publicationdate");
 let read = document.getElementById("read");
+
+let url = document.getElementById("bookurl");
 let favorite = document.getElementById("heart");
 let type;
 
@@ -84,32 +86,35 @@ libraryForm.addEventListener("submit", (e) => {
     // Book Name is mandatory field
     if (name.value == "") {
       errorMessage();
-    } else {
-      let myObj;
-      if (author.value != "") {
-        myObj = {
-          book: name.value,
-          bookauthor: author.value,
-          bookType: type,
-          bookisbn: isbn.value,
-          bookedition: edition.value,
-          bookpublication: publicationD.value,
-          readStatus: read.checked,
-          favorite: favorite.checked,
-        };
-      } else {
-        // Book Author not entered then set it to Unknown
-        myObj = {
-          book: name.value,
-          bookauthor: "Unknown",
-          bookType: type,
-          bookisbn: isbn.value,
-          bookedition: edition.value,
-          bookpublication: publicationD.value,
-          readStatus: read.checked,
-          favorite: favorite.checked,
-        };
-      }
+    }
+    else {
+        let myObj;
+        if (author.value != "") {
+            myObj = {
+                book: name.value,
+                bookauthor: author.value,
+                bookType: type,
+                bookurl: url.value=="" ? "/" : url.value,
+                bookisbn: isbn.value,
+                bookedition: edition.value,
+                bookpublication : publicationD.value,
+                readStatus: read.checked,
+                favorite: favorite.checked
+            }
+        }
+        else { // Book Author not entered then set it to Unknown
+            myObj = {
+                book: name.value,
+                bookauthor: "Unknown",
+                bookType: type,
+                bookurl: url.value=="" ? "/" : url.value,
+                bookisbn: isbn.value,
+                bookedition: edition.value,
+                bookpublication : publicationD.value,
+                readStatus: read.checked,
+                favorite: favorite.checked
+            }
+        }
 
       if (editIndex != -1) {
         objOfBook.splice(editIndex, 1, myObj);
@@ -178,7 +183,7 @@ function displayBooks() {
       html += `
            <tr class="rows">
            <th scope="row">1</th>
-           <td class="name">${books.book}</td>
+           <td class="name"><a class="bookurl" href=${books.bookurl}> ${books.book} </a></td>
            <td class="author">${books.bookauthor}</td>
            <td class="type">${books.bookType}</td>
            <td class="isbn">${books.bookisbn}</td>
@@ -202,7 +207,7 @@ function displayBooks() {
       html += `
            <tr class="rows">
            <th scope="row">${index + 1}</th>
-           <td class="name">${books.book}</td>
+           <td class="name"><a class="bookurl" href=${books.bookurl}> ${books.book} </a></td>
            <td class="author">${books.bookauthor}</td>
            <td class="type">${books.bookType}</td>
            <td class="isbn">${books.bookisbn}</td>
