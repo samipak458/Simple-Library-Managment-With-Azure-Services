@@ -433,6 +433,13 @@
         .dark-theme #emptyMsg {
             color: white;
         }
+        .dark-theme #libraryForm .changeh{
+            color: grey;
+        }
+        .dark-theme #heart:checked ~ label {
+            cursor: pointer;
+            color: red;
+        }
 
         .dark-theme h3 {
             text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.9);
@@ -554,7 +561,7 @@
                     <input type="text" class="form-control" id="bookName" placeholder="Book Name">
                     <div class="favorites position-absolute">
                         <input type="checkbox" id="heart">
-                        <label for="heart" class="fav-icon">&#9829</label>
+                        <label for="heart" class="fav-icon changeh">&#9829</label>
                     </div>
                 </div>
             </div>
