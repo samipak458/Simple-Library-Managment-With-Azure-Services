@@ -22,6 +22,35 @@ let editIndex = -1;
 // Adding Books
 libraryForm.addEventListener("submit", (e) => {
   e.preventDefault();
+  const isValidUrl= (urlString) => {
+    var urlPattern = new RegExp('^(https?:\\/\\/)?'+ // validate protocol
+    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // validate domain name
+    '((\\d{1,3}\\.){3}\\d{1,3}))'+ // validate OR ip (v4) address
+    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // validate port and path
+    '(\\?[;&a-z\\d%_.~+=-]*)?'+ // validate query string
+    '(\\#[-a-z\\d_]*)?$','i'); // validate fragment locator
+  return !!urlPattern.test(urlString);
+}
+if(!isValidUrl(url.value)){
+  alert('Invalid URL ');
+  url.value="";
+  return;
+}
+const isValidIsbn = (checkisbn) => {
+  var regexisbn = new RegExp("^(?:ISBN(?:-1[03])?:?●)?(?=[0-9X]{10}$|(?=(?:[0-9]+[-●]){3})"+
+  "[-●0-9X]{13}$|97[89][0-9]{10}$|(?=(?:[0-9]+[-●]){4})[-●0-9]{17}$)"+
+  "(?:97[89][-●]?)?[0-9]{1,5}[-●]?[0-9]+[-●]?[0-9]+[-●]?[0-9X]$");
+  return !regexisbn.test(checkisbn);
+}
+if(!isValidIsbn(isbn.value)){
+  alert('Invalid ISBN!');
+  isbn.value="";
+  return;
+}
+
+
+  
+
   // Checking different types of books
   if (fiction.checked) {
     type = fiction.value;
