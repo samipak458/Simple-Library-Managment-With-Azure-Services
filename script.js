@@ -36,15 +36,24 @@ if(!isValidUrl(url.value)){
   url.value="";
   return;
 }
-const isValidIsbn = (checkisbn) => {
-  var regexisbn = new RegExp("^(?:ISBN(?:-1[03])?:?●)?(?=[0-9X]{10}$|(?=(?:[0-9]+[-●]){3})"+
-  "[-●0-9X]{13}$|97[89][0-9]{10}$|(?=(?:[0-9]+[-●]){4})[-●0-9]{17}$)"+
-  "(?:97[89][-●]?)?[0-9]{1,5}[-●]?[0-9]+[-●]?[0-9]+[-●]?[0-9X]$");
-  return !regexisbn.test(checkisbn);
+const isValidIsbn = (subject) => {
+  subject = subject.replaceAll("-","");
+  if(subject.length == 10 || subject.length == 13) {
+    let sum=0;
+    for(let i=0; i<subject.length; i++){
+      sum+=parseInt(subject[i], 10);
+    }
+    if(sum%11 == 0){
+      return true;
+    }else {
+      return false;
+    }
+  } else{
+    return false;
+  }
 }
 if(!isValidIsbn(isbn.value)){
   alert('Invalid ISBN!');
-  isbn.value="";
   return;
 }
 
