@@ -22,6 +22,65 @@ let editIndex = -1;
 // Adding Books
 libraryForm.addEventListener("submit", (e) => {
   e.preventDefault();
+  const isValidUrl= (urlString) => {
+    var urlPattern = new RegExp('^(https?:\\/\\/)?'+ // validate protocol
+    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // validate domain name
+    '((\\d{1,3}\\.){3}\\d{1,3}))'+ // validate OR ip (v4) address
+    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // validate port and path
+    '(\\?[;&a-z\\d%_.~+=-]*)?'+ // validate query string
+    '(\\#[-a-z\\d_]*)?$','i'); // validate fragment locator
+  return !!urlPattern.test(urlString);
+}
+if(!isValidUrl(url.value)){
+  alert('Invalid URL ');
+  url.value="";
+  return;
+}
+const isValidIsbn = (subject) => {
+  subject = subject.replaceAll("-","");
+  console.log(subject.length);
+  if(subject.length == 10) {
+    let sum=0;
+    for(let i=9; i>=0; i--){
+      sum+=parseInt(subject[i], 10)*(i+1);
+    }
+    if(sum%11 == 0){
+      return true;
+    }else {
+      return false;
+    }
+  }
+  else if(subject.length == 13){
+    subject = subject.replaceAll("-","");
+    
+      let sum=0;
+      for(let i=0; i<13; i++){
+        if(i%2==0){
+          sum+=parseInt(subject[i], 10)*(1);
+        } else {
+          sum+=parseInt(subject[i], 10)*(3);
+        }        
+      }
+      console.log(sum);
+      if(sum%10 == 0){
+        return true;
+      }else {
+        return false;
+      }
+  }
+
+   else{
+    return false;
+  }
+}
+if(!isValidIsbn(isbn.value)){
+  alert('Invalid ISBN!');
+  return;
+}
+
+
+  
+
   // Checking different types of books
   if (fiction.checked) {
     type = fiction.value;
