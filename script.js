@@ -38,17 +38,38 @@ if(!isValidUrl(url.value)){
 }
 const isValidIsbn = (subject) => {
   subject = subject.replaceAll("-","");
-  if(subject.length == 10 || subject.length == 13) {
+  console.log(subject.length);
+  if(subject.length == 10) {
     let sum=0;
-    for(let i=0; i<subject.length; i++){
-      sum+=parseInt(subject[i], 10);
+    for(let i=9; i>=0; i--){
+      sum+=parseInt(subject[i], 10)*(i+1);
     }
     if(sum%11 == 0){
       return true;
     }else {
       return false;
     }
-  } else{
+  }
+  else if(subject.length == 13){
+    subject = subject.replaceAll("-","");
+    
+      let sum=0;
+      for(let i=0; i<13; i++){
+        if(i%2==0){
+          sum+=parseInt(subject[i], 10)*(1);
+        } else {
+          sum+=parseInt(subject[i], 10)*(3);
+        }        
+      }
+      console.log(sum);
+      if(sum%10 == 0){
+        return true;
+      }else {
+        return false;
+      }
+  }
+
+   else{
     return false;
   }
 }
