@@ -3,8 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="Shortcut Icon" type="image/ico" href="favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Online Library</title>
 
     <!-- Bootstrap CSS -->
@@ -12,48 +14,63 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- FontAwesome -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <script src="https://kit.fontawesome.com/5587893eae.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
-
-</head>
+    </head>
 
 <body>
+    <!-- NavBar -->
 
-    <!--NavBar-->
-    <nav id="navbar" class="navbar navbar-custom navbar-expand-lg navbar-dark fixed-top"
-        style="background-color: #452066; opacity: 0.9;">
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top"
+        style="background-color: #452066; opacity: 1;">
         <a class="navbar-brand mb-1 nav-heading" href="#" style="font-size: 28px;">
-            <span style="color:#d45248;font-family:cursive;font-weight: bold;">Online <span style="color:#fff ;">Library</span></span>
+            <span style="color:#d45248;font-family:Montserrat;font-weight: bold;">Online <span
+                    style="color:#fff ;">Library</span></span>
         </a>
         <button class="navbar-toggler abc " type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
             aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-
-        </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <select name="filter" id="filter-books" class="form-select mr-sm-2">
-                    <option class="filter_option" value="" selected disabled hidden>Select filter</option>
-                    <option value="all">All</option> 
-                    <option value="book">Name</option>
-                    <option value="bookauthor">Author</option>
-                    <option value="bookType">Type</option>
-                </select>
-                    <div class="search_box">
-                        <input type="search" id="searchText" placeholder="Search">
-                        <button class="fa fa-search" type="submit"></button>
-                    </div>
-                <div class="toggle-switch">
-                    <a id="icon"></div>
-                  </div>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            </ul>
+            <div class="dropdown">
+			   <ul>
+                <li>Select filter
+			   <div class="icon"></div>
+			   <div class="menu">
+ 				<ul>
+                    <li><a href="#">All</a></li>
+                    <li><a href="#">Name</a></li>
+                    <li><a href="#">Author</a></li>
+                    <li><a href="#">Type</a></li>
+               </ul>
+			 </div>
+			 </li> 
+			 </ul>
+		   </div>
+                <div class="search_box">
+                    <input type="search" id="searchText" placeholder="Search">
+                    <button class="fa fa-search" type="submit"></button>
+                </div>
+                <!-- <div class="toggle-switch" id="icon"> -->
+                    
+                        <input type="checkbox" class="checkbox" id="checkbox">
+                      <label for="checkbox" class="label">
+                        <i class="fas fa-moon"></i>
+                        <i class='fas fa-sun'></i>
+                        <div class='ball'>
+                      </label>
+                    
+                    <a id="icon"></a>
+                </div>
             </form>
-      </div>
+        </div>
     </nav>
 
 
@@ -65,14 +82,19 @@
     <div class="container pt-4 mt-5 my-3">
         <h1 class="text-center display-4 font-weight-bold welcome-text">Welcome To Online Library</h1>
         <hr>
-        <h1>
+        <h3 class="text-center">
             <font size="8px"><b>Add Your Book</b></font>
-        </h1>
+        </h3>
+
         <form id="libraryForm">
             <div class="form-group row">
                 <label for="bookName" class="col-sm-2 col-form-label">Name:</label>
-                <div class="col-sm-10">
+                <div class="col-sm-10 position-relative">
                     <input type="text" class="form-control" id="bookName" placeholder="Book Name">
+                    <div class="favorites position-absolute">
+                        <input type="checkbox" id="heart">
+                        <label for="heart" class="fav-icon changeh">&#9829</label>
+                    </div>
                 </div>
             </div>
             <div class="form-group row">
@@ -84,7 +106,13 @@
             <div class="form-group row">
                 <label for="IsbnNo" class="col-sm-2 col-form-label">ISBN No:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="isbnno" placeholder="ISBN Number">
+                    <input type="text" class="form-control" id="isbnno" placeholder="ISBN Number(10/13 digit number divisible by 11)">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="bookurl" class="col-sm-2 col-form-label">URL:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="bookurl" placeholder="Book URL">
                 </div>
             </div>
             <div class="form-group row">
@@ -97,12 +125,13 @@
                 <label for="dateofpublication" class="col-sm-2 col-form-label">Publiction Date:</label>
                 <div class="col-sm-10">
                     <input type="date" class="form-control" id="publicationdate" placeholder="Date of Publication">
-            </div>
+                </div>
             </div>
             <div class="form-group row">
-             <label for="Author" class="col-sm-2">Read :</label>
+                <label for="Author" class="col-sm-2">Read :</label>
                 <div class="col-sm-1">
-                    <input type="checkbox" id="read">
+                    <input type="checkbox" id="read">Yes</input>
+                    <input type="checkbox" id="read">No</input>
                 </div>
             </div>
             <fieldset class="form-group">
@@ -119,7 +148,7 @@
                             <input class="form-check-input" type="radio" name="type" id="programming"
                                 value="Programming">
                             <label class="form-check-label" for="programming">
-            
+
                                 Computer Programming
                             </label>
                         </div>
@@ -147,20 +176,21 @@
                             <label class="form-check-label" for="other">
                                 Other
                             </label>
-                            <input class="input-right" placeholder="Create new type" hidden id="newType" name="type" value="">
+                            <input class="input-right" placeholder="Create new type" hidden id="newType" name="type"
+                                value="">
                         </div>
                     </div>
                 </div>
-                  <div class="form-group row">
-                <div class="col-lg-12 col-sm-10 mt-3">
-                    <button type="submit" class="btn text-light btn-large btn-block"
-                        style="background-color: #7f5bb4f3;">Add Book</button>
+                <div class="form-group row">
+                    <div class="col-lg-12 col-sm-10 mt-3">
+                        <button type="submit" class="btn text-light btn-large btn-block"
+                            style="background-color: #7f5bb4f3;">Add Book</button>
+                    </div>
                 </div>
-            </div>
         </form>
 
-            <fieldset class="form-group">
-            </fieldset>
+        <fieldset class="form-group">
+        </fieldset>
 
         </form>
         <br>
@@ -168,7 +198,9 @@
 
         <!-- Section Display of books-->
         <div id="table mt-0">
-            <h1 class="text-center"><font size="8px"><b>Your Book Shelf</b></font></h1>
+            <h3 class="text-center">
+                <font size="8px"><b>Your Book Shelf</b></font>
+            </h3>
             <hr>
 
             <div id="table" class="mb-5">
@@ -201,22 +233,84 @@
             </div>
 
             <button type="button" id="clear" class="btn px-3 mb-2 btn-danger float-right">Clear Shelf</button>
-      </div>
-      </div>
+        </div>
+    </div>
+
+    <!--footer section-->
+    <hr>
+    <footer class="footer">
+        <div class="container-a">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>About</h4>
+                    <ul class="no-bullets">
+                        <li><a href="#">Online Library</a></li>
+                        <li><a href="#">Join Our Team</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Supports</h4>
+                    <ul class="no-bullets">
+                        <li><a href="#">Help / FAQ</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                        <li><a href="#">Publisher</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Social Media</h4>
+                    <ul class="no-bullets">
+                        <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-linkedin-in"></i>LinkedIn</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Download</h4>
+                    <ul class="no-bullets">
+                        <li><a href="#"><img
+                                    src="https://www.scribd.com/webpack/assets/images/shared/app_store/app_store_black_en.c01025ef.svg"
+                                    alt="appstore"></a></li>
+                        <li><a href="#"><img
+                                    src="https://www.scribd.com/webpack/assets/images/shared/app_store/play_store_en.52ebe950.svg"
+                                    alt="google playstore"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!--JS file-->
     <script src="script.js"></script>
 
-    <!--Required Bootrap Jquery first,Popper JS , Bootstrap JS-->
+
+    <!-- Required Bootrap Jquery first,Popper JS , Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"></script>
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"></script>
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"></script>
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!--preloader JS -->
+    <script>
+        $(document).ready(function () {
+            //Preloader
+            preloaderFadeOutTime = 3000;
+            function hidePreloader() {
+                var preloader = $('.loader_bg');
+                preloader.fadeOut(preloaderFadeOutTime);
+            }
+            hidePreloader();
+        });
+    </script>
 </body>
 
 </html>
