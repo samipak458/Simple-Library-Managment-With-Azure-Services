@@ -249,6 +249,10 @@ option {
   padding-left: 0;
 }
 
+.app-store {
+    margin-bottom: .5rem;
+}
+
 @media only screen and (max-width: 576px) {
   .footer {
       display: grid;
