@@ -228,6 +228,8 @@ option {
   right: 2%;
   top: 20px;
 }
+
+
 .dropdown ul{
   background:#2a2f3b;
   color:white;
@@ -279,3 +281,34 @@ option {
       font-size:18px;
       }
 
+.footer {
+  display: flex;
+  margin: 0 auto;
+  max-width: 1400px;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.no-bullets {
+  list-style: none;
+  padding-left: 0;
+}
+
+.app-store {
+    margin-bottom: .5rem;
+}
+
+@media only screen and (max-width: 576px) {
+  .footer {
+      display: grid;
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
