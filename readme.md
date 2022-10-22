@@ -4,7 +4,7 @@
 
 ## Simple Library Management is an Open Source Website built using HTML, CSS, JavaScript and Bootstrap.
 
-A simple library management project that is easy to use and helps learners understand the basic concept of JS. In this project, the user has a provision to add book details like book name, author name, book url, isbn, edition, publication date, status of reading the book, book genre through the web page. In addition to this, the user has a provision to search for the available books in the library by the book name or author name, or type. If book details are present in the LocalStorage, the search details are displayed on the web page. User has also a provision to delete a specific book or delete all books. The user can also choose his favourite books and also edit any book details very easily.
+A simple library management project that is easy to use and helps learners understand the basic concept of JS. In this project, the user has a provision to add book details like book name, author name, book URL, ISBN, edition, publication date, the status of reading the book, and book genre through the web page. In addition, the user has a provision to search for the available books in the library by the book name, author name, or type. If book details are present in the LocalStorage, the search details are displayed on the web page. Users also have a provision to delete a specific book or all books. The user can choose his favorites and edit any book details very quickly.
 
 In this project, you will learn how to implement add, remove/delete, search, and save functionalities. You will also learn how to deploy, or publish, your web site to Azure so that you can show it off to your friends.
 
@@ -18,7 +18,7 @@ Visit Website: [Online Library](https://delightful-coast-00b51a700.1.azurestatic
 
 
 ## Functionalities :-
-Input book name, author, book url, edition, isbn, publication date, status and book type to add the book. If book name is missing it will shown you error. As I used LocalStorage if you refresh or close the tab your books will not disappear. You can clear book shelf just by clicking on **clear shelf**. You can also search book by book name, author and type.
+Input the book Name, Author, URL, Edition, ISBN, Publication Date, Status, and Book Type to add the book. If the book name is missing, it will show you an error. As I used LocalStorage, if you refresh or close the tab, your books will not disappear. You can clear the bookshelf just by clicking on clear shelf. You can also search books by book name, author, and type.
 
 ## Adding 
 
