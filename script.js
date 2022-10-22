@@ -598,7 +598,7 @@ function filterBooks() {
   let table = document.getElementById("tableBody");
   table.innerHTML = html;
 }
-filterDropdown.addEventListener("change", filterBooks);
+// filterDropdown.addEventListener("change", filterBooks);
 searchNote.addEventListener("input", filterBooks);
 
 showNumberOfBooks();
@@ -616,8 +616,15 @@ radioButtons.forEach((btn) => {
 });
 
 // dark mode
-var icon = document.getElementById("checkbox");
+var icon = document.querySelector("#icon");
 
-icon.onclick = function () {
+icon.onclick = ()=>{
   document.body.classList.toggle("dark-theme");
-};
+  if(document.body.classList == "dark-theme"){
+    icon.innerHTML = `<i class='fas fa-sun'></i>`;
+  }
+  else{
+    icon.innerHTML = `<i class='fas fa-moon'></i>`;
+  }
+  console.log(document.body.classList);
+}
