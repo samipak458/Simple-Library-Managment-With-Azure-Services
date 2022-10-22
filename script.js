@@ -9,8 +9,9 @@ let publicationD = document.getElementById("publicationdate");
 let read = document.getElementById("read");
 
 let url = document.getElementById("bookurl");
-let favorite = document.getElementById("heart");
+let favorite = document.getElementById("fav-toggle");
 let type;
+console.log(favorite);
 
 let fiction = document.getElementById("fiction");
 let programming = document.getElementById("programming");
@@ -22,64 +23,61 @@ let editIndex = -1;
 // Adding Books
 libraryForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  const isValidUrl= (urlString) => {
-    var urlPattern = new RegExp('^(https?:\\/\\/)?'+ // validate protocol
-    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // validate domain name
-    '((\\d{1,3}\\.){3}\\d{1,3}))'+ // validate OR ip (v4) address
-    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // validate port and path
-    '(\\?[;&a-z\\d%_.~+=-]*)?'+ // validate query string
-    '(\\#[-a-z\\d_]*)?$','i'); // validate fragment locator
-  return !!urlPattern.test(urlString);
-}
-if(!isValidUrl(url.value)){
-  alert('Invalid URL ');
-  url.value="";
-  return;
-}
-const isValidIsbn = (subject) => {
-  subject = subject.replaceAll("-","");
-  console.log(subject.length);
-  if(subject.length == 10) {
-    let sum=0;
-    for(let i=9; i>=0; i--){
-      sum+=parseInt(subject[i], 10)*(i+1);
-    }
-    if(sum%11 == 0){
-      return true;
-    }else {
-      return false;
-    }
+  const isValidUrl = (urlString) => {
+    var urlPattern = new RegExp(
+      "^(https?:\\/\\/)?" + // validate protocol
+        "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // validate domain name
+        "((\\d{1,3}\\.){3}\\d{1,3}))" + // validate OR ip (v4) address
+        "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // validate port and path
+        "(\\?[;&a-z\\d%_.~+=-]*)?" + // validate query string
+        "(\\#[-a-z\\d_]*)?$",
+      "i"
+    ); // validate fragment locator
+    return !!urlPattern.test(urlString);
+  };
+  if (!isValidUrl(url.value)) {
+    alert("Invalid URL ");
+    url.value = "";
+    return;
   }
-  else if(subject.length == 13){
-    subject = subject.replaceAll("-","");
-    
-      let sum=0;
-      for(let i=0; i<13; i++){
-        if(i%2==0){
-          sum+=parseInt(subject[i], 10)*(1);
-        } else {
-          sum+=parseInt(subject[i], 10)*(3);
-        }        
+  const isValidIsbn = (subject) => {
+    subject = subject.replaceAll("-", "");
+    console.log(subject.length);
+    if (subject.length == 10) {
+      let sum = 0;
+      for (let i = 9; i >= 0; i--) {
+        sum += parseInt(subject[i], 10) * (i + 1);
       }
-      console.log(sum);
-      if(sum%10 == 0){
+      if (sum % 11 == 0) {
         return true;
-      }else {
+      } else {
         return false;
       }
+    } else if (subject.length == 13) {
+      subject = subject.replaceAll("-", "");
+
+      let sum = 0;
+      for (let i = 0; i < 13; i++) {
+        if (i % 2 == 0) {
+          sum += parseInt(subject[i], 10) * 1;
+        } else {
+          sum += parseInt(subject[i], 10) * 3;
+        }
+      }
+      console.log(sum);
+      if (sum % 10 == 0) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  };
+  if (!isValidIsbn(isbn.value)) {
+    alert("Invalid ISBN!");
+    return;
   }
-
-   else{
-    return false;
-  }
-}
-if(!isValidIsbn(isbn.value)){
-  alert('Invalid ISBN!');
-  return;
-}
-
-
-  
 
   // Checking different types of books
   if (fiction.checked) {
@@ -145,35 +143,34 @@ if(!isValidIsbn(isbn.value)){
     // Book Name is mandatory field
     if (name.value == "") {
       errorMessage();
-    }
-    else {
-        let myObj;
-        if (author.value != "") {
-            myObj = {
-                book: name.value,
-                bookauthor: author.value,
-                bookType: type,
-                bookurl: url.value=="" ? "/" : url.value,
-                bookisbn: isbn.value,
-                bookedition: edition.value,
-                bookpublication : publicationD.value,
-                readStatus: read.checked,
-                favorite: favorite.checked
-            }
-        }
-        else { // Book Author not entered then set it to Unknown
-            myObj = {
-                book: name.value,
-                bookauthor: "Unknown",
-                bookType: type,
-                bookurl: url.value=="" ? "/" : url.value,
-                bookisbn: isbn.value,
-                bookedition: edition.value,
-                bookpublication : publicationD.value,
-                readStatus: read.checked,
-                favorite: favorite.checked
-            }
-        }
+    } else {
+      let myObj;
+      if (author.value != "") {
+        myObj = {
+          book: name.value,
+          bookauthor: author.value,
+          bookType: type,
+          bookurl: url.value == "" ? "/" : url.value,
+          bookisbn: isbn.value,
+          bookedition: edition.value,
+          bookpublication: publicationD.value,
+          readStatus: read.checked,
+          favorite: favorite.checked,
+        };
+      } else {
+        // Book Author not entered then set it to Unknown
+        myObj = {
+          book: name.value,
+          bookauthor: "Unknown",
+          bookType: type,
+          bookurl: url.value == "" ? "/" : url.value,
+          bookisbn: isbn.value,
+          bookedition: edition.value,
+          bookpublication: publicationD.value,
+          readStatus: read.checked,
+          favorite: favorite.checked,
+        };
+      }
 
       if (editIndex != -1) {
         objOfBook.splice(editIndex, 1, myObj);
@@ -242,7 +239,9 @@ function displayBooks() {
       html += `
            <tr class="rows">
            <th scope="row">1</th>
-           <td class="name"><a class="bookurl" href=${books.bookurl}> ${books.book} </a></td>
+           <td class="name"><a class="bookurl" href=${books.bookurl}> ${
+        books.book
+      } </a></td>
            <td class="author">${books.bookauthor}</td>
            <td class="type">${books.bookType}</td>
            <td class="isbn">${books.bookisbn}</td>
@@ -255,8 +254,14 @@ function displayBooks() {
            }</td>
            <td class="fav">${
              books.favorite
-               ? "<input type='checkbox' checked/> "
-               : "<input type='checkbox' />"
+               ? `<label class="switch">
+                        <input type="checkbox" checked disabled>
+                        <span class="slider round"></span>
+                  </label>`
+               : `<label class="switch">
+                        <input type="checkbox" disabled>
+                        <span class="slider round"></span>
+                  </label>`
            }</td>
            <td class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
            <td class="icon"><i class="fa fa-edit" aria-hidden="true" onclick="editBook(${index})"></i></td>
@@ -266,7 +271,9 @@ function displayBooks() {
       html += `
            <tr class="rows">
            <th scope="row">${index + 1}</th>
-           <td class="name"><a class="bookurl" href=${books.bookurl}> ${books.book} </a></td>
+           <td class="name"><a class="bookurl" href=${books.bookurl}> ${
+        books.book
+      } </a></td>
            <td class="author">${books.bookauthor}</td>
            <td class="type">${books.bookType}</td>
            <td class="isbn">${books.bookisbn}</td>
@@ -279,8 +286,14 @@ function displayBooks() {
            }</td>
            <td class="fav">${
              books.favorite
-               ? "<input type='checkbox' checked/> "
-               : "<input type='checkbox' />"
+               ? `<label class="switch">
+                        <input type="checkbox" checked disabled>
+                        <span class="slider round"></span>
+                  </label>`
+               : `<label class="switch">
+                        <input type="checkbox" disabled>
+                        <span class="slider round"></span>
+                  </label>`
            }</td>
             <td class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
            <td class="icon"><i class="fa fa-edit" aria-hidden="true" onclick="editBook(${index})"></i></td>
