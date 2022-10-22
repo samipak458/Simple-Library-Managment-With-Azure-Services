@@ -4,19 +4,21 @@
 
 ## Simple Library Management is an Open Source Website built using HTML, CSS, JavaScript and Bootstrap.
 
-A simple library management project that is easy to use and helps learners understand the basic concept of JS. In this project, the user has a provision to add book details like book name, author name, and type through the web page. In addition to this, the user has a provision to search for the available books in the library by the book name or author name, or type. If book details are present in the LocalStorage, the search details are displayed on the web page. User has also a provision to delete a specific book or delete all books. 
+A simple library management project that is easy to use and helps learners understand the basic concept of JS. In this project, the user has a provision to add book details like book name, author name, book URL, ISBN, edition, publication date, the status of reading the book, and book genre through the web page. In addition, the user has a provision to search for the available books in the library by the book name, author name, or type. If book details are present in the LocalStorage, the search details are displayed on the web page. Users also have a provision to delete a specific book or all books. The user can choose his favorites and edit any book details very quickly.
 
 In this project, you will learn how to implement add, remove/delete, search, and save functionalities. You will also learn how to deploy, or publish, your web site to Azure so that you can show it off to your friends.
 
 Visit Website: [Online Library](https://delightful-coast-00b51a700.1.azurestaticapps.net/)
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/72745563/193397791-c396102d-fc92-4772-b94a-d9a67b02310a.png">
-<img src="https://user-images.githubusercontent.com/52650290/188079131-55a6a070-506e-4330-8f19-15f36791061c.png">
-</p>  
+<img src="https://user-images.githubusercontent.com/53844369/195143964-9186b1b9-9d2a-4ad6-ab9f-ceecccddf9eb.png">
+<img src="https://user-images.githubusercontent.com/53844369/195144352-193f598a-d906-415e-bf7a-5266ee67a18f.png">
+</p>
+
+
 
 ## Functionalities :-
-Input book name, author and book type to add the book. If book name is missing it will shown you error. As I used LocalStorage if you refresh or close the tab your books will not disappear. You can clear book shelf just by clicking on **clear shelf**. You can also search book by book name, author and type.
+Input the book Name, Author, URL, Edition, ISBN, Publication Date, Status, and Book Type to add the book. If the book name is missing, it will show you an error. As I used LocalStorage, if you refresh or close the tab, your books will not disappear. You can clear the bookshelf just by clicking on clear shelf. You can also search books by book name, author, and type.
 
 ## Adding 
 
@@ -55,11 +57,14 @@ Input book name, author and book type to add the book. If book name is missing i
 <img src="https://user-images.githubusercontent.com/52650290/188081402-3973c542-cfac-496e-89a9-690cdb90f779.png">
 </p>
 
-## Deleting
+## Sample working 
 
 
 
-https://user-images.githubusercontent.com/72745563/193405014-183c4e44-174d-41c5-b8c6-00927c7be9a5.mp4
+
+
+https://user-images.githubusercontent.com/53844369/195153604-9a5adf2d-67be-4fc2-82d7-f2307d517e00.mp4
+
 
 
 
