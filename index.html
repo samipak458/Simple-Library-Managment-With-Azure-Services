@@ -264,6 +264,13 @@
                 <li><a href="#"><i class="fab fa-linkedin-in"></i>LinkedIn</a></li>
             </ul>
         </div>
+	<div class="footer-col">
+            <h4>About this repo</h4>
+            <ul class="no-bullets">
+                <li><a href="https://api.github.com/repos/samipak458/Simple-Library-Managment">  Forks <span id="forks-count">fetching..</span></a></li>
+                <li><a href="https://api.github.com/repos/samipak458/Simple-Library-Managment">Stars <span id="stars-count">fetching..</span></a></li>
+            </ul>
+        </div>
         <div class="footer-col">
             <h4>Download</h4>
             <ul class="no-bullets">
@@ -307,6 +314,14 @@
             }
             hidePreloader();
         });
+    </script>
+    <script>
+        fetch('https://api.github.com/search/repositories?q=user%3Asamipak458+repo%3ASimple-Library-Managment+Simple-Library-Managment')
+            .then(response => response.json())
+            .then(response => {
+                document.getElementById('stars-count').innerText = response.items[0].stargazers_count;
+                document.getElementById('forks-count').innerText = response.items[0].forks_count;
+            });
     </script>
 </body>
 
