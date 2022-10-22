@@ -19,529 +19,48 @@
     <script src="https://kit.fontawesome.com/5587893eae.js" crossorigin="anonymous"></script>
 
     <!-- Custom CSS -->
-    <style>
-
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Nunito:wght@200&family=Poppins&family=Roboto:wght@300&display=swap');
-        /* variable declaration */
-
-        :root {
-            --primary-color: white;
-            --secondary-color: black;
-            --ternary-color: rgb(41, 39, 39);
-        }
-
-
-        body {
-            background-color: var(--primary-color);
-            transition: background 0.5s linear;
-        }
-
-        #clear {
-            display: none;
-            text-transform: uppercase;
-            font-size: small;
-            margin-bottom: 10px;
-        }
-
-
-        #clear:hover {
-            background-color: purple;
-            font-size: larger;
-            transition: 0.8s;
-            border: red;
-        }
-
-        #btn33 {
-            font-size: large;
-            background-color: purple;
-        }
-
-        #btn33:hover {
-            background-color: red;
-            transition: 1s;
-            font-size: small;
-        }
-
-        .nav-heading:hover {
-            text-shadow: none;
-            border: none;
-        }
-
-        #searchText {
-            background-color: rgb(32, 32, 32);
-            color: #fff;
-        }
-
-        #searchText:hover {
-            transition: 1s;
-        }
-
-        a:link {
-            color: black;
-            font-size: small;
-            background-color: transparent;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        h3 {
-            font-family: 'Poppins';
-            color: #bd8cbf;
-            text-shadow: 5px 5px 5px rgba(135, 206, 250, 0.4);
-        }
-
-        #delicon:hover {
-            cursor: pointer;
-        }
-
-        .container .welcome-text {
-            padding-top: 10px;
-        }
-
-        #libraryForm {
-            border: 3px solid;
-            box-shadow: 0px 3px 20px grey, 1px 0px 3px #bd8cbf;
-            padding: 20px;
-            border-radius: 20px;
-        }
-
-        .form-check1:hover,
-        .form-check2:hover,
-        .form-check3:hover,
-        .form-check4:hover,
-        .form-check5:hover,
-        .form-check6:hover {
-            color: blue;
-            font-weight: bold;
-        }
-
-        #table {
-            border: 3px solid white;
-            box-shadow: 0px 3px 20px grey, 1px 0px 3px #bd8cbf;
-            padding: 10px;
-            border-radius: 20px;
-        }
-
-        .form-control {
-            /* color:white; */
-            /* color:black; */
-            background-color: var(--primary-color);
-        }
-
-        #table {
-            border: 3px solid;
-            box-shadow: 0px 3px 20px grey, 1px 0px 3px #bd8cbf;
-            padding: 10px;
-            border-radius: 20px;
-        }
-
-        #read {
-            height: 1.4em;
-            width: 1.4em;
-        }
-
-        .icon {
-            color: red;
-            font-size: 18px;
-        }
-
-        #filter-books {
-            border-radius: 5px;
-            border: none;
-            outline: none;
-            height: 38px;
-            padding: 0 10px;
-        }
-
-        #filter-books:focus {
-            outline: 2px solid #d45248;
-
-        }
-
-        .input-right {
-            margin-left: 1em;
-        }
-
-        label {
-            color: grey;
-        }
-
-        legend {
-            color: grey;
-        }
-
-        #books {
-            color: grey;
-        }
-
-        #emptyMsg {
-            color: grey;
-        }
-        .favorites {
-            top: 50%;
-            right: 3%;
-            transform: translate(-50%, -50%);
-        }
-        #heart {
-            display: none;
-        }
-        #heart:checked ~ label {
-            cursor: pointer;
-            color: red;
-        }
-        .fav-icon {
-            font-size: 1.7rem;
-            cursor: pointer;
-        }
-        option {
-            background-color: var(--ternary-color);
-            color: grey;
-        }
-
-        .search_box {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .search_box input {
-            border: none;
-            outline: none;
-            width: 0;
-            padding: 0;
-            opacity: 0;
-            border-radius: 20px;
-            line-height: 20px;
-            font-size: 16px;
-            transition: all 1s;
-        }
-
-        .search_box input::placeholder {
-            color: #d45248;
-            font-weight: 400;
-        }
-
-        .search_box button {
-            background-color: #d45248;
-            border: none;
-            outline: none;
-            width: 35px;
-            height: 35px;
-            padding: -5px 8px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 40px;
-            font-size: 20px;
-            cursor: pointer;
-            transition: all .5s;
-            color: #fff;
-        }
-
-        .bookurl{
-            color: black;
-            text-decoration:none;
-        }
-
-        .bookurl:hover{
-            text-decoration: none;
-            border: none;
-        }
-
-        .search_box:hover input{
-            width: 240px;
-            opacity: 1;
-            padding: 10px 20px;
-        }
-
-        .toggle-switch {
-            width: 70px;
-            height: 30px;
-            background: white;
-            border-radius: 50px;
-            position: relative;
-            margin-left: 10px;
-        }
-
-        .toggle-switch #icon {
-            background: white;
-            width: 24px;
-            height: 24px;
-            background: #d45248;
-            border-radius: 100%;
-            position: absolute;
-            top: 3px;
-            left: 4px;
-            transition: 0.5s all ease;
-        }
-
-        .input-right {
-            margin-left: 1em;
-        }
-
-        .visually_hidden {
-            border: 0;
-            clip: rect(0 0 0 0);
-            height: 1px;
-            width: 1px;
-            margin: -1px;
-            padding: 0;
-            overflow: hidden;
-            position: absolute;
-        }
-
-        .no-bullets {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .footer {
-            padding: 30px 0;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .container-a {
-            width: min(1000px, calc(70% + 100px));
-            margin: auto;
-        }
-
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .footer-col {
-            width: 25%;
-            padding: 0 20px;
-        }
-
-        .footer-col h4 {
-            font-size: 35px;
-            margin-bottom: 20px;
-            position: relative;
-            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
-        }
-
-        .footer-col ul li a {
-            font-size: max(.8rem, .8vw);
-        }
-
-        .footer-col h4::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -5px;
-            background-color: #e91e63;
-            height: 2px;
-            box-sizing: border-box;
-            width: 60px;
-        }
-
-        .loader_bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 999999;
-            background-color: rgb(234, 234, 234);
-            width: 100%;
-            min-height: 100%;
-            /* min-height:100%; */
-            background-position: center;
-            /* background-repeat:repeat-x; */
-            background-size: cover;
-        }
-
-        .loader {
-            border: 0 solid transparent;
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            position: absolute;
-            top: calc(50vh -75px);
-            left: calc(50vw -75px);
-        }
-
-        .loader:before,
-        .loader:after {
-            content: '';
-            border: 1em solid #5a2a84;
-            border-radius: 50%;
-            width: inherit;
-            height: inherit;
-            position: absolute;
-            animation: loader 2s linear infinite;
-            opacity: 0;
-        }
-
-        .loader:before {
-            animation-delay: .5s;
-        }
-
-        @keyframes loader {
-            0% {
-                transform: scale(0);
-                opacity: 0;
-            }
-
-            50% {
-                opacity: 1;
-            }
-
-            150% {
-                transform: scale(1);
-                opacity: 0;
-            }
-        }
-
-
-
-        .footer-col ul li:not(:last-child) {
-            margin-bottom: 10px;
-        }
-
-        .footer-col ul li a:hover {
-            padding-left: 8px;
-            transition: all 0.3s ease;
-            color: #0068ff;
-        }
-
-        /* dark theme css */
-
-        .dark-theme {
-            background-color: var(--secondary-color);
-            color: white;
-        }
-
-        .dark-theme .toggle-switch {
-            background: grey;
-        }
-
-        .dark-theme .toggle-switch #icon {
-            transform: translateX(37px);
-        }
-
-        .dark-theme #table .table,
-        .dark-theme #libraryForm label,
-        .dark-theme #libraryForm legend,
-        .dark-theme footer .footer-col .no-bullets li a:link,
-        .dark-theme #books,
-        .dark-theme #emptyMsg {
-            color: white;
-        }
-        .dark-theme #libraryForm .changeh{
-            color: grey;
-        }
-        .dark-theme #heart:checked ~ label {
-            cursor: pointer;
-            color: red;
-        }
-
-        .dark-theme h3 {
-            text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.9);
-        }
-        .checkbox {
-            opacity: 0;
-            padding-left: 16px;
-          }
-          
-          .label {
-            width: 50px;
-            height: 26px;
-            background-color:#111;
-            display: flex;
-            border-radius:50px;
-            align-items: center;
-            justify-content: space-between;
-            padding: 5px;
-            position: relative;
-            transform: scale(1.5);
-          }
-          
-          .ball {
-            width: 20px;
-            height: 20px;
-            background-color: white;
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            border-radius: 50%;
-            transition: transform 0.2s linear;
-          }
-          
-          /*  target the elemenent after the label*/
-          .checkbox:checked + .label .ball{
-            transform: translateX(24px);
-          }
-          
-          .fa-moon {
-            color: rgb(111, 166, 255);
-            padding: 4px;
-          }
-          
-          .fa-sun {
-            color: rgb(255, 255, 130);
-            padding: 4px;
-          }
-          .text-center{
-            color: #452066;
-            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-          }
-    </style>
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <!--NavBar-->
-
-    <div class="loader_bg" style="display:flex; justify-content:center;align-items: center;">
-        <div class="loader"></div>
-    </div>
     <!-- NavBar -->
 
     <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top"
-        style="background-color: #452066; opacity: 0.9;">
+        style="background-color: #452066; opacity: 1;">
         <a class="navbar-brand mb-1 nav-heading" href="#" style="font-size: 28px;">
             <span style="color:#d45248;font-family:Montserrat;font-weight: bold;">Online <span
                     style="color:#fff ;">Library</span></span>
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+        <button class="navbar-toggler abc " type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
             aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <select name="filter" id="filter-books" class="form-select mr-sm-2">
-                    <option class="filter_option" value="" selected disabled hidden>Select filter</option>
-                    <option value="all">All</option>
-                    <option value="book">Name</option>
-                    <option value="bookauthor">Author</option>
-                    <option value="bookType">Type</option>
-                </select>
-                <div class="search_box">
-                    <input type="search" id="searchText" placeholder="Search">
-                    <button class="fa fa-search" type="submit"></button>
-                </div>
-                <!-- <div class="toggle-switch" id="icon"> -->
-                    
-                        <input type="checkbox" class="checkbox" id="checkbox">
-                      <label for="checkbox" class="label">
-                        <i class="fas fa-moon"></i>
-                        <i class='fas fa-sun'></i>
-                        <div class='ball'>
-                      </label>
-                    
-                    <a id="icon"></a>
-                </div>
-            </form>
+            <div class="dropdown">
+                <ul>
+                    <li>Select filter
+                        <div class="icon"></div>
+                        <div class="menu">
+                            <ul>
+                                <li><a href="#">All</a></li>
+                                <li><a href="#">Name</a></li>
+                                <li><a href="#">Author</a></li>
+                                <li><a href="#">Type</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="search_box">
+                <input type="search" id="searchText" placeholder="Search">
+                <button class="fa fa-search" type="submit"></button>
+            </div>
+            <a id="icon"><i class="fas fa-moon"></i></a>
+        </div>
+        </form>
         </div>
     </nav>
 
@@ -563,10 +82,15 @@
                 <label for="bookName" class="col-sm-2 col-form-label">Name:</label>
                 <div class="col-sm-10 position-relative">
                     <input type="text" class="form-control" id="bookName" placeholder="Book Name">
-                    <div class="favorites position-absolute">
-                        <input type="checkbox" id="heart">
-                        <label for="heart" class="fav-icon changeh">&#9829</label>
-                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="Favorite" class="col-sm-2 col-form-label">Favorite:</label>
+                <div class="col-sm-10">
+                    <label class="switch">
+                        <input type="checkbox" id="fav-toggle">
+                        <span class="slider round"></span>
+                      </label>
                 </div>
             </div>
             <div class="form-group row">
@@ -578,7 +102,8 @@
             <div class="form-group row">
                 <label for="IsbnNo" class="col-sm-2 col-form-label">ISBN No:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="isbnno" placeholder="ISBN Number(10/13 digit number divisible by 11)">
+                    <input type="text" class="form-control" id="isbnno"
+                        placeholder="ISBN Number(10/13 digit number divisible by 11)">
                 </div>
             </div>
             <div class="form-group row">
@@ -677,25 +202,27 @@
 
             <div id="table" class="mb-5">
                 <h5 class="float-right" id="books"></h5>
+                <div class="table-custom">
 
-                <table class="table table-striped table-bordered">
-                    <thead class="text-center text-light" style="background-color: #7952b3;">
-                        <tr>
-                            <th scope="col">No.</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Author</th>
-                            <th scope="col">Type</th>
-                            <th scope="col">ISBN No</th>
-                            <th scope="col">Edition</th>
-                            <th scope="col">Publication Date</th>
-                            <th scope="col">Read</th>
-                            <th scope="col">Fav</th>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-center" id="tableBody"> </tbody>
-                </table>
+
+                    <table class="table  table-striped table-bordered">
+                        <thead class="text-center text-light" style="background-color: #7952b3;">
+                            <tr>
+                                <th scope="col">No.</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Author</th>
+                                <th scope="col">Type</th>
+                                <th scope="col">ISBN No</th>
+                                <th scope="col">Edition</th>
+                                <th scope="col">Publication Date</th>
+                                <th scope="col">Read</th>
+                                <th scope="col">Favorite</th>
+                                <th scope="col">Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center" id="tableBody"> </tbody>
+                    </table>
+                </div>
 
 
                 <!--Display Msg when table is empty-->
@@ -709,47 +236,51 @@
     <!--footer section-->
     <hr>
     <footer class="footer">
-        <div class="container-a">
-            <div class="row">
-                <div class="footer-col">
-                    <h4>About</h4>
-                    <ul class="no-bullets">
-                        <li><a href="#">Online Library</a></li>
-                        <li><a href="#">Join Our Team</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Supports</h4>
-                    <ul class="no-bullets">
-                        <li><a href="#">Help / FAQ</a></li>
-                        <li><a href="#">Accessibility</a></li>
-                        <li><a href="#">Publisher</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Social Media</h4>
-                    <ul class="no-bullets">
-                        <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
-                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
-                        <li><a href="#"><i class="fab fa-linkedin-in"></i>LinkedIn</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Download</h4>
-                    <ul class="no-bullets">
-                        <li><a href="#"><img
-                                    src="https://www.scribd.com/webpack/assets/images/shared/app_store/app_store_black_en.c01025ef.svg"
-                                    alt="appstore"></a></li>
-                        <li><a href="#"><img
-                                    src="https://www.scribd.com/webpack/assets/images/shared/app_store/play_store_en.52ebe950.svg"
-                                    alt="google playstore"></a></li>
-                    </ul>
-                </div>
-            </div>
+        <div class="footer-col">
+            <h4>About</h4>
+            <ul class="no-bullets">
+                <li><a href="#">Online Library</a></li>
+                <li><a href="#">Join Our Team</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Supports</h4>
+            <ul class="no-bullets">
+                <li><a href="#">Help / FAQ</a></li>
+                <li><a href="#">Accessibility</a></li>
+                <li><a href="#">Publisher</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Social Media</h4>
+            <ul class="no-bullets">
+                <li><a href="https://www.facebook.com/sami.munir.3939"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+                <li><a href="https://www.instagram.com/sami_munir1/"><i class="fab fa-instagram"></i> Instagram</a></li>
+                <li><a href="https://twitter.com/samipak458"><i class="fab fa-twitter"></i> Twitter</a></li>
+                <li><a href="https://www.linkedin.com/in/msamiullah-dev"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Download</h4>
+            <ul class="no-bullets">
+                <li><a href="#"><img class="app-store"
+                            src="https://www.scribd.com/webpack/assets/images/shared/app_store/app_store_black_en.c01025ef.svg"
+                            alt="appstore"></a></li>
+                <li><a href="#"><img
+                            src="https://www.scribd.com/webpack/assets/images/shared/app_store/play_store_en.52ebe950.svg"
+                            alt="google playstore"></a></li>
+            </ul>
         </div>
     </footer>
+    <hr>
+    <div class="footer">
+        <p style="width: 20%; min-width: 115px;">About this repo:</p>
+        <ul class="repo-details no-bullets">
+            <li><i class="fa-solid fa-code-fork"></i> Forks <span id="forks-count">fetching..</span></li>
+            <li><i class="fa-regular fa-star"></i> Stars <span id="stars-count">fetching..</span></li>
+        </ul>
+    </div>
 
     <!--JS file-->
     <script src="script.js"></script>
@@ -780,6 +311,14 @@
             }
             hidePreloader();
         });
+    </script>
+    <script>
+        fetch('https://api.github.com/search/repositories?q=user%3Asamipak458+repo%3ASimple-Library-Managment+Simple-Library-Managment')
+            .then(response => response.json())
+            .then(response => {
+                document.getElementById('stars-count').innerText = response.items[0].stargazers_count;
+                document.getElementById('forks-count').innerText = response.items[0].forks_count;
+            });
     </script>
 </body>
 
