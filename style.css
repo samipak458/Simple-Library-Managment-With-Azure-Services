@@ -55,16 +55,21 @@ body {
   text-shadow: none;
   border: none;
 }
-
 #searchText {
   background-color: rgb(32, 32, 32);
   color: var(--primary-color);
 }
-
+.search_box button{
+  margin-left: 7px;  
+}
+.search_box button:hover{
+  background-color: var(--secondary-color);
+  color: rgb(197, 25, 25);
+}
 #searchText:hover {
   background-color: var(--primary-color);
   color: var(--secondary-color);
-  transition: 1s;
+  transition: 0.2s;
 }
 
 h1 {
