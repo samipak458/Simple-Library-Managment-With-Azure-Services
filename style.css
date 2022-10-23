@@ -1,6 +1,9 @@
 body {
   background-color: var(--secondary-color);
   background-color: var(--primary-color);
+  margin: 0;
+  overflow-x: hidden;
+  padding: 0;
 }
 
 #clear {
