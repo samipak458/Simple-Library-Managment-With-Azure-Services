@@ -28,8 +28,8 @@
     <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top"
         style="background-color: #452066; opacity: 1;">
         <a class="navbar-brand mb-1 nav-heading" href="#" style="font-size: 28px;">
-            <span style="color:#d45248;font-family:Montserrat;font-weight: bold;">Online <span
-                    style="color:#fff ;">Library 📕</span></span>
+            <span style="color:#d45248;font-family:Montserrat;font-weight: bold;"> <div class="fa fa-globe fa-45"></div>nline  <span
+                    style="color:#fff ;">Library <i class="fa fa-book"></i></span></span>
         </a>
         <button class="navbar-toggler abc " type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
             aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,21 +71,22 @@
 
     <!--Section of Adding books-->
     <div class="container pt-4 mt-5 my-3">
-        <h1 class="text-center display-4 font-weight-bold welcome-text">Welcome To Online Library</h1>
+        <h1 class="text-center display-5 font-weight-bold welcome-text">Welcome To <i class="fa fa-globe fa-45"></i>nline Library</h1>
         <hr>
-        <h3 class="text-center">
-            <font size="8px"><b>Add Your Book</b></font>
-        </h3>
+        <!-- <h3 class="text-center"> -->
+            <p style="font-size:30px;" class="text-center"><b>Add Your Book</b></p>
+            <hr>
+        <!-- </h3> -->
 
         <form id="libraryForm">
             <div class="form-group row">
-                <label for="bookName" class="col-sm-2 col-form-label">Name:</label>
+                <label for="bookName" class="col-sm-2 col-form-label">Name :</label>
                 <div class="col-sm-10 position-relative">
                     <input type="text" class="form-control" id="bookName" placeholder="Book Name">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="Favorite" class="col-sm-2 col-form-label">Favorite:</label>
+                <label for="Favorite" class="col-sm-2 col-form-label">Favorite :</label>
                 <div class="col-sm-10">
                     <label class="switch">
                         <input type="checkbox" id="fav-toggle">

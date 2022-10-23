@@ -61,6 +61,7 @@ body {
 }
 .search_box button{
   margin-left: 7px;  
+  margin-right: 7px;  
 }
 .search_box button:hover{
   background-color: var(--secondary-color);
@@ -72,6 +73,17 @@ body {
   transition: 0.2s;
 }
 
+
+/* transition for the fa icons */
+.fa-45{
+  animation-name: round;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+@keyframes round {
+  0%{transform: rotate(0deg);}
+  100%{transform: rotate(360deg);}
+}
 h1 {
   font-family: aerial;
   color: #bd8cbf;
@@ -84,6 +96,7 @@ h1 {
 
 .container .welcome-text {
   padding-top: 10px;
+  font-family: sans-serif;
 }
 
 #libraryForm {
