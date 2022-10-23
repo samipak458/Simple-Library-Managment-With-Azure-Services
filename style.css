@@ -413,3 +413,14 @@ input:checked + .slider:before {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+/* scroll bar modification */
+::-webkit-scrollbar{
+  width: 10px;
+}
+::-webkit-scrollbar-track{
+  background-color: rgb(19, 16, 24);
+}
+::-webkit-scrollbar-thumb{
+  background-color: gray;
+  border-radius: 5px;
+}
