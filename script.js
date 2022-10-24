@@ -6,7 +6,7 @@ let author = document.getElementById("author");
 let isbn = document.getElementById("isbnno");
 let edition = document.getElementById("edition");
 let publicationD = document.getElementById("publicationdate");
-let read = document.getElementById("read");
+let read = document.getElementById("read-toggle");
 
 let url = document.getElementById("bookurl");
 let favorite = document.getElementById("fav-toggle");
@@ -248,9 +248,15 @@ function displayBooks() {
            <td class="edition">${books.bookedition}</td>
            <td class="publicationdate">${books.bookpublication}</td>
            <td class="type">${
-             books.readStatus
-               ? "<input type='checkbox' checked/> "
-               : "<input type='checkbox' />"
+             books.readStatus 
+             ? `<label class="switch">
+                  <input type="checkbox" checked disabled>
+                  <span class="slider round"></span>
+            </label>`  
+            : `<label class="switch">
+                  <input type="checkbox" disabled>
+                  <span class="slider round"></span>
+            </label>`
            }</td>
            <td class="fav">${
              books.favorite
@@ -281,8 +287,14 @@ function displayBooks() {
            <td class="publicationdate">${books.bookpublication}</td>
            <td class="type">${
              books.readStatus
-               ? "<input type='checkbox' checked/> "
-               : "<input type='checkbox' />"
+             ? `<label class="switch">
+                      <input type="checkbox" checked disabled>
+                      <span class="slider round"></span>
+                </label>`
+             : `<label class="switch">
+                      <input type="checkbox" disabled>
+                      <span class="slider round"></span>
+                </label>`
            }</td>
            <td class="fav">${
              books.favorite
