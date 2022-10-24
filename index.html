@@ -41,8 +41,13 @@
             </ul>
             <div class="dropdown">
                 <ul>
+<<<<<<< HEAD
+                    <li>Filter
+                        <div class="icon"></div>
+=======
                     
                     <li>Select filter <span class="icon"></span>
+>>>>>>> vaibranch
                         <div class="menu">
                             <ul>
                                 <li><a href="#">All</a></li>
@@ -58,7 +63,7 @@
                 <input type="search" id="searchText" placeholder="Type Your Favorite Book..">
                 <button class="fa fa-search" type="submit"></button>
             </div>
-            <a id="icon"><i class="fas fa-moon"></i></a>
+           <a id="icon"><i class="fas fa-moon"></i></a>
         </div>
         </form>
         </div>
@@ -86,7 +91,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="Favorite" class="col-sm-2 col-form-label">Favorite:</label>
+                <label for="Favorite" class="col-sm-2 col-form-label">Favorite :</label>
                 <div class="col-sm-10">
                     <label class="switch">
                         <input type="checkbox" id="fav-toggle">
@@ -128,8 +133,8 @@
             <div class="form-group row">
                 <label for="Author" class="col-sm-2">Read :</label>
                 <div class="col-sm-1">
-                    <input type="checkbox" id="read">  <span class="fs-1">Yes</span></input>
-                    <input type="checkbox" id="read">  No</input>
+                    <input type="checkbox" id="read">Yes</input>
+                    <input type="checkbox" id="read">No</input>
                 </div>
             </div>
             <fieldset class="form-group">
@@ -139,8 +144,7 @@
                         <div class="form-check1">
                             <input class="form-check-input" type="radio" name="type" id="anime" value="Anime">
                             <label class="form-check-label" for="anime">
-                                Anime 
-                                <img src="./icons/woman (1).png" alt="anime">
+                                Anime
                             </label>
                         </div>
                         <div class="form-check2">
@@ -149,14 +153,12 @@
                             <label class="form-check-label" for="programming">
 
                                 Computer Programming
-                                <img src="./icons/developer.png" alt="anime">
                             </label>
                         </div>
                         <div class="form-check3">
                             <input class="form-check-input" type="radio" name="type" id="fiction" value="Fiction">
                             <label class="form-check-label" for="fiction">
                                 Fiction
-                                <img src="./icons/book.png" alt="anime">
                             </label>
                         </div>
                         <div class="form-check4">
@@ -164,21 +166,18 @@
                                 value="Non-Fiction">
                             <label class="form-check-label" for="non-fiction">
                                 Non-Fiction
-                                <img src="./icons/literary.png" alt="anime">
                             </label>
                         </div>
                         <div class="form-check5">
                             <input class="form-check-input" type="radio" name="type" id="science" value="Science">
                             <label class="form-check-label" for="science">
                                 Science
-                                <img src="./icons/chemistry.png" alt="anime">
                             </label>
                         </div>
                         <div class="form-check6">
                             <input class="form-check-input" type="radio" name="type" id="other" value="Other">
                             <label class="form-check-label" for="other">
                                 Other
-                                <img src="./icons/pen.png" alt="anime">
                             </label>
                             <input class="input-right" placeholder="Create new type" hidden id="newType" name="type"
                                 value="">
@@ -188,7 +187,7 @@
                 <div class="form-group row">
                     <div class="col-lg-12 col-sm-10 mt-3">
                         <button type="submit" class="btn text-light btn-large btn-block"
-                            style="background-color: #7f5bb4f3;"> <i class="fa fa-plus"></i> Add Book</button>
+                            style="background-color: #7f5bb4f3;">Add Book</button>
                     </div>
                 </div>
         </form>
@@ -203,7 +202,7 @@
         <!-- Section Display of books-->
         <div id="table mt-0">
             <h3 class="text-center">
-                <font size="8px"><b>Book Shelf </b></font> <img src="./icons/book-stack.png" alt="bookimages">
+                <font size="8px"><b>Your Book Shelf</b></font>
             </h3>
             <hr>
 
@@ -233,13 +232,84 @@
 
 
                 <!--Display Msg when table is empty-->
-                <h5 id="emptyMsg" class="mb-5 text-center p-3 text-warning"></h5>
+                <h5 id="emptyMsg" class="mb-5"></h5>
             </div>
 
             <button type="button" id="clear" class="btn px-3 mb-2 btn-danger float-right">Clear Shelf</button>
         </div>
     </div>
+    <div class="containerFluid">
+        <h2>Frequently Asked Questions (FAQs)</h2>
+        <div class="accordion">
+          <div class="icon"></div>
+          <h5>What is Simple Library Management?</h5>
+        </div>
+        <div class="panel">
+          <p>
+            A simple library management project that is easy to use and helps learners understand the basic concept of JS. In this project, the user has a provision to add book details like book name, author name, book URL, ISBN, edition, publication date, the status of reading the book, and book genre through the web page. In addition, the user has a provision to search for the available books in the library by the book name, author name, or type. If book details are present in the LocalStorage, the search details are displayed on the web page. Users also have a provision to delete a specific book or all books. The user can choose his favorites and edit any book details very quickly.
+          </p>
+        </div>
+      
+        <div class="accordion">
+          <div class="icon"></div>
+          <h5>Why do we use it?</h5>
+        </div>
+        <div class="panel">
+          <p>
+            Answer
+          </p>
+        </div>
+      
+        <div class="accordion">
+          <div class="icon"></div>
+          <h5>Where does my books stored?</h5>
+        </div>
+        <div class="panel">
+          <p>
+            Answer
+          </p>
+        </div>
+      
+        <div class="accordion">
+          <div class="icon"></div>
+          <h5>Can I edit my books?</h5>
+        </div>
+        <div class="panel">
+          <p>
+            Answer
+          </p>
+        </div>
 
+        <div class="accordion">
+            <div class="icon"></div>
+            <h5>Is it secured?</h5>
+          </div>
+          <div class="panel">
+            <p>
+              Answer
+            </p>
+          </div>
+
+          <div class="accordion">
+            <div class="icon"></div>
+            <h5>Is there any limit to store books?</h5>
+          </div>
+          <div class="panel">
+            <p>
+              Answer
+            </p>
+          </div>
+
+          <div class="accordion">
+            <div class="icon"></div>
+            <h5>How to contact us?</h5>
+          </div>
+          <div class="panel">
+            <p>
+                Not find your questions. Do mail your question at mail...
+            </p>
+          </div>
+      </div>
     <!--footer section-->
     <hr>
     <footer class="footer">
