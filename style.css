@@ -356,17 +356,21 @@ option {
   padding-left: 0;
 }
 .containerFluid {
-  width: 40%;
+  width: 100% !important;
   margin: 0 auto;
   margin-top: 100px;
+}
+@media(max-width: 575.98px){
+  .containerFluid{
+    width: 100%;
+  }
 }
 
 .containerFluid h2 {
   color: hotpink;
-  position: relative;
-  width: 100rem;
+  width: 100% !important;
+  text-align: center;
 }
-
 .containerFluid h2::after {
   position: absolute;
   content: "";
