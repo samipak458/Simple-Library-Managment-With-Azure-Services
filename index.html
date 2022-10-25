@@ -28,8 +28,8 @@
     <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top"
         style="background-color: #452066; opacity: 1;">
         <a class="navbar-brand mb-1 nav-heading" href="#" style="font-size: 28px;">
-            <span style="color:#d45248;font-family:Montserrat;font-weight: bold;">Online <span
-                    style="color:#fff ;">Library</span></span>
+            <span style="color:#d45248;font-family:Montserrat;font-weight: bold;"> <div class="fa fa-globe fa-45"></div>nline  <span
+                    style="color:#fff ;">Library <i class="fa fa-book"></i></span></span>
         </a>
         <button class="navbar-toggler abc " type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
             aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,7 +41,7 @@
             </ul>
             <div class="dropdown">
                 <ul>
-                    <li>Select filter
+                    <li>Filter
                         <div class="icon"></div>
                         <div class="menu">
                             <ul>
@@ -55,19 +55,10 @@
                 </ul>
             </div>
             <div class="search_box">
-                <input type="search" id="searchText" placeholder="Search">
+                <input type="search" id="searchText" placeholder="Type Your Favorite Book...">
                 <button class="fa fa-search" type="submit"></button>
             </div>
-            <!-- <div class="toggle-switch" id="icon"> -->
-
-            <input type="checkbox" class="checkbox" id="checkbox">
-            <label for="checkbox" class="label">
-                <i class="fas fa-moon"></i>
-                <i class='fas fa-sun'></i>
-                <div class='ball'>
-            </label>
-
-            <a id="icon"></a>
+           <a id="icon"><i class="fas fa-moon"></i></a>
         </div>
         </form>
         </div>
@@ -80,21 +71,22 @@
 
     <!--Section of Adding books-->
     <div class="container pt-4 mt-5 my-3">
-        <h1 class="text-center display-4 font-weight-bold welcome-text">Welcome To Online Library</h1>
+        <h1 class="text-center display-5 font-weight-bold welcome-text">Welcome To <i class="fa fa-globe fa-45"></i>nline Library</h1>
         <hr>
-        <h3 class="text-center">
-            <font size="8px"><b>Add Your Book</b></font>
-        </h3>
+        <!-- <h3 class="text-center"> -->
+            <p style="font-size:30px;" class="text-center"><b>Add Your Book</b></p>
+            <hr>
+        <!-- </h3> -->
 
         <form id="libraryForm">
             <div class="form-group row">
-                <label for="bookName" class="col-sm-2 col-form-label">Name:</label>
+                <label for="bookName" class="col-sm-2 col-form-label">Name :</label>
                 <div class="col-sm-10 position-relative">
                     <input type="text" class="form-control" id="bookName" placeholder="Book Name">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="Favorite" class="col-sm-2 col-form-label">Favorite:</label>
+                <label for="Favorite" class="col-sm-2 col-form-label">Favorite :</label>
                 <div class="col-sm-10">
                     <label class="switch">
                         <input type="checkbox" id="fav-toggle">
@@ -134,12 +126,15 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="Author" class="col-sm-2">Read :</label>
-                <div class="col-sm-1">
-                    <input type="checkbox" id="read">Yes</input>
-                    <input type="checkbox" id="read">No</input>
+                <label for="read" class="col-sm-2 col-form-label">Read:</label>
+                <div class="col-sm-10">
+                    <label class="switch">
+                        <input type="checkbox" id="read-toggle">
+                        <span class="slider round"></span>
+                      </label>
                 </div>
             </div>
+
             <fieldset class="form-group">
                 <div class="row">
                     <legend class="col-form-label col-sm-2 pt-0">Book Type:</legend>
@@ -148,20 +143,22 @@
                             <input class="form-check-input" type="radio" name="type" id="anime" value="Anime">
                             <label class="form-check-label" for="anime">
                                 Anime
+                                <img src="./icons/woman (1).png" alt="anime">
                             </label>
                         </div>
                         <div class="form-check2">
                             <input class="form-check-input" type="radio" name="type" id="programming"
                                 value="Programming">
                             <label class="form-check-label" for="programming">
-
                                 Computer Programming
+                                <img src="./icons/developer.png" alt="cp">
                             </label>
                         </div>
                         <div class="form-check3">
                             <input class="form-check-input" type="radio" name="type" id="fiction" value="Fiction">
                             <label class="form-check-label" for="fiction">
                                 Fiction
+                                <img src="./icons/book.png" alt="Fiction">
                             </label>
                         </div>
                         <div class="form-check4">
@@ -169,18 +166,21 @@
                                 value="Non-Fiction">
                             <label class="form-check-label" for="non-fiction">
                                 Non-Fiction
+                                <img src="./icons/literary.png" alt="non-fiction">
                             </label>
                         </div>
                         <div class="form-check5">
                             <input class="form-check-input" type="radio" name="type" id="science" value="Science">
                             <label class="form-check-label" for="science">
                                 Science
+                                <img src="./icons/chemistry.png" alt="science">
                             </label>
                         </div>
                         <div class="form-check6">
                             <input class="form-check-input" type="radio" name="type" id="other" value="Other">
                             <label class="form-check-label" for="other">
                                 Other
+                                <img src="./icons/literary.png" alt="Other">
                             </label>
                             <input class="input-right" placeholder="Create new type" hidden id="newType" name="type"
                                 value="">
@@ -190,27 +190,24 @@
                 <div class="form-group row">
                     <div class="col-lg-12 col-sm-10 mt-3">
                         <button type="submit" class="btn text-light btn-large btn-block"
-                            style="background-color: #7f5bb4f3;">Add Book</button>
+                            style="background-color: #7f5bb4f3;">+ Add Book</button>
                     </div>
                 </div>
         </form>
-
-        <fieldset class="form-group">
-        </fieldset>
-
-        </form>
         <br>
+    </div>
 
-
+    <div class="container pt-4 mt-5 my-3">
         <!-- Section Display of books-->
         <div id="table mt-0">
             <h3 class="text-center">
                 <font size="8px"><b>Your Book Shelf</b></font>
+                <img src="./icons/book-stack.png" alt="bookstack">
             </h3>
             <hr>
 
             <div id="table" class="mb-5">
-                <h5 class="float-right" id="books"></h5>
+                <h5 class="text-center" id="books"></h5>
                 <div class="table-custom">
 
 
@@ -235,13 +232,84 @@
 
 
                 <!--Display Msg when table is empty-->
-                <h5 id="emptyMsg" class="mb-5"></h5>
+                <h5 id="emptyMsg" class="mb-5 text-center p-3"></h5>
             </div>
 
             <button type="button" id="clear" class="btn px-3 mb-2 btn-danger float-right">Clear Shelf</button>
         </div>
     </div>
+    <div class="containerFluid">
+        <h2>Frequently Asked Questions (FAQs)</h2>
+        <div class="accordion">
+          <div class="icon"></div>
+          <h5>What is Simple Library Management?</h5>
+        </div>
+        <div class="panel">
+          <p>
+            A simple library management project that is easy to use and helps learners understand the basic concept of JS. In this project, the user has a provision to add book details like book name, author name, book URL, ISBN, edition, publication date, the status of reading the book, and book genre through the web page. In addition, the user has a provision to search for the available books in the library by the book name, author name, or type. If book details are present in the LocalStorage, the search details are displayed on the web page. Users also have a provision to delete a specific book or all books. The user can choose his favorites and edit any book details very quickly.
+          </p>
+        </div>
+      
+        <div class="accordion">
+          <div class="icon"></div>
+          <h5>Why do we use it?</h5>
+        </div>
+        <div class="panel">
+          <p>
+            Answer
+          </p>
+        </div>
+      
+        <div class="accordion">
+          <div class="icon"></div>
+          <h5>Where does my books stored?</h5>
+        </div>
+        <div class="panel">
+          <p>
+            Answer
+          </p>
+        </div>
+      
+        <div class="accordion">
+          <div class="icon"></div>
+          <h5>Can I edit my books?</h5>
+        </div>
+        <div class="panel">
+          <p>
+            Answer
+          </p>
+        </div>
 
+        <div class="accordion">
+            <div class="icon"></div>
+            <h5>Is it secured?</h5>
+          </div>
+          <div class="panel">
+            <p>
+              Answer
+            </p>
+          </div>
+
+          <div class="accordion">
+            <div class="icon"></div>
+            <h5>Is there any limit to store books?</h5>
+          </div>
+          <div class="panel">
+            <p>
+              Answer
+            </p>
+          </div>
+
+          <div class="accordion">
+            <div class="icon"></div>
+            <h5>How to contact us?</h5>
+          </div>
+          <div class="panel">
+            <p>
+                Not find your questions. Do mail your question at mail...
+            </p>
+          </div>
+      </div>
     <!--footer section-->
     <hr>
     <footer class="footer">
@@ -264,10 +332,10 @@
         <div class="footer-col">
             <h4>Social Media</h4>
             <ul class="no-bullets">
-                <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
-                <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
-                <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
-                <li><a href="#"><i class="fab fa-linkedin-in"></i>LinkedIn</a></li>
+                <li><a href="https://www.facebook.com/sami.munir.3939"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+                <li><a href="https://www.instagram.com/sami_munir1/"><i class="fab fa-instagram"></i> Instagram</a></li>
+                <li><a href="https://twitter.com/samipak458"><i class="fab fa-twitter"></i> Twitter</a></li>
+                <li><a href="https://www.linkedin.com/in/msamiullah-dev"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
             </ul>
         </div>
         <div class="footer-col">

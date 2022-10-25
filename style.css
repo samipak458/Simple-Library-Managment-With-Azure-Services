@@ -1,6 +1,9 @@
 body {
   background-color: var(--secondary-color);
   background-color: var(--primary-color);
+  margin: 0;
+  overflow-x: hidden;
+  padding: 0;
 }
 
 #clear {
@@ -41,27 +44,50 @@ body {
   font-size: small;
 }
 
-a:hover {
+#icon{
+  font-size: 25px;
+  width: 30px;
+  color: var(--secondary-color);
+}
+#icon:hover {
   text-shadow: 5px 5px 5px var(--primary-color);
-  border: 1px outset var(--secondary-color);
+  transition: 0.3s;
 }
 
 .nav-heading:hover {
   text-shadow: none;
   border: none;
 }
-
 #searchText {
   background-color: rgb(32, 32, 32);
   color: var(--primary-color);
 }
-
+.search_box button{
+  margin-left: 7px;  
+  margin-right: 7px;  
+}
+.search_box button:hover{
+  background-color: var(--secondary-color);
+  color: rgb(197, 25, 25);
+  transform: rotate(360deg);
+}
 #searchText:hover {
   background-color: var(--primary-color);
   color: var(--secondary-color);
-  transition: 1s;
+  transition: 0.1s;
 }
 
+
+/* transition for the fa icons */
+.fa-45{
+  animation-name: round;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+@keyframes round {
+  0%{transform: rotate(0deg);}
+  100%{transform: rotate(360deg);}
+}
 h1 {
   font-family: aerial;
   color: #bd8cbf;
@@ -74,6 +100,7 @@ h1 {
 
 .container .welcome-text {
   padding-top: 10px;
+  font-family: sans-serif;
 }
 
 #libraryForm {
@@ -158,6 +185,7 @@ option {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 10px;
 }
 
 .search_box input {
@@ -222,6 +250,9 @@ option {
   top: 3px;
   left: 4px;
   transition: 0.5s all ease;
+}
+.dark-theme h1,h2{
+  color: red;
 }
 
 .dark-theme .toggle-switch {
@@ -327,6 +358,82 @@ option {
   list-style: none;
   padding-left: 0;
 }
+.containerFluid {
+  width: 100% !important;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+@media(max-width: 575.98px){
+  .containerFluid{
+    width: 100%;
+  }
+}
+
+.containerFluid h2 {
+  color: hotpink;
+  width: 100% !important;
+  text-align: center;
+}
+.containerFluid h2::after {
+  position: absolute;
+  content: "";
+  bottom: 40px;
+  right: 12px;
+  width: 67px;
+  height: 2px;
+  background-color: hotpink;
+}
+
+.accordion {
+  width: 100%;
+  padding: 0 5px;
+  border: 2px solid #6db5ff;
+  cursor: pointer;
+  border-radius: 50px;
+  display: flex;
+  margin: 10px 0;
+  align-items: center;
+}
+
+.accordion .icon {
+  margin: 0 10px 0 0;
+  width: 40px;
+  height: 40px;
+  background: url(https://raw.githubusercontent.com/Tusar78/responsive-accordion/main/images/toggle-bg.png)
+    no-repeat 8px 7px #6db5ff;
+  border-radius: 50%;
+  float: left;
+  transition: all 0.5s ease-in;
+}
+
+.accordion h5 {
+  font-size: 22px;
+  margin: 0;
+  padding: 3px 0 0 0;
+  font-weight: normal;
+  color: #1f5c9a;
+}
+
+.active {
+  background-color: #6db5ff;
+  color: #fff;
+}
+
+.active .icon {
+  background: url(https://raw.githubusercontent.com/Tusar78/responsive-accordion/main/images/toggle-bg.png)
+    no-repeat 8px -25px #fff;
+}
+
+.panel {
+  padding: 0 15px;
+  border-left: 1px solid #6db5ff;
+  margin-left: 25px;
+  font-size: 14px;
+  text-align: justify;
+  overflow: hidden;
+  max-height: 0;
+  transition: all 0.3s ease-in;
+}
 
 .app-store {
   margin-bottom: .5rem;
@@ -406,4 +513,15 @@ input:checked + .slider:before {
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(2, 1fr);
   }
+}
+/* scroll bar modification */
+::-webkit-scrollbar{
+  width: 10px;
+}
+::-webkit-scrollbar-track{
+  background-color: rgb(19, 16, 24);
+}
+::-webkit-scrollbar-thumb{
+  background-color: gray;
+  border-radius: 5px;
 }

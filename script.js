@@ -6,7 +6,7 @@ let author = document.getElementById("author");
 let isbn = document.getElementById("isbnno");
 let edition = document.getElementById("edition");
 let publicationD = document.getElementById("publicationdate");
-let read = document.getElementById("read");
+let read = document.getElementById("read-toggle");
 
 let url = document.getElementById("bookurl");
 let favorite = document.getElementById("fav-toggle");
@@ -248,9 +248,15 @@ function displayBooks() {
            <td class="edition">${books.bookedition}</td>
            <td class="publicationdate">${books.bookpublication}</td>
            <td class="type">${
-             books.readStatus
-               ? "<input type='checkbox' checked/> "
-               : "<input type='checkbox' />"
+             books.readStatus 
+             ? `<label class="switch">
+                  <input type="checkbox" checked disabled>
+                  <span class="slider round"></span>
+            </label>`  
+            : `<label class="switch">
+                  <input type="checkbox" disabled>
+                  <span class="slider round"></span>
+            </label>`
            }</td>
            <td class="fav">${
              books.favorite
@@ -281,8 +287,14 @@ function displayBooks() {
            <td class="publicationdate">${books.bookpublication}</td>
            <td class="type">${
              books.readStatus
-               ? "<input type='checkbox' checked/> "
-               : "<input type='checkbox' />"
+             ? `<label class="switch">
+                      <input type="checkbox" checked disabled>
+                      <span class="slider round"></span>
+                </label>`
+             : `<label class="switch">
+                      <input type="checkbox" disabled>
+                      <span class="slider round"></span>
+                </label>`
            }</td>
            <td class="fav">${
              books.favorite
@@ -598,7 +610,7 @@ function filterBooks() {
   let table = document.getElementById("tableBody");
   table.innerHTML = html;
 }
-filterDropdown.addEventListener("change", filterBooks);
+// filterDropdown.addEventListener("change", filterBooks);
 searchNote.addEventListener("input", filterBooks);
 
 showNumberOfBooks();
@@ -616,8 +628,29 @@ radioButtons.forEach((btn) => {
 });
 
 // dark mode
-var icon = document.getElementById("checkbox");
+var icon = document.querySelector("#icon");
 
-icon.onclick = function () {
+icon.onclick = ()=>{
   document.body.classList.toggle("dark-theme");
-};
+  if(document.body.classList == "dark-theme"){
+    icon.innerHTML = `<i class='fas fa-sun'></i>`;
+  }
+  else{
+    icon.innerHTML = `<i class='fas fa-moon'></i>`;
+  }
+  console.log(document.body.classList);
+}
+var acc = document.getElementsByClassName("accordion");
+var i;
+var len = acc.length;
+for (i = 0; i < len; i++) {
+  acc[i].addEventListener("click", function () {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
+}

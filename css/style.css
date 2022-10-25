@@ -1,9 +1,4 @@
-/*!
- * Bootstrap v4.3.1 (https://getbootstrap.com/)
- * Copyright 2011-2019 The Bootstrap Authors
- * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
+
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -8335,6 +8330,7 @@ h1, h2, h3, h4, h5,
       .form-group .submit {
         top: 0; } }
 
+
         .form-group-1 {
           position: relative; }
           .form-group-1 .submit {
@@ -8346,3 +8342,4 @@ h1, h2, h3, h4, h5,
             @media (max-width: 767.98px) {
               .form-group-1 .submit {
                 top: 0; } }
+
