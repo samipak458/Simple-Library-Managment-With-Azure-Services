@@ -338,13 +338,22 @@ option {
   color: white;
   font-size: 18px;
 }
+@import url(https://fonts.googleapis.com/css?family=Alegreya+Sans:300);
+
 
 .footer {
   display: flex;
   margin: 0 auto;
+  width: 100%;
   max-width: 1400px;
   padding-right: 1rem;
   padding-left: 1rem;
+  justify-content: space-between;
+}
+.nav {
+  display: flex;
+  flex-direction: row;
+  margin-left: 40%;
 }
 
 .footer-col {
@@ -356,7 +365,7 @@ option {
 
 .no-bullets {
   list-style: none;
-  padding-left: 0;
+
 }
 .containerFluid {
   width: 100% !important;
@@ -439,12 +448,15 @@ option {
   margin-bottom: .5rem;
 }
 
-.repo-details {
-  width: 80%;
+.bottom{
   display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+  flex-direction: row;
 }
+
+.last{
+  padding-left: 20px;
+}
+
 
 /* toggle button */
 .switch {
@@ -459,6 +471,7 @@ option {
   width: 0;
   height: 0;
 }
+
 
 .slider {
   position: absolute;
