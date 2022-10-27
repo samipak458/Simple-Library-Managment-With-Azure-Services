@@ -629,14 +629,20 @@ radioButtons.forEach((btn) => {
 
 // dark mode
 var icon = document.querySelector("#icon");
+var head1 = document.getElementById("subHead1");
+var head2 = document.getElementById("subHead2");
 
 icon.onclick = ()=>{
   document.body.classList.toggle("dark-theme");
   if(document.body.classList == "dark-theme"){
     icon.innerHTML = `<i class='fas fa-sun'></i>`;
+    head1.style.color = "white";
+    head2.style.color = "white";
   }
   else{
     icon.innerHTML = `<i class='fas fa-moon'></i>`;
+    head1.style.color = "black";
+    head2.style.color = "black";
   }
   console.log(document.body.classList);
 }
