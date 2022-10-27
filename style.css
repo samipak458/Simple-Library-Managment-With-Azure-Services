@@ -457,7 +457,9 @@ option {
   padding-left: 20px;
 }
 
-
+.lh {
+  line-height: 50px;
+}
 /* toggle button */
 .switch {
   position: relative;
