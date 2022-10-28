@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -74,7 +74,7 @@
         <h1 class="text-center display-5 font-weight-bold welcome-text">Welcome To <i class="fa fa-globe fa-45"></i>nline Library</h1>
         <hr>
         <!-- <h3 class="text-center"> -->
-            <p style="font-size:30px;" class="text-center"><b>Add Your Book</b></p>
+            <p style="font-size:30px;" class="text-center" id="subHead1"><b>Add Your Book</b></p>
             <hr>
         <!-- </h3> -->
 
@@ -200,7 +200,7 @@
     <div class="container pt-4 mt-5 my-3">
         <!-- Section Display of books-->
         <div id="table mt-0">
-            <h3 class="text-center">
+            <h3 class="text-center" id="subHead2">
                 <font size="8px"><b>Your Book Shelf</b></font>
                 <img src="./icons/book-stack.png" alt="bookstack">
             </h3>
@@ -323,19 +323,10 @@
         </div>
         <div class="footer-col">
             <h4>Supports</h4>
-            <ul class="no-bullets">
+            <ul class="no-bullets p-0">
                 <li><a href="#">Help / FAQ</a></li>
                 <li><a href="#">Accessibility</a></li>
                 <li><a href="#">Publisher</a></li>
-            </ul>
-        </div>
-        <div class="footer-col">
-            <h4>Social Media</h4>
-            <ul class="no-bullets">
-                <li><a href="https://www.facebook.com/sami.munir.3939"><i class="fab fa-facebook-f"></i> Facebook</a></li>
-                <li><a href="https://www.instagram.com/sami_munir1/"><i class="fab fa-instagram"></i> Instagram</a></li>
-                <li><a href="https://twitter.com/samipak458"><i class="fab fa-twitter"></i> Twitter</a></li>
-                <li><a href="https://www.linkedin.com/in/msamiullah-dev"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
             </ul>
         </div>
         <div class="footer-col">
@@ -350,13 +341,19 @@
             </ul>
         </div>
     </footer>
+    <ul class="nav">
+                    <li class="nav-item"><a href="https://www.facebook.com/sami.munir.3939" class="nav-link pl-0"><i class="fa fa-facebook fa-2x"></i></a></li>
+                    <li class="nav-item"><a href="https://twitter.com/samipak458" class="nav-link"><i class="fa fa-twitter fa-2x"></i></a></li>
+                    <li class="nav-item"><a href="https://www.linkedin.com/in/msamiullah-dev" class="nav-link"><i class="fa fa-linkedin fa-2x"></i></a></li>
+                    <li class="nav-item"><a href="https://www.instagram.com/sami_munir1" class="nav-link"><i class="fa fa-instagram fa-2x"></i></a></li>
+                    <li class="nav-item"><a href="https://delightful-coast-00b51a700.1.azurestaticapps.net/" class="nav-link"><i class="fa fa-github fa-2x"></i></a></li>
+
+                </ul>
     <hr>
-    <div class="footer">
-        <p style="width: 20%; min-width: 115px;">About this repo:</p>
-        <ul class="repo-details no-bullets">
-            <li><i class="fa-solid fa-code-fork"></i> Forks <span id="forks-count">fetching..</span></li>
-            <li><i class="fa-regular fa-star"></i> Stars <span id="stars-count">fetching..</span></li>
-        </ul>
+    <div class=" bottom ">
+        <p style="min-width:10% ;margin-left:35%">About this repo:</p>
+            <i class="fa-solid fa-code-fork last"></i> Forks <span id="forks-count">fetching..</span>
+            <i class="fa-regular fa-star last"></i> Stars <span id="stars-count">fetching..</span>
     </div>
 
     <!--JS file-->
