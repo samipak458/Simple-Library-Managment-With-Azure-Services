@@ -1,3 +1,4 @@
+
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -8328,3 +8329,17 @@ h1, h2, h3, h4, h5,
     @media (max-width: 767.98px) {
       .form-group .submit {
         top: 0; } }
+
+
+        .form-group-1 {
+          position: relative; }
+          .form-group-1 .submit {
+            position: absolute;
+            top: 90px;
+            left: 0;
+            right: 0;
+            margin: 0 auto; }
+            @media (max-width: 767.98px) {
+              .form-group-1 .submit {
+                top: 0; } }
+
