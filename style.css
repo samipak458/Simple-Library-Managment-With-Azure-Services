@@ -293,6 +293,8 @@ option {
   margin: 0.2em;
   font-size: 20px;
   list-style: none;
+  width: 10vw;
+  text-align: center;
 }
 
 .icon {
