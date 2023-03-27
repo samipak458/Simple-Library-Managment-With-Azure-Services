@@ -17,7 +17,7 @@ Before you can deploy the app to Azure, you need to build it.
 - Create a repository for your app on GitHub.
 - Run the app locally and view it via a browser.
 
-With the copy created locally, you’re all set to start working on your code and site. Now you’ll explore how to deploy your site to the cloud. You’ll use Azure Static Web Apps to host your site. Using Azure Static Web Apps will allow you to quickly post your web site to the world. You can explore more [Azure Tips and Tricks: Static Web Apps](https://docs.microsoft.com/en-us/shows/azure-tips-and-tricks-static-web-apps/) to learn more. 
+With the copy created locally, you’re all set to start working on your code and site. Now you’ll explore how to deploy your site to the cloud. You’ll use Azure Static Web Apps to host your site. Using Azure Static Web Apps will allow you to quickly post your web site to the world. You can explore more [Azure Tips and Tricks: Static Web Apps](https://docs.microsoft.com/en-us/shows/azure-tips-and-tricks-static-web-apps?wt.mc_id=studentamb_202028) to learn more. 
 
 Next, open Visual Studio Code then Open Folder in the editor.
 
@@ -80,8 +80,8 @@ With your app deployed, Let's pushed your code to GitHub. You can push it in mul
 6) Navigate to Actions in GitHub and view your web app’s build progress
 7) When the build is complete, refresh your app and the changes should be reflected
 
-### Note: If you want to host your app which is build using framework then follow this [Publish an Angular, React, Svelte, or Vue JavaScript app with Azure Static Web Apps](https://docs.microsoft.com/en-us/learn/modules/publish-app-service-static-web-app-api/2-exercise-get-started?pivots=react)
+### Note: If you want to host your app which is build using framework then follow this [Publish an Angular, React, Svelte, or Vue JavaScript app with Azure Static Web Apps](https://docs.microsoft.com/en-us/learn/modules/publish-app-service-static-web-app-api/2-exercise-get-started?wt.mc_id=studentamb_202028)
 
 ## Resource
-[Azure Static Web Apps](https://docs.microsoft.com/en-us/learn/modules/publish-app-service-static-web-app-api/?WT.mc_id=academic-56895-chnoring)
+[Azure Static Web Apps](https://docs.microsoft.com/en-us/learn/modules/publish-app-service-static-web-app-api?wt.mc_id=studentamb_202028)
   
