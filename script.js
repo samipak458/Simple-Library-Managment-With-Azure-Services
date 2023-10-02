@@ -140,10 +140,6 @@ libraryForm.addEventListener("submit", (e) => {
     alreadyAddedMessage();
     return;
   } else {
-    // Book Name is mandatory field
-    if (name.value == "") {
-      errorMessage();
-    } else {
       let myObj;
       if (author.value != "") {
         myObj = {
@@ -188,7 +184,6 @@ libraryForm.addEventListener("submit", (e) => {
       isbn.value = "";
       edition.value = "";
       publicationD.value = "";
-    }
     displayBooks();
   }
 });
