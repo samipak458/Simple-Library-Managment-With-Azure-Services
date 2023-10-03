@@ -631,6 +631,7 @@ radioButtons.forEach((btn) => {
 var icon = document.querySelector("#icon");
 var head1 = document.getElementById("subHead1");
 var head2 = document.getElementById("subHead2");
+var tables = document.getElementsByTagName("table");
 
 icon.onclick = ()=>{
   document.body.classList.toggle("dark-theme");
@@ -638,11 +639,17 @@ icon.onclick = ()=>{
     icon.innerHTML = `<i class='fas fa-sun'></i>`;
     head1.style.color = "white";
     head2.style.color = "white";
+    for (let i = 0; i < tables.length; i++) {
+      tables[i].style.color = "white";
+    }
   }
   else{
     icon.innerHTML = `<i class='fas fa-moon'></i>`;
     head1.style.color = "black";
     head2.style.color = "black";
+    for (let i = 0; i < tables.length; i++) {
+      tables[i].style.color = "black";
+    }
   }
   console.log(document.body.classList);
 }
