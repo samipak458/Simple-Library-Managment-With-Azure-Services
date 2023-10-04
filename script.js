@@ -632,6 +632,7 @@ var icon = document.querySelector("#icon");
 var head1 = document.getElementById("subHead1");
 var head2 = document.getElementById("subHead2");
 var tables = document.getElementsByTagName("table");
+var panelDivs  = document.getElementsByClassName('panel');
 
 icon.onclick = ()=>{
   document.body.classList.toggle("dark-theme");
@@ -642,6 +643,9 @@ icon.onclick = ()=>{
     for (let i = 0; i < tables.length; i++) {
       tables[i].style.color = "white";
     }
+    for (let i = 0; i < panelDivs.length; i++) {
+      panelDivs[i].childNodes[1].style.color = "white";
+    }
   }
   else{
     icon.innerHTML = `<i class='fas fa-moon'></i>`;
@@ -649,6 +653,9 @@ icon.onclick = ()=>{
     head2.style.color = "black";
     for (let i = 0; i < tables.length; i++) {
       tables[i].style.color = "black";
+    }
+    for (let i = 0; i < panelDivs.length; i++) {
+      panelDivs[i].childNodes[1].style.color = "black";
     }
   }
   console.log(document.body.classList);
