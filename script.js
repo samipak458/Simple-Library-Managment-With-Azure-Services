@@ -633,6 +633,7 @@ var head1 = document.getElementById("subHead1");
 var head2 = document.getElementById("subHead2");
 var tables = document.getElementsByTagName("table");
 var panelDivs  = document.getElementsByClassName('panel');
+var faqHeading = document.getElementsByClassName('containerFluid')[0].childNodes[1];
 
 icon.onclick = ()=>{
   document.body.classList.toggle("dark-theme");
@@ -640,6 +641,7 @@ icon.onclick = ()=>{
     icon.innerHTML = `<i class='fas fa-sun'></i>`;
     head1.style.color = "white";
     head2.style.color = "white";
+    faqHeading.style.color = "white";
     for (let i = 0; i < tables.length; i++) {
       tables[i].style.color = "white";
     }
@@ -651,6 +653,7 @@ icon.onclick = ()=>{
     icon.innerHTML = `<i class='fas fa-moon'></i>`;
     head1.style.color = "black";
     head2.style.color = "black";
+    faqHeading.style.color = "hotpink";
     for (let i = 0; i < tables.length; i++) {
       tables[i].style.color = "black";
     }
