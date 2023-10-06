@@ -25,6 +25,19 @@ body {
   --ternary-color: rgb(41, 39, 39);
 }
 
+.dark-theme h4{
+color: white;
+}
+
+.dark-theme {
+  color: rgb(207, 206, 206);
+  }
+
+  .dark-theme .faq{
+    color: white;
+  }
+
+
 #clear:hover {
   background-color: purple;
   font-size: larger;
@@ -350,12 +363,13 @@ option {
   max-width: 1400px;
   padding-right: 1rem;
   padding-left: 1rem;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
 }
 .nav {
   display: flex;
   flex-direction: row;
-  margin-left: 40%;
+  justify-content: center;
 }
 
 .footer-col {
@@ -370,21 +384,26 @@ option {
 
 }
 .containerFluid {
-  width: 100% !important;
+  width:75%;
   margin: 0 auto;
   margin-top: 100px;
 }
+
+
 @media(max-width: 575.98px){
   .containerFluid{
-    width: 100%;
+    width: 90%;
   }
 }
 
 .containerFluid h2 {
-  color: hotpink;
+  color: black;
   width: 100% !important;
   text-align: center;
+  padding-bottom: 15px;
 }
+
+
 .containerFluid h2::after {
   position: absolute;
   content: "";
@@ -392,7 +411,7 @@ option {
   right: 12px;
   width: 67px;
   height: 2px;
-  background-color: hotpink;
+  background-color: white;
 }
 
 .accordion {
@@ -453,6 +472,8 @@ option {
 .bottom{
   display: flex;
   flex-direction: row;
+  justify-content: center;
+
 }
 
 .last{
@@ -526,9 +547,15 @@ input:checked + .slider:before {
 
 @media only screen and (max-width: 576px) {
   .footer {
-    display: grid;
+    /* display: grid;
     grid-template-rows: repeat(2, 1fr);
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 2fr); */
+
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    width: 100%;
+
   }
 }
 /* scroll bar modification */
