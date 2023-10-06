@@ -33,6 +33,10 @@ color: white;
   color: rgb(207, 206, 206);
   }
 
+  .dark-theme .faq{
+    color: white;
+  }
+
 
 #clear:hover {
   background-color: purple;
@@ -384,6 +388,8 @@ option {
   margin: 0 auto;
   margin-top: 100px;
 }
+
+
 @media(max-width: 575.98px){
   .containerFluid{
     width: 90%;
@@ -391,10 +397,13 @@ option {
 }
 
 .containerFluid h2 {
-  color: hotpink;
+  color: black;
   width: 100% !important;
   text-align: center;
+  padding-bottom: 15px;
 }
+
+
 .containerFluid h2::after {
   position: absolute;
   content: "";
@@ -402,7 +411,7 @@ option {
   right: 12px;
   width: 67px;
   height: 2px;
-  background-color: hotpink;
+  background-color: white;
 }
 
 .accordion {
