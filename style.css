@@ -1,9 +1,22 @@
+html{
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--secondary-color);
   background-color: var(--primary-color);
   margin: 0;
   overflow-x: hidden;
+  scroll-behavior: smooth;
   padding: 0;
+}
+#btn-back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  /* border-radius: 50%; */
+  background-color: #452066;
+  display: none;
 }
 
 #clear {

@@ -24,12 +24,16 @@
 
 <body>
     <!-- NavBar -->
-
+    <button type="button" class="btn btn-danger btn-floating btn-lg" id="btn-back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
     <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top"
         style="background-color: #452066; opacity: 1;">
         <a class="navbar-brand mb-1 nav-heading" href="#" style="font-size: 28px;">
-            <span style="color:#d45248;font-family:Montserrat;font-weight: bold;"> <div class="fa fa-globe fa-45"></div>nline  <span
-                    style="color:#fff ;">Library <i class="fa fa-book"></i></span></span>
+            <span style="color:#d45248;font-family:Montserrat;font-weight: bold;">
+                <div class="fa fa-globe fa-45"></div>nline <span style="color:#fff ;">Library <i
+                        class="fa fa-book"></i></span>
+            </span>
         </a>
         <button class="navbar-toggler abc " type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
             aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,7 +62,7 @@
                 <input type="search" id="searchText" placeholder="Type Your Favorite Book...">
                 <button class="fa fa-search" type="submit"></button>
             </div>
-           <a id="icon"><i class="fas fa-moon"></i></a>
+            <a id="icon"><i class="fas fa-moon"></i></a>
         </div>
         </form>
         </div>
@@ -71,11 +75,12 @@
 
     <!--Section of Adding books-->
     <div class="container pt-4 mt-5 my-3">
-        <h1 class="text-center display-5 font-weight-bold welcome-text">Welcome To <i class="fa fa-globe fa-45"></i>nline Library</h1>
+        <h1 class="text-center display-5 font-weight-bold welcome-text">Welcome To <i
+                class="fa fa-globe fa-45"></i>nline Library</h1>
         <hr>
         <!-- <h3 class="text-center"> -->
-            <p style="font-size:30px;" class="text-center" id="subHead1"><b>Add Your Book</b></p>
-            <hr>
+        <p style="font-size:30px;" class="text-center" id="subHead1"><b>Add Your Book</b></p>
+        <hr>
         <!-- </h3> -->
 
         <form id="libraryForm">
@@ -91,7 +96,7 @@
                     <label class="switch">
                         <input type="checkbox" id="fav-toggle">
                         <span class="slider round"></span>
-                      </label>
+                    </label>
                 </div>
             </div>
             <div class="form-group row">
@@ -131,7 +136,7 @@
                     <label class="switch">
                         <input type="checkbox" id="read-toggle">
                         <span class="slider round"></span>
-                      </label>
+                    </label>
                 </div>
             </div>
 
@@ -241,81 +246,102 @@
     <div class="containerFluid">
         <h2 class="faq">Frequently Asked Questions (FAQs)</h2>
         <div class="accordion">
-          <div class="icon"></div>
-          <h5>What is Simple Library Management?</h5>
+            <div class="icon"></div>
+            <h5>What is Simple Library Management?</h5>
         </div>
         <div class="panel">
-          <p>
-            A simple library management project that is easy to use and helps learners understand the basic concept of JS. In this project, the user has a provision to add book details like book name, author name, book URL, ISBN, edition, publication date, the status of reading the book, and book genre through the web page. In addition, the user has a provision to search for the available books in the library by the book name, author name, or type. If book details are present in the LocalStorage, the search details are displayed on the web page. Users also have a provision to delete a specific book or all books. The user can choose his favorites and edit any book details very quickly.
-          </p>
-        </div>
-      
-        <div class="accordion">
-          <div class="icon"></div>
-          <h5>Why do we use it?</h5>
-        </div>
-        <div class="panel">
-          <p>
-             1. Convenience: Online library systems allow users to access the library's resources from anywhere, at any time, as long as they have an internet connection. This makes it more convenient for users to search for and access the information they need, without having to physically visit the library.<br>
-             2. Access to a wider range of resources: Online library systems often provide access to a wider range of resources than a physical library can offer. This is because online libraries can acquire and make available digital versions of resources from other libraries and publishers.<br>
-             3. Searchability: Online library systems often have search features that allow users to quickly and easily find the resources they need. Users can search by title, author, subject, or keyword, making it easier to locate relevant resources.<br>
-             4. 24/7 availability: Online library systems are available 24 hours a day, 7 days a week, allowing users to access resources at any time, regardless of the library's physical operating hours.   
+            <p>
+                A simple library management project that is easy to use and helps learners understand the basic concept
+                of JS. In this project, the user has a provision to add book details like book name, author name, book
+                URL, ISBN, edition, publication date, the status of reading the book, and book genre through the web
+                page. In addition, the user has a provision to search for the available books in the library by the book
+                name, author name, or type. If book details are present in the LocalStorage, the search details are
+                displayed on the web page. Users also have a provision to delete a specific book or all books. The user
+                can choose his favorites and edit any book details very quickly.
             </p>
         </div>
-      
-        <div class="accordion">
-          <div class="icon"></div>
-          <h5>Where does my books stored?</h5>
-        </div>
-        <div class="panel">
-          <p>
-            For an online library system, the books are stored on a digital server or servers. These servers are typically located in data centers or cloud-based storage systems. When a user accesses a book through the online library system, the book is transmitted electronically from the server to the user's device.
 
-            The exact location of the servers may vary depending on the online library system and the specific technology used to store and transmit the books. Some libraries may use their own servers, while others may rely on third-party providers for their digital storage needs.
-          </p>
-        </div>
-      
         <div class="accordion">
-          <div class="icon"></div>
-          <h5>Can I edit my books?</h5>
+            <div class="icon"></div>
+            <h5>Why do we use it?</h5>
         </div>
         <div class="panel">
-          <p>
-            1. In general, you cannot edit the books in an online library system. The books are typically provided as digital copies of the original works, and editing them would require access to the original source material and specialized software.<br>
-            2. In general, it is not recommended to make any changes to the books in an online library system, as this could violate copyright laws and terms of use agreements with the library system.
-          </p>
+            <p>
+                1. Convenience: Online library systems allow users to access the library's resources from anywhere, at
+                any time, as long as they have an internet connection. This makes it more convenient for users to search
+                for and access the information they need, without having to physically visit the library.<br>
+                2. Access to a wider range of resources: Online library systems often provide access to a wider range of
+                resources than a physical library can offer. This is because online libraries can acquire and make
+                available digital versions of resources from other libraries and publishers.<br>
+                3. Searchability: Online library systems often have search features that allow users to quickly and
+                easily find the resources they need. Users can search by title, author, subject, or keyword, making it
+                easier to locate relevant resources.<br>
+                4. 24/7 availability: Online library systems are available 24 hours a day, 7 days a week, allowing users
+                to access resources at any time, regardless of the library's physical operating hours.
+            </p>
+        </div>
+
+        <div class="accordion">
+            <div class="icon"></div>
+            <h5>Where does my books stored?</h5>
+        </div>
+        <div class="panel">
+            <p>
+                For an online library system, the books are stored on a digital server or servers. These servers are
+                typically located in data centers or cloud-based storage systems. When a user accesses a book through
+                the online library system, the book is transmitted electronically from the server to the user's device.
+
+                The exact location of the servers may vary depending on the online library system and the specific
+                technology used to store and transmit the books. Some libraries may use their own servers, while others
+                may rely on third-party providers for their digital storage needs.
+            </p>
+        </div>
+
+        <div class="accordion">
+            <div class="icon"></div>
+            <h5>Can I edit my books?</h5>
+        </div>
+        <div class="panel">
+            <p>
+                1. In general, you cannot edit the books in an online library system. The books are typically provided
+                as digital copies of the original works, and editing them would require access to the original source
+                material and specialized software.<br>
+                2. In general, it is not recommended to make any changes to the books in an online library system, as
+                this could violate copyright laws and terms of use agreements with the library system.
+            </p>
         </div>
 
         <div class="accordion">
             <div class="icon"></div>
             <h5>Is it secured?</h5>
-          </div>
-          <div class="panel">
+        </div>
+        <div class="panel">
             <p>
-              Overall, online library systems strive to provide a secure and safe environment for users to access digital resources.
+                Overall, online library systems strive to provide a secure and safe environment for users to access
+                digital resources.
             </p>
-          </div>
+        </div>
 
-          <div class="accordion">
+        <div class="accordion">
             <div class="icon"></div>
             <h5>Is there any limit to store books?</h5>
-          </div>
-          <div class="panel">
+        </div>
+        <div class="panel">
             <p>
-              You can Store your books as much as you can!
+                You can Store your books as much as you can!
             </p>
-          </div>
+        </div>
 
-          <div class="accordion">
+        <div class="accordion">
             <div class="icon"></div>
             <h5>How to contact us?</h5>
-          </div>
-          <div class="panel">
+        </div>
+        <div class="panel">
             <p>
                 Not find your questions. Do mail your question at mail...
             </p>
-          </div>
-      </div>
+        </div>
+    </div>
     <!--footer section-->
     <hr>
     <footer class="footer">
@@ -348,18 +374,23 @@
         </div>
     </footer>
     <ul class="nav">
-                    <li class="nav-item"><a href="https://www.facebook.com/sami.munir.3939" class="nav-link pl-0"><i class="fa fa-facebook fa-2x"></i></a></li>
-                    <li class="nav-item"><a href="https://twitter.com/samipak458" class="nav-link"><i class="fa fa-twitter fa-2x"></i></a></li>
-                    <li class="nav-item"><a href="https://www.linkedin.com/in/msamiullah-dev" class="nav-link"><i class="fa fa-linkedin fa-2x"></i></a></li>
-                    <li class="nav-item"><a href="https://www.instagram.com/sami_munir1" class="nav-link"><i class="fa fa-instagram fa-2x"></i></a></li>
-                    <li class="nav-item"><a href="https://delightful-coast-00b51a700.1.azurestaticapps.net/" class="nav-link"><i class="fa fa-github fa-2x"></i></a></li>
+        <li class="nav-item"><a href="https://www.facebook.com/sami.munir.3939" class="nav-link pl-0"><i
+                    class="fa fa-facebook fa-2x"></i></a></li>
+        <li class="nav-item"><a href="https://twitter.com/samipak458" class="nav-link"><i
+                    class="fa fa-twitter fa-2x"></i></a></li>
+        <li class="nav-item"><a href="https://www.linkedin.com/in/msamiullah-dev" class="nav-link"><i
+                    class="fa fa-linkedin fa-2x"></i></a></li>
+        <li class="nav-item"><a href="https://www.instagram.com/sami_munir1" class="nav-link"><i
+                    class="fa fa-instagram fa-2x"></i></a></li>
+        <li class="nav-item"><a href="https://delightful-coast-00b51a700.1.azurestaticapps.net/" class="nav-link"><i
+                    class="fa fa-github fa-2x"></i></a></li>
 
-                </ul>
+    </ul>
     <hr>
     <div class=" bottom ">
         <p style="min-width:10%;">About this repo:</p>
-            <i class="fa-solid fa-code-fork last"></i> Forks <span id="forks-count">fetching..</span>
-            <i class="fa-regular fa-star last"></i> Stars <span id="stars-count">fetching..</span>
+        <i class="fa-solid fa-code-fork last"></i> Forks <span id="forks-count">fetching..</span>
+        <i class="fa-regular fa-star last"></i> Stars <span id="stars-count">fetching..</span>
     </div>
 
     <!--JS file-->
