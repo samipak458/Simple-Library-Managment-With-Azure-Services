@@ -338,12 +338,10 @@ h2 {
   display: none;
 }
 .dropdown {
-  padding-bottom: 10px;
-  margin-top: 10px;
+  padding-bottom: 2px;
   width: fit-content;
 }
 .dropdown .flex-row-reverse{
-  padding: 20px;
   width: fit-content;
   display: flex;
   justify-content: center;
@@ -357,7 +355,7 @@ h2 {
   align-items: center;
   /* line-height: 2em; */
   /* padding: 0.2em; */
-  top: 75px;
+  top: 45px;
   left: 50%;
   width: 100%;
   transform: translateX(-50%);
