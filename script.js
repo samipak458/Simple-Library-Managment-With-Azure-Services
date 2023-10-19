@@ -248,12 +248,12 @@ function displayBooks() {
            <td class="edition">${books.bookedition}</td>
            <td class="publicationdate">${books.bookpublication}</td>
            <td class="type">${
-             books.readStatus 
-             ? `<label class="switch">
+             books.readStatus
+               ? `<label class="switch">
                   <input type="checkbox" checked disabled>
                   <span class="slider round"></span>
-            </label>`  
-            : `<label class="switch">
+            </label>`
+               : `<label class="switch">
                   <input type="checkbox" disabled>
                   <span class="slider round"></span>
             </label>`
@@ -287,11 +287,11 @@ function displayBooks() {
            <td class="publicationdate">${books.bookpublication}</td>
            <td class="type">${
              books.readStatus
-             ? `<label class="switch">
+               ? `<label class="switch">
                       <input type="checkbox" checked disabled>
                       <span class="slider round"></span>
                 </label>`
-             : `<label class="switch">
+               : `<label class="switch">
                       <input type="checkbox" disabled>
                       <span class="slider round"></span>
                 </label>`
@@ -633,17 +633,16 @@ var head1 = document.getElementById("subHead1");
 var head2 = document.getElementById("subHead2");
 var tables = document.getElementsByTagName("table");
 
-icon.onclick = ()=>{
+icon.onclick = () => {
   document.body.classList.toggle("dark-theme");
-  if(document.body.classList == "dark-theme"){
+  if (document.body.classList == "dark-theme") {
     icon.innerHTML = `<i class='fas fa-sun'></i>`;
     head1.style.color = "white";
     head2.style.color = "white";
     for (let i = 0; i < tables.length; i++) {
       tables[i].style.color = "white";
     }
-  }
-  else{
+  } else {
     icon.innerHTML = `<i class='fas fa-moon'></i>`;
     head1.style.color = "black";
     head2.style.color = "black";
@@ -652,7 +651,7 @@ icon.onclick = ()=>{
     }
   }
   console.log(document.body.classList);
-}
+};
 var acc = document.getElementsByClassName("accordion");
 var i;
 var len = acc.length;
