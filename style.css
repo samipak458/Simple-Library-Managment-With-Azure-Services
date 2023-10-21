@@ -337,14 +337,25 @@ h2 {
 .menu {
   display: none;
 }
+.dropdown {
+  padding-bottom: 2px;
+  width: fit-content;
+}
+.dropdown .flex-row-reverse{
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
 
-.dropdown ul li:hover .menu {
+.dropdown:hover .menu {
   position: absolute;
   display: block;
   align-items: center;
-  line-height: 2em;
-  padding: 0.2em;
-  top: 2.3em;
+  /* line-height: 2em; */
+  /* padding: 0.2em; */
+  top: 45px;
   left: 50%;
   width: 100%;
   transform: translateX(-50%);
@@ -352,10 +363,13 @@ h2 {
 
 .menu ul {
   display: block;
+  width: fit-content;
 }
 
 .menu ul li {
   text-align: center;
+  width: 100%;
+  padding: 10px;
 }
 
 .menu ul li:hover {
