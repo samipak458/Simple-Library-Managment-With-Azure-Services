@@ -83,5 +83,5 @@ With your app deployed, Let's pushed your code to GitHub. You can push it in mul
 ### Note: If you want to host your app which is build using framework then follow this [Publish an Angular, React, Svelte, or Vue JavaScript app with Azure Static Web Apps](https://docs.microsoft.com/en-us/learn/modules/publish-app-service-static-web-app-api/2-exercise-get-started?wt.mc_id=studentamb_202028)
 
 ## Resource
-[Azure Static Web Apps](https://docs.microsoft.com/en-us/learn/modules/publish-app-service-static-web-app-api?wt.mc_id=studentamb_202028)
+Learn more: [Azure Static Web Apps](https://docs.microsoft.com/en-us/learn/modules/publish-app-service-static-web-app-api?wt.mc_id=studentamb_202028)
   
