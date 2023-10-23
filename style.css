@@ -1,4 +1,4 @@
-html{
+html {
   scroll-behavior: smooth;
 }
 
@@ -33,13 +33,21 @@ body {
 }
 
 .dark-theme {
-  --primary-color: black;
+  --primary-color: rgb(34, 32, 32);
   --secondary-color: white;
   --ternary-color: rgb(41, 39, 39);
 }
 
 .dark-theme h4 {
   color: white;
+}
+
+.dark-theme #libraryForm {
+  box-shadow: 0px 3px 20px #474747, 1px 0px 3px #bd8cbf;
+}
+
+.dark-theme .divider {
+  background-color: rgb(83, 83, 83);
 }
 
 .dark-theme {
@@ -73,6 +81,7 @@ body {
   font-size: 25px;
   width: 30px;
   color: var(--secondary-color);
+  cursor: pointer;
 }
 #icon:hover {
   text-shadow: 5px 5px 5px var(--primary-color);
@@ -204,6 +213,13 @@ legend {
   color: var(--secondary-color);
 }
 
+#subHead2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
 option {
   background-color: var(--ternary-color);
   color: var(--secondary-color);
@@ -281,7 +297,11 @@ option {
 }
 .dark-theme h1,
 h2 {
-  color: red;
+  color: #7a49c4f3;
+}
+
+.dark-theme h1 {
+  text-shadow: 5px 5px 5px rgba(69, 56, 145, 0.4);
 }
 
 .dark-theme .toggle-switch {
@@ -298,7 +318,7 @@ h2 {
 
 .table-custom {
   width: 100%;
-  overflow: scroll;
+  overflow: auto;
   scroll-behavior: smooth;
   height: 100%;
 }
@@ -418,16 +438,6 @@ h2 {
   padding-bottom: 15px;
 }
 
-.containerFluid h2::after {
-  position: absolute;
-  content: "";
-  bottom: 40px;
-  right: 12px;
-  width: 67px;
-  height: 2px;
-  background-color: white;
-}
-
 .accordion {
   width: 100%;
   padding: 5px 5px;
@@ -456,6 +466,10 @@ h2 {
   padding: 3px 0 0 0;
   font-weight: normal;
   color: #1f5c9a;
+}
+
+.dark-theme .accordion h5 {
+  color: #94c8fc;
 }
 
 .active {
