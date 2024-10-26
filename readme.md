@@ -6,12 +6,12 @@
 
 A **Simple Library Management Project** is an *open-source website* built using **HTML**, **CSS**, **JavaScript**, and **Bootstrap**. It’s *easy to use* and helps learners understand the *basic concepts of JavaScript*. In this project, the user has a provision to **add book details** like:
 
-- **Book Name**
+- *Book Name*
 - *Author Name*
-- **Book URL**
+- *Book URL*
 - *ISBN*
 - *Edition*
-- **Publication Date**
+- *Publication Date*
 - *Status of Reading* (e.g., read, currently reading, to be read)
 - *Book Genre*
 
