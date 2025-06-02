@@ -4,8 +4,7 @@ let libraryForm = document.getElementById("libraryForm");
 let name = document.getElementById("bookName");
 let author = document.getElementById("author");
 let isbn = document.getElementById("isbnno");
-let edition = document.getElementById("edition");
-let publicationD = document.getElementById("publicationdate");
+let edition = document.getElementById("publicationdate");
 let read = document.getElementById("read-toggle");
 
 let url = document.getElementById("bookurl");
@@ -692,3 +691,76 @@ function backToTop() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
+
+// --- Filter Dropdown Fix ---
+// Add event listeners to filter menu items to set filter type
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Filter dropdown logic
+  const filterMenuItems = document.querySelectorAll('.dropdown .menu ul li');
+  const filterDropdown = document.getElementById('filter-books');
+  let currentFilter = 'all';
+
+  // If filter-books select doesn't exist, create a hidden one for logic
+  if (!filterDropdown) {
+    const select = document.createElement('select');
+    select.id = 'filter-books';
+    select.style.display = 'none';
+    select.innerHTML = `
+      <option value="all">All</option>
+      <option value="book">Name</option>
+      <option value="bookauthor">Author</option>
+      <option value="bookType">Type</option>
+    `;
+    document.body.appendChild(select);
+  }
+
+  // Attach click event to menu items
+  filterMenuItems.forEach((item) => {
+    item.addEventListener('click', function (e) {
+      e.preventDefault();
+      let text = this.textContent.trim().toLowerCase();
+      let value = 'all';
+      if (text === 'name') value = 'book';
+      else if (text === 'author') value = 'bookauthor';
+      else if (text === 'type') value = 'bookType';
+      else value = 'all';
+      document.getElementById('filter-books').value = value;
+      currentFilter = value;
+      filterBooks();
+    });
+  });
+
+  // --- Search Bar Fix ---
+  // Keep search bar open after typing
+  const searchBox = document.querySelector('.search_box');
+  const searchInput = document.getElementById('searchText');
+  if (searchBox && searchInput) {
+    searchInput.addEventListener('focus', function () {
+      searchBox.classList.add('active');
+      searchInput.style.width = '240px';
+      searchInput.style.opacity = '1';
+      searchInput.style.padding = '10px 20px';
+    });
+    searchInput.addEventListener('blur', function () {
+      // Do not close the search bar on blur if there is text
+      if (searchInput.value.trim() !== '') {
+        searchInput.style.width = '240px';
+        searchInput.style.opacity = '1';
+        searchInput.style.padding = '10px 20px';
+      } else {
+        searchInput.style.width = '';
+        searchInput.style.opacity = '';
+        searchInput.style.padding = '';
+      }
+    });
+    // Prevent form submission from closing the bar
+    const searchBtn = searchBox.querySelector('button');
+    if (searchBtn) {
+      searchBtn.addEventListener('mousedown', function (e) {
+        e.preventDefault();
+        searchInput.focus();
+      });
+    }
+  }
+});
