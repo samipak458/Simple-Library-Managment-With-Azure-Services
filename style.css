@@ -177,6 +177,53 @@ h1 {
   border-radius: 20px;
 }
 
+.book-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.book-card {
+  display: flex;
+  flex-direction: column;
+  width: 260px;
+  background-color: var(--ternary-color);
+  border: 2px solid var(--primary-color);
+  border-radius: 12px;
+  box-shadow: 0px 2px 10px grey;
+  padding: 15px;
+  color: var(--secondary-color);
+}
+
+.book-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.book-card-index {
+  font-weight: bold;
+}
+
+.book-card-actions .fa {
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.book-card p {
+  margin: 4px 0;
+  word-break: break-word;
+}
+
+.book-card-footer {
+  display: flex;
+  gap: 15px;
+  margin-top: auto;
+  padding-top: 10px;
+}
+
 #read {
   height: 1.4em;
   width: 1.4em;

@@ -4,13 +4,11 @@ let libraryForm = document.getElementById("libraryForm");
 let name = document.getElementById("bookName");
 let author = document.getElementById("author");
 let isbn = document.getElementById("isbnno");
-let edition = document.getElementById("publicationdate");
-let read = document.getElementById("read-toggle");
+let edition = document.getElementById("edition");
+let publicationD = document.getElementById("publicationdate");
 
 let url = document.getElementById("bookurl");
-let favorite = document.getElementById("fav-toggle");
 let type;
-console.log(favorite);
 
 let fiction = document.getElementById("fiction");
 let programming = document.getElementById("programming");
@@ -153,8 +151,6 @@ libraryForm.addEventListener("submit", (e) => {
           bookisbn: isbn.value,
           bookedition: edition.value,
           bookpublication: publicationD.value,
-          readStatus: read.checked,
-          favorite: favorite.checked,
         };
       } else {
         // Book Author not entered then set it to Unknown
@@ -166,8 +162,6 @@ libraryForm.addEventListener("submit", (e) => {
           bookisbn: isbn.value,
           bookedition: edition.value,
           bookpublication: publicationD.value,
-          readStatus: read.checked,
-          favorite: favorite.checked,
         };
       }
 
@@ -233,84 +227,35 @@ function displayBooks() {
   let index = 0;
 
   objOfBook.forEach((books) => {
-    //index is the length of the array
-    if (index == 0) {
-      html += `
-           <tr class="rows">
-           <th scope="row">1</th>
-           <td class="name"><a class="bookurl" href=${books.bookurl}> ${
-        books.book
-      } </a></td>
-           <td class="author">${books.bookauthor}</td>
-           <td class="type">${books.bookType}</td>
-           <td class="isbn">${books.bookisbn}</td>
-           <td class="edition">${books.bookedition}</td>
-           <td class="publicationdate">${books.bookpublication}</td>
-           <td class="type">${
-             books.readStatus
-               ? `<label class="switch">
-                  <input type="checkbox" checked disabled>
-                  <span class="slider round"></span>
-            </label>`
-               : `<label class="switch">
-                  <input type="checkbox" disabled>
-                  <span class="slider round"></span>
-            </label>`
-           }</td>
-           <td class="fav">${
-             books.favorite
-               ? `<label class="switch">
-                        <input type="checkbox" checked disabled>
-                        <span class="slider round"></span>
-                  </label>`
-               : `<label class="switch">
-                        <input type="checkbox" disabled>
-                        <span class="slider round"></span>
-                  </label>`
-           }</td>
-           <td class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
-           <td class="icon"><i class="fa fa-edit" aria-hidden="true" onclick="editBook(${index})"></i></td>
-           </tr>
+    html += `
+           <div class="rows book-card">
+             <div class="book-card-header">
+               <span class="book-card-index">#${index + 1}</span>
+               <div class="book-card-actions">
+                 <i class="fa fa-edit" aria-hidden="true" onclick="editBook(${index})"></i>
+                 <i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i>
+               </div>
+             </div>
+             <p><strong>Book Name:</strong> <a class="bookurl name" href=${
+               books.bookurl
+             }>${books.book}</a></p>
+             <p><strong>Author:</strong> <span class="author">${
+               books.bookauthor
+             }</span></p>
+             <p><strong>Type:</strong> <span class="type">${
+               books.bookType
+             }</span></p>
+             <p><strong>ISBN:</strong> <span class="isbn">${
+               books.bookisbn
+             }</span></p>
+             <p><strong>Edition:</strong> <span class="edition">${
+               books.bookedition
+             }</span></p>
+             <p><strong>Publication Date:</strong> <span class="publicationdate">${
+               books.bookpublication
+             }</span></p>
+           </div>
         `;
-    } else {
-      html += `
-           <tr class="rows">
-           <th scope="row">${index + 1}</th>
-           <td class="name"><a class="bookurl" href=${books.bookurl}> ${
-        books.book
-      } </a></td>
-           <td class="author">${books.bookauthor}</td>
-           <td class="type">${books.bookType}</td>
-           <td class="isbn">${books.bookisbn}</td>
-           <td class="edition">${books.bookedition}</td>
-           <td class="publicationdate">${books.bookpublication}</td>
-           <td class="type">${
-             books.readStatus
-               ? `<label class="switch">
-                      <input type="checkbox" checked disabled>
-                      <span class="slider round"></span>
-                </label>`
-               : `<label class="switch">
-                      <input type="checkbox" disabled>
-                      <span class="slider round"></span>
-                </label>`
-           }</td>
-           <td class="fav">${
-             books.favorite
-               ? `<label class="switch">
-                        <input type="checkbox" checked disabled>
-                        <span class="slider round"></span>
-                  </label>`
-               : `<label class="switch">
-                        <input type="checkbox" disabled>
-                        <span class="slider round"></span>
-                  </label>`
-           }</td>
-            <td class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
-           <td class="icon"><i class="fa fa-edit" aria-hidden="true" onclick="editBook(${index})"></i></td>
-           </tr>
-        `;
-    }
 
     index++;
 
@@ -508,13 +453,13 @@ searchNote.addEventListener("input", function () {
       .innerText.toLowerCase();
     let isbnNo = element.getElementsByClassName("isbn")[0].innerText;
     if (bookName.includes(search)) {
-      element.style.display = "table-row";
+      element.style.display = "flex";
     } else if (authorName.includes(search)) {
-      element.style.display = "table-row";
+      element.style.display = "flex";
     } else if (type.includes(search)) {
-      element.style.display = "table-row";
+      element.style.display = "flex";
     } else if (isbnNo.includes(search)) {
-      element.style.display = "table-row";
+      element.style.display = "flex";
     } else {
       element.style.display = "none";
     }
@@ -571,13 +516,17 @@ function filterBooks() {
   if (filteredBooks.length > 0) {
     filteredBooks.forEach((filteredBook) => {
       html += `
-            <tr class="rows">
-            <th scope="row">${index + 1}</th>
-            <td class="name">${filteredBook.book}</td>
-            <td class="author">${filteredBook.bookauthor}</td>
-            <td class="type">${filteredBook.bookType}</td>
-            <td class="icon"><i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i></td>
-            </tr>
+            <div class="rows book-card">
+              <div class="book-card-header">
+                <span class="book-card-index">#${index + 1}</span>
+                <div class="book-card-actions">
+                  <i class="fa fa-times" aria-hidden="true" onclick="removeBook(${index})"></i>
+                </div>
+              </div>
+              <p><strong>Book Name:</strong> <span class="name">${filteredBook.book}</span></p>
+              <p><strong>Author:</strong> <span class="author">${filteredBook.bookauthor}</span></p>
+              <p><strong>Type:</strong> <span class="type">${filteredBook.bookType}</span></p>
+            </div>
         `;
       index++;
     });
@@ -630,7 +579,7 @@ radioButtons.forEach((btn) => {
 var icon = document.querySelector("#icon");
 var head1 = document.getElementById("subHead1");
 var head2 = document.getElementById("subHead2");
-var tables = document.getElementsByTagName("table");
+var tables = document.getElementsByClassName("book-card");
 
 icon.onclick = () => {
   document.body.classList.toggle("dark-theme");
