@@ -17,6 +17,60 @@ let others = document.getElementById("other");
 
 let editIndex = -1;
 
+function getBooksFromStorage() {
+  const storedBooks = localStorage.getItem("shelfOfBooks");
+  const books = storedBooks == null ? [] : JSON.parse(storedBooks);
+
+  return books.map((book) => ({
+    ...book,
+    booktimestamp: book.booktimestamp ?? null,
+  }));
+}
+
+function saveBooksToStorage(books) {
+  localStorage.setItem(
+    "shelfOfBooks",
+    JSON.stringify(
+      books.map((book) => ({
+        ...book,
+        booktimestamp: book.booktimestamp ?? null,
+      }))
+    )
+  );
+}
+
+function formatRelativeTime(timestamp) {
+  if (!timestamp) {
+    return "Saved time unavailable";
+  }
+
+  const date = new Date(timestamp);
+
+  if (Number.isNaN(date.getTime())) {
+    return "Saved time unavailable";
+  }
+
+  const elapsedSeconds = Math.trunc((Date.now() - date.getTime()) / 1000);
+  const formatter = new Intl.RelativeTimeFormat("en", { numeric: "auto" });
+  const timeUnits = [
+    ["year", 60 * 60 * 24 * 365],
+    ["month", 60 * 60 * 24 * 30],
+    ["week", 60 * 60 * 24 * 7],
+    ["day", 60 * 60 * 24],
+    ["hour", 60 * 60],
+    ["minute", 60],
+    ["second", 1],
+  ];
+
+  for (const [unit, secondsInUnit] of timeUnits) {
+    const value = Math.trunc(elapsedSeconds / secondsInUnit);
+
+    if (Math.abs(value) >= 1 || unit === "second") {
+      return formatter.format(-value, unit);
+    }
+  }
+}
+
 // Adding Books
 libraryForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -106,18 +160,11 @@ libraryForm.addEventListener("submit", (e) => {
     type = "other";
   }
 
-  let shelf = localStorage.getItem("shelfOfBooks");
-
-  let objOfBook; //object which stores books
+  let objOfBook = getBooksFromStorage(); //object which stores books
   let alreadyAdded = false;
 
   // Check if the book is already in the library
-  if (shelf == null) {
-    objOfBook = [];
-  } else {
-    //We might have multiple books
-    objOfBook = JSON.parse(shelf); //By using JSON we convert it into Object
-
+  if (objOfBook.length !== 0) {
     objOfBook.every((bookObj) => {
       if (author === "") author = "Unknown";
       let curBook = name === bookObj.book;
@@ -142,6 +189,12 @@ libraryForm.addEventListener("submit", (e) => {
       errorMessage();
     } else {
       let myObj;
+      const existingTimestamp =
+        editIndex !== -1 && objOfBook[editIndex]
+          ? objOfBook[editIndex].booktimestamp
+          : null;
+      const bookTimestamp = existingTimestamp || new Date().toISOString();
+
       if (author.value != "") {
         myObj = {
           book: name.value,
@@ -151,6 +204,7 @@ libraryForm.addEventListener("submit", (e) => {
           bookisbn: isbn.value,
           bookedition: edition.value,
           bookpublication: publicationD.value,
+          booktimestamp: bookTimestamp,
         };
       } else {
         // Book Author not entered then set it to Unknown
@@ -162,6 +216,7 @@ libraryForm.addEventListener("submit", (e) => {
           bookisbn: isbn.value,
           bookedition: edition.value,
           bookpublication: publicationD.value,
+          booktimestamp: bookTimestamp,
         };
       }
 
@@ -174,7 +229,7 @@ libraryForm.addEventListener("submit", (e) => {
         addMessage();
         UpdateBook();
       }
-      localStorage.setItem("shelfOfBooks", JSON.stringify(objOfBook));
+      saveBooksToStorage(objOfBook);
       name.value = "";
       author.value = "";
       type = "";
@@ -187,7 +242,7 @@ libraryForm.addEventListener("submit", (e) => {
 });
 
 function editBook(index) {
-  let bookDetails = JSON.parse(localStorage.getItem("shelfOfBooks"))[index];
+  let bookDetails = getBooksFromStorage()[index];
 
   console.log(bookDetails);
   name.value = bookDetails.book;
@@ -214,15 +269,8 @@ function editBook(index) {
 
 //Function to show elements(books) from LocalStorage
 function displayBooks() {
-  let books = localStorage.getItem("shelfOfBooks");
   let clearBtn = document.getElementById("clear");
-  let objOfBook;
-
-  if (books == null) {
-    objOfBook = [];
-  } else {
-    objOfBook = JSON.parse(books);
-  }
+  let objOfBook = getBooksFromStorage();
   let html = "";
   let index = 0;
 
@@ -254,6 +302,9 @@ function displayBooks() {
              <p><strong>Publication Date:</strong> <span class="publicationdate">${
                books.bookpublication
              }</span></p>
+             <p><strong>Added:</strong> <span class="timestamp" title="${
+               books.booktimestamp || "Saved time unavailable"
+             }">${formatRelativeTime(books.booktimestamp)}</span></p>
            </div>
         `;
 
@@ -416,20 +467,13 @@ function removeBook(index) {
   }
 
   // Removing book from shelf
-  let notes = localStorage.getItem("shelfOfBooks");
-  let objOfBook = [];
-
-  if (notes == null) {
-    objOfBook = [];
-  } else {
-    objOfBook = JSON.parse(notes);
-  }
+  let objOfBook = getBooksFromStorage();
 
   if (getBookNumber == 1) {
     updateDisplayAfterDelete();
   } else {
     objOfBook.splice(index, 1);
-    localStorage.setItem("shelfOfBooks", JSON.stringify(objOfBook));
+    saveBooksToStorage(objOfBook);
     displayBooks();
   }
 }
@@ -488,7 +532,7 @@ const showNumberOfBooks = () => {
 // Filter books based on selected attributes from dropdown
 let filterDropdown = document.getElementById("filter-books");
 function filterBooks() {
-  let books = JSON.parse(localStorage.getItem("shelfOfBooks"));
+  let books = getBooksFromStorage();
   // let numOfBooks = document.getElementById("books");
   let emptyMsg = document.getElementById("emptyMsg");
   let filterBy = filterDropdown.value;
@@ -526,7 +570,8 @@ function filterBooks() {
               <p><strong>Book Name:</strong> <span class="name">${filteredBook.book}</span></p>
               <p><strong>Author:</strong> <span class="author">${filteredBook.bookauthor}</span></p>
               <p><strong>Type:</strong> <span class="type">${filteredBook.bookType}</span></p>
-            </div>
+             <p><strong>Added:</strong> <span class="timestamp" title="${filteredBook.booktimestamp || "Saved time unavailable"}">${formatRelativeTime(filteredBook.booktimestamp)}</span></p>
+           </div>
         `;
       index++;
     });
