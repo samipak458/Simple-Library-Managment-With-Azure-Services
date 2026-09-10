@@ -52,7 +52,7 @@ function formatRelativeTime(timestamp) {
     return "just now";
   }
 
-  const elapsedSeconds = Math.round((date.getTime() - Date.now()) / 1000);
+  const elapsedSeconds = Math.round((Date.now() - date.getTime()) / 1000);
   const formatter = new Intl.RelativeTimeFormat("en", { numeric: "auto" });
   const timeUnits = [
     ["year", 60 * 60 * 24 * 365],
@@ -68,7 +68,7 @@ function formatRelativeTime(timestamp) {
     const value = Math.round(elapsedSeconds / secondsInUnit);
 
     if (Math.abs(value) >= 1 || unit === "second") {
-      return formatter.format(value, unit);
+      return formatter.format(-value, unit);
     }
   }
 }
